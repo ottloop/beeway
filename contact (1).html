@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Beeway — OTT, Digital Tools & PS Games Support</title>
+<meta name="description" content="Contact Beeway for OTT subscriptions, digital tools, PS4/PS5 games and digital marketing support. Chat on WhatsApp, call, email or fill our contact form — we reply within minutes.">
+<link rel="canonical" href="https://www.beeway.in/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0b0c;
+    --black-soft:#151516;
+    --panel:#1c1c1e;
+    --white:#faf9f5;
+    --yellow:#ffc900;
+    --yellow-dim:#8a6f00;
+    --red:#e8352e;
+    --line:#2c2c2a;
+    --text-dim:#a9a9a3;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    line-height:1.05;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--yellow);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);display:inline-block;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    border:2px solid var(--black);
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+  .btn-primary:hover{background:var(--black); color:var(--yellow); border-color:var(--yellow); transform:translateY(-2px);}
+  .btn-outline{background:transparent; color:var(--white); border-color:var(--white);}
+  .btn-outline:hover{background:var(--white); color:var(--black); transform:translateY(-2px);}
+  .btn-red{background:var(--red); color:var(--white); border-color:var(--red);}
+  .btn-red:hover{background:var(--black); color:var(--red); border-color:var(--red); transform:translateY(-2px);}
+  .btn:focus-visible{outline:2px solid var(--yellow); outline-offset:3px;}
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{outline:2px solid var(--yellow); outline-offset:2px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(11,11,12,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 24px; max-width:1200px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px; flex-shrink:0;}
+  .logo .hex{width:28px;height:28px; position:relative;}
+  .logo .hex svg{width:100%;height:100%;}
+
+  .nav-search{position:relative; flex:1 1 auto; max-width:340px; margin:0 8px;}
+  .nav-search input{
+    width:100%; background:var(--black-soft); border:1px solid var(--line); color:var(--white);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; padding:10px 14px 10px 36px;
+    border-radius:20px; outline:none; transition:border-color .15s ease;
+  }
+  .nav-search input:focus{border-color:var(--yellow);}
+  .nav-search input::placeholder{color:var(--text-dim);}
+  .nav-search .icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); width:14px; height:14px; pointer-events:none; opacity:0.6;}
+  .nav-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+
+  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; flex-shrink:0;}
+  .nav-links a{position:relative; padding:6px 0; color:var(--white);}
+  .nav-links a:hover{color:var(--yellow);}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active-link{color:var(--yellow);}
+  .nav-links a.active-link::after{width:100%;}
+  .nav-links-mobile{display:none;}
+  .has-drop{position:relative;}
+  .drop{
+    position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
+    background:var(--panel); border:1px solid var(--line); min-width:220px;
+    opacity:0; visibility:hidden; transform:translate(-50%,6px);
+    transition:opacity .18s ease, transform .18s ease;
+    padding:8px 0;
+  }
+  .has-drop:hover .drop{opacity:1; visibility:visible; transform:translate(-50%,0);}
+  .drop a{display:block; padding:11px 18px; text-transform:none; letter-spacing:0.3px; font-size:13px;}
+  .drop a:hover{background:var(--black-soft); color:var(--yellow);}
+  .nav-cta{display:flex; gap:12px; flex-shrink:0;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; flex-shrink:0;}
+  .burger span{width:24px;height:2px;background:var(--white); transition:transform .2s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-search-btn{
+    display:none; background:none; border:1px solid var(--line); color:var(--white);
+    width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  }
+  .mobile-search-btn svg{width:16px;height:16px;stroke:var(--white);}
+  .mobile-search-panel{display:none; padding:14px 24px 18px; border-bottom:1px solid var(--line); background:var(--black);}
+  .mobile-search-panel.open{display:block;}
+  .mobile-search-panel .nav-search{max-width:none; margin:0;}
+
+  /* ===== BREADCRUMB ===== */
+  .breadcrumb-bar{
+    background:var(--black-soft);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.5px; text-transform:uppercase;
+    color:var(--text-dim); display:flex; align-items:center; gap:10px;
+  }
+  .breadcrumb a{color:var(--text-dim); transition:color .15s ease;}
+  .breadcrumb a:hover{color:var(--yellow);}
+  .breadcrumb .sep{color:var(--yellow);}
+  .breadcrumb .current{color:var(--white);}
+
+  /* ===== PAGE HERO ===== */
+  .page-hero{
+    padding:64px 0 80px;
+    position:relative;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(232,53,46,0.18), transparent 45%),
+      var(--black);
+    overflow:hidden;
+    text-align:center;
+  }
+  .page-hero .hex-bg{position:absolute; inset:0; opacity:0.5; pointer-events:none; z-index:0;}
+  .page-hero .wrap{position:relative; z-index:1; max-width:760px;}
+  .page-hero .eyebrow{justify-content:center;}
+  .page-hero h1{font-size:clamp(38px,6vw,64px); color:var(--white);}
+  .page-hero p.lead{margin:20px auto 0; font-size:17px; color:var(--text-dim); max-width:560px;}
+
+  /* ===== SECTION HEADS ===== */
+  .sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(30px,4vw,48px);}
+  .sec-head p{color:var(--text-dim); max-width:420px; font-size:15px;}
+
+  /* ===== STRIPE DIVIDER ===== */
+  .stripe{height:14px; background:repeating-linear-gradient(-45deg, var(--red), var(--red) 16px, var(--yellow) 16px, var(--yellow) 32px);}
+
+  /* ===== CONTACT METHOD CARDS ===== */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); padding:28px; position:relative;
+    transition:transform .18s ease, border-color .18s ease;
+    display:flex; flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .card-icon{
+    width:46px; height:46px; border-radius:50%; background:var(--yellow); color:var(--black);
+    display:grid; place-items:center; margin-bottom:18px; flex-shrink:0;
+  }
+  .card-icon svg{width:22px;height:22px;}
+  .card h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px; margin-bottom:8px; text-transform:none;}
+  .card .meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:14px;}
+  .card p.desc{color:var(--text-dim); font-size:14px; margin-bottom:20px; flex-grow:1;}
+  .contact-num-lg{font-family:'Anton',sans-serif; font-size:22px; color:var(--yellow); margin-bottom:16px;}
+  .card .order{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:var(--white);
+    border:1px solid var(--white); padding:10px 16px; border-radius:20px; align-self:flex-start;
+  }
+  .card .order:hover{background:var(--white); color:var(--black);}
+
+  /* ===== CONTACT FORM ===== */
+  .form-section-inner{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .form-panel{background:var(--panel); border:1px solid var(--line); padding:36px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase;
+    color:var(--text-dim); margin-bottom:8px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--black-soft); border:1px solid var(--line); color:var(--white);
+    font-family:'Space Grotesk',sans-serif; font-size:14.5px; padding:13px 14px; border-radius:var(--radius);
+    outline:none; transition:border-color .15s ease;
+  }
+  .field select{appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a9a9a3' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--yellow);}
+  .field textarea{resize:vertical; min-height:120px;}
+  .field .err{display:none; color:var(--red); font-family:'IBM Plex Mono',monospace; font-size:11.5px; margin-top:6px;}
+  .field.invalid input, .field.invalid select, .field.invalid textarea{border-color:var(--red);}
+  .field.invalid .err{display:block;}
+  .form-submit{width:100%; justify-content:center; margin-top:6px;}
+  .form-note{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim); margin-top:16px; text-align:center;}
+
+  .form-success{
+    display:none; text-align:center; padding:60px 20px;
+  }
+  .form-success.show{display:block; animation:pop-in .4s ease;}
+  @keyframes pop-in{from{opacity:0; transform:scale(0.9);} to{opacity:1; transform:scale(1);}}
+  .form-success .check{
+    width:72px; height:72px; border-radius:50%; background:var(--yellow); color:var(--black);
+    display:grid; place-items:center; margin:0 auto 24px; animation:check-pop .5s ease .1s both;
+  }
+  @keyframes check-pop{0%{transform:scale(0);} 60%{transform:scale(1.15);} 100%{transform:scale(1);}}
+  .form-success .check svg{width:34px;height:34px;}
+  .form-success h3{font-size:24px; margin-bottom:10px;}
+  .form-success p{color:var(--text-dim); font-size:14.5px; max-width:360px; margin:0 auto;}
+
+  .form-side h3{font-size:22px; margin-bottom:16px;}
+  .form-side p{color:var(--text-dim); font-size:14.5px; margin-bottom:24px; max-width:420px;}
+  .side-point{display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line);}
+  .side-point:first-of-type{border-top:none;}
+  .side-point .dot{width:8px;height:8px;border-radius:50%;background:var(--yellow); margin-top:7px; flex-shrink:0;}
+  .side-point b{display:block; font-size:14.5px; margin-bottom:3px;}
+  .side-point span{color:var(--text-dim); font-size:13.5px;}
+
+  /* ===== QUICK CONTACT / SERVICES ===== */
+  .services-band{background:var(--black-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);}
+  .service-cell{background:var(--black-soft); padding:36px 30px; display:flex; flex-direction:column;}
+  .service-cell .num{font-family:'IBM Plex Mono',monospace; color:var(--red); font-size:13px; letter-spacing:1px;}
+  .service-cell h3{font-size:20px; margin:14px 0 12px; color:var(--white);}
+  .service-cell p{color:var(--text-dim); font-size:14px; flex-grow:1; margin-bottom:20px;}
+  .service-cell .btn{align-self:flex-start;}
+
+  /* ===== BUSINESS INFO ===== */
+  .info-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:18px;}
+  .info-card{background:var(--panel); border:1px solid var(--line); padding:22px;}
+  .info-card .meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--yellow); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;}
+  .info-card .val{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; word-break:break-word;}
+  .info-card a.val:hover{color:var(--yellow);}
+
+  /* ===== SOCIAL ===== */
+  .social-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:18px;}
+  .social-card{
+    background:var(--panel); border:1px solid var(--line); padding:26px; display:flex; align-items:center; gap:16px;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .social-card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .social-card .s-icon{
+    width:44px; height:44px; border-radius:50%; border:2px solid var(--yellow); color:var(--yellow);
+    display:grid; place-items:center; flex-shrink:0;
+  }
+  .social-card .s-icon svg{width:20px;height:20px;}
+  .social-card .s-body{flex-grow:1;}
+  .social-card h4{font-size:15.5px; font-weight:700; text-transform:none; margin-bottom:6px; font-family:'Space Grotesk',sans-serif;}
+  .social-card .visit{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-dim); letter-spacing:0.5px; text-transform:uppercase;}
+  .social-card:hover .visit{color:var(--yellow);}
+
+  /* ===== MAP ===== */
+  .map-frame{
+    border:1px solid var(--line); background:var(--panel); overflow:hidden; height:420px; position:relative;
+  }
+  .map-frame iframe{width:100%; height:100%; border:0; filter:grayscale(0.35) invert(0.92) contrast(0.9);}
+
+  /* ===== FAQ ===== */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; padding:22px 0; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px;}
+  .faq-q .icon{font-family:'IBM Plex Mono',monospace; font-size:20px; color:var(--yellow); transition:transform .2s ease;}
+  .faq-item.open .icon{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 0 22px; color:var(--text-dim); font-size:15px; max-width:700px;}
+  .faq-see-more{text-align:center; margin-top:36px;}
+
+  /* ===== CTA BAND ===== */
+  .contact-band{background:var(--yellow); color:var(--black);}
+  .contact-band .sec-head p{color:#4a3b00;}
+  .cta-inner{text-align:center; max-width:640px; margin:0 auto;}
+  .cta-inner h2{font-size:clamp(32px,5vw,52px); margin-bottom:18px;}
+  .cta-inner p{color:#4a3b00; font-size:16px; margin-bottom:34px;}
+  .cta-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .cta-actions .btn-outline{border-color:var(--black); color:var(--black);}
+  .cta-actions .btn-outline:hover{background:var(--black); color:var(--yellow);}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--black); border-top:1px solid var(--line); padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;}
+  .foot-logo{font-family:'Anton',sans-serif; font-size:24px; margin-bottom:14px;}
+  .foot-col h5{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; color:var(--text-dim); font-size:14px; margin-bottom:10px;}
+  .foot-col a:hover{color:var(--white);}
+  .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);}
+
+  /* ===== WHATSAPP FAB ===== */
+  .wa-fab{
+    position:fixed; bottom:24px; right:24px; z-index:99;
+    width:58px; height:58px; border-radius:50%; background:var(--yellow); color:var(--black);
+    display:grid; place-items:center; box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    border:2px solid var(--black); transition:transform .2s ease;
+  }
+  .wa-fab:hover{transform:scale(1.08);}
+
+  /* ===== STICKY MOBILE CONTACT BAR ===== */
+  .sticky-contact-bar{
+    display:none;
+    position:fixed; bottom:0; left:0; right:0; z-index:98;
+    background:var(--black-soft); border-top:1px solid var(--line);
+    padding:10px 14px; gap:10px;
+  }
+  .sticky-contact-bar a{
+    flex:1; text-align:center; padding:12px 10px; font-family:'IBM Plex Mono',monospace;
+    font-size:12px; letter-spacing:0.5px; text-transform:uppercase; border-radius:20px;
+  }
+  .sticky-contact-bar a.call{border:1px solid var(--white); color:var(--white);}
+  .sticky-contact-bar a.wa{background:var(--yellow); color:var(--black); font-weight:600;}
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  @media(prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    .ticker-track{animation:none !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1050px){
+    .nav-search{max-width:220px;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:900px){
+    .form-section-inner{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:760px){
+    .nav{padding:14px 18px; position:relative; z-index:80;}
+    .nav-search{display:none;}
+    .mobile-search-btn{display:flex;}
+    .nav-links-desktop{display:none;}
+    .nav-links-mobile{
+      display:flex; position:fixed; top:0; right:0; left:auto; bottom:0;
+      width:min(82vw, 320px); background:var(--black);
+      flex-direction:column; align-items:stretch; justify-content:flex-start;
+      padding:96px 24px 36px; gap:22px;
+      transform:translateX(100%); transition:transform .28s ease;
+      overflow-y:auto; z-index:65; box-shadow:-8px 0 24px rgba(0,0,0,0.4);
+    }
+    .nav-links-mobile.open{transform:translateX(0);}
+    .nav-links-mobile .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
+    .nav-links-mobile .has-drop.open .drop{display:block;}
+    .nav-links-mobile .nav-cta-mobile{display:flex; margin-top:12px;}
+    .nav-cta{display:none;}
+    .burger{display:flex; z-index:90;}
+    section{padding:64px 0;}
+    .foot-grid{grid-template-columns:1fr;}
+    .mobile-search-panel{padding:12px 18px 16px; position:relative; z-index:80;}
+    .nav-overlay{content:""; position:fixed; inset:0; background:rgba(0,0,0,0.5); opacity:0; visibility:hidden; transition:opacity .25s ease; z-index:55;}
+    .nav-overlay.show{opacity:1; visibility:visible;}
+    .form-row{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .sticky-contact-bar{display:flex;}
+    body{padding-bottom:70px;}
+    .wa-fab{bottom:86px;}
+  }
+  @media(min-width:761px){
+    .mobile-search-panel{display:none !important;}
+    .nav-cta-mobile{display:none;}
+    .nav-overlay{display:none !important;}
+    .nav-links-mobile{display:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav class="nav">
+    <a href="https://www.beeway.in/" class="logo">
+      <span class="hex">
+        <svg viewBox="0 0 100 100"><polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#ffc900" stroke-width="6"/></svg>
+      </span>
+      BEEWAY
+    </a>
+
+    <div class="nav-search" id="navSearchDesktop">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputDesktop">
+    </div>
+
+    <ul class="nav-links nav-links-desktop">
+      <li><a href="https://www.beeway.in/">Home</a></li>
+      <li><a href="ott.html">OTT</a></li>
+      <li><a href="https://tools.ottloop.com/">Tools</a></li>
+      <li><a href="psgames.html">PS Games</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li class="has-drop" id="legalDropDesktop">
+        <a href="legal.html">Legal ▾</a>
+        <div class="drop">
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="refund.html">Refund Policy</a>
+          <a href="disclaimer.html">Legal Disclaimer</a>
+        </div>
+      </li>
+      <li><a href="contact.html" class="active-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-search-panel" id="mobileSearchPanel">
+    <div class="nav-search">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputMobile">
+    </div>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-links nav-links-mobile" id="navLinks">
+  <li><a href="https://www.beeway.in/">Home</a></li>
+  <li><a href="ott.html">OTT</a></li>
+  <li><a href="https://tools.ottloop.com/">Tools</a></li>
+  <li><a href="psgames.html">PS Games</a></li>
+  <li><a href="faqs.html">FAQs</a></li>
+  <li class="has-drop" id="legalDrop">
+    <a href="legal.html" id="legalToggle">Legal ▾</a>
+    <div class="drop">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="disclaimer.html">Legal Disclaimer</a>
+    </div>
+  </li>
+  <li><a href="contact.html" class="active-link">Contact</a></li>
+  <li class="nav-cta-mobile">
+    <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </li>
+</ul>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb-bar">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://www.beeway.in/">Home</a>
+      <span class="sep">→</span>
+      <span class="current">Contact</span>
+    </nav>
+  </div>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero" id="top">
+  <svg class="hex-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#ffc900" stroke-width="1" opacity="0.18">
+      <polygon points="1050,60 1110,95 1110,165 1050,200 990,165 990,95"/>
+      <polygon points="1140,150 1200,185 1200,255 1140,290 1080,255 1080,185"/>
+      <polygon points="960,220 1020,255 1020,325 960,360 900,325 900,255"/>
+      <polygon points="1080,290 1140,325 1140,395 1080,430 1020,395 1020,325"/>
+      <polygon points="1050,430 1110,465 1110,535 1050,570 990,535 990,465"/>
+      <polygon points="150,60 210,95 210,165 150,200 90,165 90,95"/>
+      <polygon points="60,220 120,255 120,325 60,360 0,325 0,255"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">Contact Beeway</div>
+    <h1>We're Here to Help</h1>
+    <p class="lead">Need help with OTT subscriptions, Digital Tools, PS4 &amp; PS5 Games, or Digital Marketing? Contact our team anytime and we'll get back to you as quickly as possible.</p>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== CONTACT METHOD CARDS ===== -->
+<section id="contact-methods">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Reach us</div>
+        <h2>Get In Touch</h2>
+      </div>
+      <p>Pick whichever channel works for you — WhatsApp is fastest, but we're reachable everywhere below.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="#0b0b0c"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.9 7.9 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.3 3.1 13.6 13.6 0 0 0 5.2 4.6c.7.3 1.3.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.3 17L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.3 8.3 0 1 1 12 20.2z"/></svg></div>
+        <h4>WhatsApp Support</h4>
+        <p class="desc">Order products, check availability, renew subscriptions, or get instant support.</p>
+        <a class="order" href="https://wa.me/917382680200" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h4>Call Us</h4>
+        <div class="contact-num-lg">+91 73826 80200</div>
+        <a class="order" href="tel:+917382680200">Call Now</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
+        <h4>Email Support</h4>
+        <p class="desc">support@beeway.in</p>
+        <a class="order" href="mailto:support@beeway.in">Send Email</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Working Hours</h4>
+        <p class="desc" style="margin-bottom:0; flex-grow:0;">Monday – Sunday<br>9:00 AM – 10:00 PM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== CONTACT FORM ===== -->
+<section id="contact-form">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Send a message</div>
+        <h2>Write To Us</h2>
+      </div>
+      <p>Prefer forms over chat? Fill this out and we'll follow up on WhatsApp or email.</p>
+    </div>
+    <div class="form-section-inner">
+      <div class="form-panel reveal">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field" id="field-name">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your name" autocomplete="name">
+              <div class="err">Please enter your full name.</div>
+            </div>
+            <div class="field" id="field-email">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+              <div class="err">Please enter a valid email address.</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field" id="field-phone">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" autocomplete="tel">
+              <div class="err">Please enter a valid 10-digit phone number.</div>
+            </div>
+            <div class="field" id="field-service">
+              <label for="service">Service Required</label>
+              <select id="service" name="service">
+                <option value="" selected disabled>Select a service</option>
+                <option value="OTT Subscriptions">OTT Subscriptions</option>
+                <option value="Digital Tools">Digital Tools</option>
+                <option value="PS4 & PS5 Games">PS4 &amp; PS5 Games</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Technical Support">Technical Support</option>
+              </select>
+              <div class="err">Please select a service.</div>
+            </div>
+          </div>
+          <div class="field" id="field-subject">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?">
+            <div class="err">Please enter a subject.</div>
+          </div>
+          <div class="field" id="field-message">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you need..."></textarea>
+            <div class="err">Please enter a message (at least 10 characters).</div>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+          <p class="form-note">We usually reply within a few minutes during working hours.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Message Sent!</h3>
+          <p>Thanks for reaching out — our team will get back to you shortly. For instant help, chat with us on WhatsApp.</p>
+          <a class="btn btn-primary" style="margin-top:24px;" href="https://wa.me/917382680200" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="form-side reveal">
+        <h3>Before you write in</h3>
+        <p>For order-related questions, WhatsApp gets you a faster answer. Use the form for detailed queries, partnership requests or feedback.</p>
+        <div class="side-point">
+          <span class="dot"></span>
+          <div><b>Order status &amp; renewals</b><span>Message us on WhatsApp with your order details for the quickest turnaround.</span></div>
+        </div>
+        <div class="side-point">
+          <span class="dot"></span>
+          <div><b>Bulk or business orders</b><span>Tell us your requirement in the form and we'll send a custom quote.</span></div>
+        </div>
+        <div class="side-point">
+          <span class="dot"></span>
+          <div><b>Technical issues</b><span>Include screenshots or screen recordings by attaching them on WhatsApp for faster resolution.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== QUICK CONTACT / SERVICES ===== -->
+<div class="services-band">
+  <div class="wrap" style="padding:88px 24px 0;">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Quick links</div>
+        <h2>What Are You Looking For?</h2>
+      </div>
+      <p>Jump straight to the catalog or service you need.</p>
+    </div>
+  </div>
+  <div class="service-grid">
+    <div class="service-cell reveal">
+      <div class="num">01</div>
+      <h3>Order OTT</h3>
+      <p>Browse our OTT subscriptions and place your order instantly.</p>
+      <a class="btn btn-primary" href="ott.html">Browse OTT</a>
+    </div>
+    <div class="service-cell reveal">
+      <div class="num">02</div>
+      <h3>Digital Tools</h3>
+      <p>Looking for AI tools, software, or premium subscriptions?</p>
+      <a class="btn btn-primary" href="https://tools.ottloop.com/">Browse Tools</a>
+    </div>
+    <div class="service-cell reveal">
+      <div class="num">03</div>
+      <h3>PS4 &amp; PS5 Games</h3>
+      <p>Find your favorite PlayStation games.</p>
+      <a class="btn btn-primary" href="psgames.html">Browse Games</a>
+    </div>
+    <div class="service-cell reveal">
+      <div class="num">04</div>
+      <h3>Digital Marketing</h3>
+      <p>Grow your business with our marketing services.</p>
+      <a class="btn btn-primary" href="https://wa.me/917382680200?text=Hi%20Beeway%2C%20I%27d%20like%20a%20quote%20for%20Digital%20Marketing%20services" target="_blank" rel="noopener">Get Quote</a>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ===== BUSINESS INFORMATION ===== -->
+<section id="business-info">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">At a glance</div>
+        <h2>Business Information</h2>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <div class="meta">Business Name</div>
+        <div class="val">Beeway</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="meta">Website</div>
+        <a class="val" href="https://beeway.in" target="_blank" rel="noopener">beeway.in</a>
+      </div>
+      <div class="info-card reveal">
+        <div class="meta">WhatsApp</div>
+        <a class="val" href="https://wa.me/917382680200" target="_blank" rel="noopener">+91 73826 80200</a>
+      </div>
+      <div class="info-card reveal">
+        <div class="meta">Email</div>
+        <a class="val" href="mailto:support@beeway.in">support@beeway.in</a>
+      </div>
+      <div class="info-card reveal">
+        <div class="meta">Service Area</div>
+        <div class="val">India</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="meta">Response Time</div>
+        <div class="val">Usually within a few minutes on WhatsApp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== FOLLOW US ===== -->
+<section id="follow-us">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Stay in the loop</div>
+        <h2>Follow Us</h2>
+      </div>
+      <p>Restock alerts, flash offers and new drops — follow along on your favorite platform.</p>
+    </div>
+    <div class="social-grid">
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-7.914 1.174A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div class="s-body"><h4>Instagram</h4><span class="visit">Visit Profile →</span></div>
+      </a>
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div class="s-body"><h4>Facebook</h4><span class="visit">Visit Profile →</span></div>
+      </a>
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></div>
+        <div class="s-body"><h4>YouTube</h4><span class="visit">Visit Profile →</span></div>
+      </a>
+      <a class="social-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9 22 2z"/></svg></div>
+        <div class="s-body"><h4>Telegram</h4><span class="visit">Visit Profile →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== MAP ===== -->
+<section id="find-us">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Location</div>
+        <h2>Find Us</h2>
+      </div>
+      <p>Serving customers across India with fast digital delivery and online support.</p>
+    </div>
+    <div class="map-frame reveal">
+      <iframe
+        src="https://www.google.com/maps?q=Hyderabad,Telangana,India&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Beeway location map — Hyderabad, India">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== FAQS ===== -->
+<section id="faqs">
+  <div class="wrap" style="max-width:820px;">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Good to know</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+    </div>
+    <div id="faqList"></div>
+    <div class="faq-see-more reveal">
+      <a class="btn btn-outline" href="faqs.html">View All FAQs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="contact-band">
+  <div class="wrap cta-inner reveal">
+    <h2>Need Instant Assistance?</h2>
+    <p>Our WhatsApp support team is ready to help you with orders, payments, renewals, and technical support.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" style="background:var(--black); color:var(--yellow); border-color:var(--black);" href="https://wa.me/917382680200" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <a class="btn btn-outline" href="tel:+917382680200">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">BEEWAY</div>
+        <p style="max-width:280px;">Your one hive for OTT subscriptions, digital tools, marketing services and PS4/PS5 games — genuine access, reseller prices.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="ott.html">OTT</a>
+        <a href="https://tools.ottloop.com/">Tools</a>
+        <a href="psgames.html">PS Games</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/917382680200" target="_blank" rel="noopener">+91 73826 80200</a>
+        <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">WhatsApp Community</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Beeway.in — All rights reserved.</span>
+      <span>Built for the hive 🐝</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/917382680200" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#0b0b0c"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.9 7.9 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.3 3.1 13.6 13.6 0 0 0 5.2 4.6c.7.3 1.3.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.3 17L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.3 8.3 0 1 1 12 20.2z"/></svg>
+</a>
+
+<!-- ===== STICKY MOBILE CONTACT BAR ===== -->
+<div class="sticky-contact-bar">
+  <a class="call" href="tel:+917382680200">Call</a>
+  <a class="wa" href="https://wa.me/917382680200" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+/* ================= FAQ DATA ================= */
+const FAQS = [
+  ["How can I place an order?","Message us on WhatsApp with the product name, plan and validity you want. We'll confirm price and payment details, and deliver as soon as payment is received."],
+  ["How quickly do you reply?","Usually within a few minutes during working hours (9 AM – 10 PM, daily). Most orders are delivered within 15–60 minutes of payment."],
+  ["Which payment methods do you accept?","We accept UPI and bank transfer, shared directly with you when you message us on WhatsApp to place an order."],
+  ["Can I request a custom product?","Yes — if you don't see what you need listed, message us on WhatsApp and we'll check availability or source it for you where possible."],
+  ["How do I renew my subscription?","Message us on WhatsApp before your current plan expires with your order details, and we'll process the renewal right away."],
+];
+
+const faqList = document.getElementById("faqList");
+faqList.innerHTML = FAQS.map((f,i)=>`
+  <div class="faq-item" id="cfaq-${i}">
+    <div class="faq-q"><span>${f[0]}</span><span class="icon">+</span></div>
+    <div class="faq-a"><p>${f[1]}</p></div>
+  </div>
+`).join("");
+document.querySelectorAll(".faq-item").forEach(item=>{
+  item.querySelector(".faq-q").addEventListener("click", ()=>{
+    const wasOpen = item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(i=>{
+      i.classList.remove("open");
+      i.querySelector(".faq-a").style.maxHeight = null;
+    });
+    if(!wasOpen){
+      item.classList.add("open");
+      const a = item.querySelector(".faq-a");
+      a.style.maxHeight = a.scrollHeight + "px";
+    }
+  });
+});
+
+/* ================= NAV (mobile menu) ================= */
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("navLinks");
+const navOverlay = document.getElementById("navOverlay");
+
+function openMobileNav(){
+  navLinks.classList.add("open");
+  burger.classList.add("open");
+  navOverlay.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("mobileSearchPanel").classList.remove("open");
+}
+function closeMobileNav(){
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+  navOverlay.classList.remove("show");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", ()=>{
+  if(navLinks.classList.contains("open")) closeMobileNav();
+  else openMobileNav();
+});
+navOverlay.addEventListener("click", closeMobileNav);
+document.querySelectorAll("#navLinks a").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    if(a.id === "legalToggle") return;
+    closeMobileNav();
+  });
+});
+document.getElementById("legalToggle").addEventListener("click",(e)=>{
+  if(window.innerWidth <= 760){
+    e.preventDefault();
+    document.getElementById("legalDrop").classList.toggle("open");
+  }
+});
+
+/* ================= MOBILE SEARCH TOGGLE ================= */
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+const mobileSearchPanel = document.getElementById("mobileSearchPanel");
+mobileSearchBtn.addEventListener("click", ()=>{
+  mobileSearchPanel.classList.toggle("open");
+  closeMobileNav();
+  if(mobileSearchPanel.classList.contains("open")){
+    setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
+  }
+});
+
+/* ================= NAV SEARCH -> redirect to homepage search ================= */
+function goToHomeSearch(query){
+  if(!query.trim()) return;
+  window.location.href = "https://www.beeway.in/?q=" + encodeURIComponent(query);
+}
+["searchInputDesktop","searchInputMobile"].forEach(id=>{
+  const input = document.getElementById(id);
+  input.addEventListener("keydown", e=>{
+    if(e.key === "Enter") goToHomeSearch(input.value);
+  });
+});
+
+/* ================= CONTACT FORM VALIDATION ================= */
+const form = document.getElementById("contactForm");
+const formSuccess = document.getElementById("formSuccess");
+
+function setFieldError(fieldId, isInvalid){
+  const field = document.getElementById(fieldId);
+  field.classList.toggle("invalid", isInvalid);
+}
+
+function validateForm(){
+  let valid = true;
+
+  const fullName = document.getElementById("fullName").value.trim();
+  if(fullName.length < 2){ setFieldError("field-name", true); valid = false; }
+  else setFieldError("field-name", false);
+
+  const email = document.getElementById("email").value.trim();
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRe.test(email)){ setFieldError("field-email", true); valid = false; }
+  else setFieldError("field-email", false);
+
+  const phone = document.getElementById("phone").value.trim();
+  const phoneRe = /^[6-9]\d{9}$/;
+  if(!phoneRe.test(phone.replace(/\D/g,"").slice(-10))){ setFieldError("field-phone", true); valid = false; }
+  else setFieldError("field-phone", false);
+
+  const service = document.getElementById("service").value;
+  if(!service){ setFieldError("field-service", true); valid = false; }
+  else setFieldError("field-service", false);
+
+  const subject = document.getElementById("subject").value.trim();
+  if(subject.length < 3){ setFieldError("field-subject", true); valid = false; }
+  else setFieldError("field-subject", false);
+
+  const message = document.getElementById("message").value.trim();
+  if(message.length < 10){ setFieldError("field-message", true); valid = false; }
+  else setFieldError("field-message", false);
+
+  return valid;
+}
+
+form.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  if(!validateForm()){
+    const firstInvalid = form.querySelector(".field.invalid input, .field.invalid select, .field.invalid textarea");
+    if(firstInvalid) firstInvalid.focus();
+    return;
+  }
+  // Simulate submission (no backend wired up)
+  form.style.display = "none";
+  formSuccess.classList.add("show");
+});
+
+/* live-clear validation state as user types */
+["fullName","email","phone","subject","message"].forEach(id=>{
+  document.getElementById(id).addEventListener("input", ()=>{
+    document.getElementById("field-" + (id==="fullName"?"name":id)).classList.remove("invalid");
+  });
+});
+document.getElementById("service").addEventListener("change", ()=>{
+  document.getElementById("field-service").classList.remove("invalid");
+});
+
+/* ================= SCROLL REVEAL ================= */
+const revealEls = document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("in-view");
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+  revealEls.forEach(el=>io.observe(el));
+} else {
+  revealEls.forEach(el=>el.classList.add("in-view"));
+}
+</script>
+</body>
+</html>
