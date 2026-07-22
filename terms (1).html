@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Beeway</title>
+<meta name="description" content="Beeway's Terms of Service — the rules that apply when you buy OTT subscriptions, digital tools, or PS4/PS5 games from Beeway.in.">
+<link rel="canonical" href="https://www.beeway.in/terms.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0b0c;
+    --black-soft:#151516;
+    --panel:#1c1c1e;
+    --white:#faf9f5;
+    --yellow:#ffc900;
+    --yellow-dim:#8a6f00;
+    --red:#e8352e;
+    --line:#2c2c2a;
+    --text-dim:#a9a9a3;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    line-height:1.05;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--yellow);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);display:inline-block;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    border:2px solid var(--black);
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+  .btn-primary:hover{background:var(--black); color:var(--yellow); border-color:var(--yellow); transform:translateY(-2px);}
+  .btn-outline{background:transparent; color:var(--white); border-color:var(--white);}
+  .btn-outline:hover{background:var(--white); color:var(--black); transform:translateY(-2px);}
+  .btn-red{background:var(--red); color:var(--white); border-color:var(--red);}
+  .btn-red:hover{background:var(--black); color:var(--red); border-color:var(--red); transform:translateY(-2px);}
+
+  /* ===== HEADER ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(11,11,12,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 24px; max-width:1200px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px; flex-shrink:0;}
+  .logo .hex{width:28px;height:28px; position:relative;}
+  .logo .hex svg{width:100%;height:100%;}
+
+  .nav-search{
+    position:relative;
+    flex:1 1 auto;
+    max-width:340px;
+    margin:0 8px;
+  }
+  .nav-search input{
+    width:100%;
+    background:var(--black-soft);
+    border:1px solid var(--line);
+    color:var(--white);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:10px 14px 10px 36px;
+    border-radius:20px;
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .nav-search input:focus{border-color:var(--yellow);}
+  .nav-search input::placeholder{color:var(--text-dim);}
+  .nav-search .icon{
+    position:absolute; left:12px; top:50%; transform:translateY(-50%);
+    width:14px; height:14px; pointer-events:none; opacity:0.6;
+  }
+  .nav-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+
+  .search-results{
+    position:absolute; top:calc(100% + 10px); left:0; right:0;
+    background:var(--panel); border:1px solid var(--line);
+    max-height:420px; overflow-y:auto;
+    display:none; z-index:50;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  }
+  .search-results.show{display:block;}
+  .sr-item{
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    padding:11px 16px; border-top:1px solid var(--line); cursor:pointer;
+  }
+  .sr-item:first-child{border-top:none;}
+  .sr-item:hover{background:var(--black-soft);}
+  .sr-item .sr-name{font-size:13.5px; font-weight:600;}
+  .sr-empty{padding:20px 16px; color:var(--text-dim); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+
+  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; flex-shrink:0;}
+  .nav-links a{position:relative; padding:6px 0; color:var(--white);}
+  .nav-links a:hover{color:var(--yellow);}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links-mobile{display:none;}
+  .has-drop{position:relative;}
+  .has-drop.current > a{color:var(--yellow);}
+  .drop{
+    position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
+    background:var(--panel); border:1px solid var(--line); min-width:220px;
+    opacity:0; visibility:hidden; transform:translate(-50%,6px);
+    transition:opacity .18s ease, transform .18s ease;
+    padding:8px 0;
+  }
+  .has-drop:hover .drop{opacity:1; visibility:visible; transform:translate(-50%,0);}
+  .drop a{display:block; padding:11px 18px; text-transform:none; letter-spacing:0.3px; font-size:13px;}
+  .drop a:hover{background:var(--black-soft); color:var(--yellow);}
+  .drop a.current-page{color:var(--yellow);}
+  .nav-cta{display:flex; gap:12px; flex-shrink:0;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; flex-shrink:0;}
+  .burger span{width:24px;height:2px;background:var(--white); transition:transform .2s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-search-btn{
+    display:none; background:none; border:1px solid var(--line); color:var(--white);
+    width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  }
+  .mobile-search-btn svg{width:16px;height:16px;stroke:var(--white);}
+
+  .mobile-search-panel{
+    display:none;
+    padding:14px 24px 18px;
+    border-bottom:1px solid var(--line);
+    background:var(--black);
+  }
+  .mobile-search-panel.open{display:block;}
+  .mobile-search-panel .nav-search{max-width:none; margin:0;}
+
+  /* ===== TICKER ===== */
+  .ticker-bar{
+    background:repeating-linear-gradient(135deg, var(--yellow), var(--yellow) 14px, var(--black) 14px, var(--black) 28px);
+    padding:10px 0; overflow:hidden; border-top:1px solid var(--black); border-bottom:1px solid var(--black);
+  }
+  .ticker-track{display:flex; gap:48px; white-space:nowrap; animation:scroll-left 32s linear infinite; width:max-content;}
+  .ticker-track span{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; letter-spacing:0.5px;
+    color:var(--black); background:var(--white); padding:5px 14px; border-radius:20px;
+  }
+  @keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ===== HERO (legal variant — quieter than the commerce hero) ===== */
+  .legal-hero{
+    padding:168px 0 64px;
+    position:relative;
+    background:
+      radial-gradient(circle at 85% 10%, rgba(232,53,46,0.14), transparent 45%),
+      var(--black);
+    overflow:hidden;
+  }
+  .hex-bg{position:absolute; inset:0; opacity:0.35; pointer-events:none; z-index:0;}
+  .legal-hero .wrap{position:relative; z-index:1;}
+  .breadcrumb{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.5px;
+    color:var(--text-dim); text-transform:uppercase; margin-bottom:28px;
+  }
+  .breadcrumb a{color:var(--text-dim);}
+  .breadcrumb a:hover{color:var(--yellow);}
+  .breadcrumb .sep{color:var(--yellow-dim);}
+  .breadcrumb .current{color:var(--yellow);}
+  .legal-hero h1{font-size:clamp(38px,5.6vw,64px); color:var(--white); max-width:760px;}
+  .legal-hero p.lead{margin-top:20px; font-size:16.5px; color:var(--text-dim); max-width:640px;}
+  .updated-card{
+    display:inline-flex; align-items:center; gap:14px;
+    margin-top:32px;
+    background:var(--panel); border:1px solid var(--line);
+    padding:14px 20px; border-radius:24px;
+  }
+  .updated-card .dot{width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;}
+  .updated-card .label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-dim);}
+  .updated-card .val{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--white); margin-left:4px;}
+
+  /* ===== STRIPE DIVIDER ===== */
+  .stripe{height:14px; background:repeating-linear-gradient(-45deg, var(--red), var(--red) 16px, var(--yellow) 16px, var(--yellow) 32px);}
+
+  /* ===== TERMS LAYOUT: sticky TOC + content ===== */
+  .terms-layout{display:grid; grid-template-columns:270px 1fr; gap:56px; align-items:start;}
+  .toc-card{
+    position:sticky; top:132px;
+    background:var(--panel); border:1px solid var(--line); padding:26px 22px;
+  }
+  .toc-card h5{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--yellow); margin-bottom:16px;
+  }
+  .toc-list{display:flex; flex-direction:column; gap:2px;}
+  .toc-list a{
+    display:flex; gap:10px; align-items:baseline;
+    padding:9px 8px; border-radius:var(--radius);
+    font-size:13.5px; color:var(--text-dim);
+    transition:color .15s ease, background .15s ease;
+  }
+  .toc-list a .n{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--yellow-dim); flex-shrink:0; width:18px;}
+  .toc-list a:hover{color:var(--white); background:var(--black-soft);}
+  .toc-list a.active{color:var(--yellow);}
+  .toc-list a.active .n{color:var(--yellow);}
+
+  .terms-section{
+    border-bottom:1px solid var(--line);
+    padding:34px 0;
+    scroll-margin-top:130px;
+  }
+  .terms-section:first-child{padding-top:0;}
+  .terms-section:last-child{border-bottom:none;}
+  .terms-section-head{display:flex; align-items:baseline; gap:16px; margin-bottom:16px;}
+  .terms-section-head .num{
+    font-family:'Anton',sans-serif; font-size:20px; color:var(--red); flex-shrink:0;
+  }
+  .terms-section-head h3{font-size:22px; color:var(--white);}
+  .terms-section p{color:var(--text-dim); font-size:15px; margin-bottom:12px; max-width:720px;}
+  .terms-section ul{padding-left:0; margin-top:8px;}
+  .terms-section ul li{
+    position:relative; padding-left:20px; margin-bottom:10px;
+    color:var(--text-dim); font-size:15px; max-width:700px;
+  }
+  .terms-section ul li::before{
+    content:""; position:absolute; left:0; top:9px; width:6px; height:6px; background:var(--yellow); border-radius:1px;
+  }
+
+  /* ===== NEED HELP BAND ===== */
+  .help-band{background:var(--yellow); color:var(--black);}
+  .help-grid{display:flex; justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap;}
+  .help-grid h2{font-size:clamp(28px,3.6vw,42px); max-width:560px;}
+  .help-grid p{color:#4a3b00; font-size:15px; max-width:480px; margin-top:14px;}
+  .help-actions{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* ===== RELATED LEGAL CARDS ===== */
+  .related-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);}
+  .related-cell{background:var(--black-soft); padding:32px 26px; transition:background .15s ease;}
+  .related-cell:hover{background:var(--panel);}
+  .related-cell .num{font-family:'IBM Plex Mono',monospace; color:var(--red); font-size:12px; letter-spacing:1px;}
+  .related-cell h4{font-size:17px; margin:12px 0 8px; color:var(--white); text-transform:none; font-family:'Space Grotesk',sans-serif; font-weight:700;}
+  .related-cell span.arrow{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--yellow); letter-spacing:0.5px;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--black); border-top:1px solid var(--line); padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;}
+  .foot-logo{font-family:'Anton',sans-serif; font-size:24px; margin-bottom:14px;}
+  .foot-col h5{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; color:var(--text-dim); font-size:14px; margin-bottom:10px;}
+  .foot-col a:hover{color:var(--white);}
+  .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);}
+
+  /* ===== WHATSAPP FAB ===== */
+  .wa-fab{
+    position:fixed; bottom:24px; right:24px; z-index:99;
+    width:58px; height:58px; border-radius:50%; background:var(--yellow); color:var(--black);
+    display:grid; place-items:center; box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    border:2px solid var(--black); transition:transform .2s ease;
+  }
+  .wa-fab:hover{transform:scale(1.08);}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1050px){
+    .nav-search{max-width:220px;}
+  }
+  @media(max-width:900px){
+    .terms-layout{grid-template-columns:1fr;}
+    .toc-card{position:static;}
+    .related-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:760px){
+    .nav{padding:14px 18px; position:relative; z-index:80;}
+    .nav-search{display:none;}
+    .mobile-search-btn{display:flex;}
+    .nav-links-desktop{display:none;}
+    .nav-links-mobile{
+      display:flex;
+      position:fixed; top:0; right:0; left:auto; bottom:0;
+      width:min(82vw, 320px);
+      background:var(--black);
+      flex-direction:column; align-items:stretch; justify-content:flex-start;
+      padding:96px 24px 36px; gap:22px;
+      transform:translateX(100%);
+      transition:transform .28s ease;
+      overflow-y:auto; z-index:65;
+      box-shadow:-8px 0 24px rgba(0,0,0,0.4);
+    }
+    .nav-links-mobile.open{transform:translateX(0);}
+    .nav-links-mobile .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
+    .nav-links-mobile .has-drop.open .drop{display:block;}
+    .nav-links-mobile .nav-cta-mobile{display:flex; margin-top:12px;}
+    .nav-cta{display:none;}
+    .burger{display:flex; z-index:90;}
+    section{padding:64px 0;}
+    .foot-grid{grid-template-columns:1fr;}
+    .related-grid{grid-template-columns:1fr;}
+    .mobile-search-panel{padding:12px 18px 16px; position:relative; z-index:80;}
+    .help-grid{flex-direction:column; align-items:flex-start;}
+
+    .nav-overlay{
+      content:""; position:fixed; inset:0; background:rgba(0,0,0,0.5);
+      opacity:0; visibility:hidden; transition:opacity .25s ease;
+      z-index:55;
+    }
+    .nav-overlay.show{opacity:1; visibility:visible;}
+  }
+  @media(min-width:761px){
+    .mobile-search-panel{display:none !important;}
+    .nav-cta-mobile{display:none;}
+    .nav-overlay{display:none !important;}
+    .nav-links-mobile{display:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav class="nav">
+    <a href="https://www.beeway.in/" class="logo">
+      <span class="hex">
+        <svg viewBox="0 0 100 100"><polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#ffc900" stroke-width="6"/></svg>
+      </span>
+      BEEWAY
+    </a>
+
+    <div class="nav-search" id="navSearchDesktop">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search this page..." autocomplete="off" id="searchInputDesktop">
+      <div class="search-results" id="searchResultsDesktop"></div>
+    </div>
+
+    <ul class="nav-links nav-links-desktop">
+      <li><a href="https://www.beeway.in/">Home</a></li>
+      <li><a href="ott.html">OTT</a></li>
+      <li><a href="https://tools.ottloop.com/">Tools</a></li>
+      <li><a href="psgames.html">PS Games</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li class="has-drop current" id="legalDropDesktop">
+        <a href="legal.html">Legal ▾</a>
+        <div class="drop">
+          <a href="terms.html" class="current-page">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="refund.html">Refund Policy</a>
+          <a href="disclaimer.html">Legal Disclaimer</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-search-panel" id="mobileSearchPanel">
+    <div class="nav-search">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search this page..." autocomplete="off" id="searchInputMobile">
+      <div class="search-results" id="searchResultsMobile"></div>
+    </div>
+  </div>
+
+  <div class="ticker-bar">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-links nav-links-mobile" id="navLinks">
+  <li><a href="https://www.beeway.in/">Home</a></li>
+  <li><a href="ott.html">OTT</a></li>
+  <li><a href="https://tools.ottloop.com/">Tools</a></li>
+  <li><a href="psgames.html">PS Games</a></li>
+  <li><a href="faqs.html">FAQs</a></li>
+  <li class="has-drop" id="legalDrop">
+    <a href="legal.html" id="legalToggle">Legal ▾</a>
+    <div class="drop">
+      <a href="terms.html" class="current-page">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="disclaimer.html">Legal Disclaimer</a>
+    </div>
+  </li>
+  <li><a href="contact.html">Contact</a></li>
+  <li class="nav-cta-mobile">
+    <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </li>
+</ul>
+
+<!-- ===== HERO ===== -->
+<section class="legal-hero">
+  <svg class="hex-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#ffc900" stroke-width="1" opacity="0.16">
+      <polygon points="1050,60 1110,95 1110,165 1050,200 990,165 990,95"/>
+      <polygon points="1140,150 1200,185 1200,255 1140,290 1080,255 1080,185"/>
+      <polygon points="960,220 1020,255 1020,325 960,360 900,325 900,255"/>
+      <polygon points="1080,290 1140,325 1140,395 1080,430 1020,395 1020,325"/>
+      <polygon points="1050,430 1110,465 1110,535 1050,570 990,535 990,465"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://www.beeway.in/">Home</a>
+      <span class="sep">→</span>
+      <a href="legal.html">Legal</a>
+      <span class="sep">→</span>
+      <span class="current">Terms of Service</span>
+    </nav>
+    <div class="eyebrow">Legal Information</div>
+    <h1>Terms of Service</h1>
+    <p class="lead">Please read these Terms of Service carefully before purchasing any OTT subscriptions, digital tools, PS4 &amp; PS5 games, or any other product or service offered by Beeway.</p>
+    <div class="updated-card">
+      <span class="dot"></span>
+      <span class="label">Last Updated</span>
+      <span class="val">July 2026</span>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== TERMS CONTENT ===== -->
+<section id="terms-body">
+  <div class="wrap">
+    <div class="terms-layout">
+
+      <!-- Sticky TOC -->
+      <nav class="toc-card" aria-label="Table of contents">
+        <h5>On This Page</h5>
+        <div class="toc-list" id="tocList">
+          <a href="#acceptance"><span class="n">01</span>Acceptance of Terms</a>
+          <a href="#eligibility"><span class="n">02</span>Eligibility</a>
+          <a href="#products"><span class="n">03</span>Products &amp; Services</a>
+          <a href="#pricing"><span class="n">04</span>Pricing</a>
+          <a href="#orders"><span class="n">05</span>Orders</a>
+          <a href="#delivery"><span class="n">06</span>Delivery</a>
+          <a href="#responsibilities"><span class="n">07</span>Customer Responsibilities</a>
+          <a href="#warranty"><span class="n">08</span>Warranty</a>
+          <a href="#refunds"><span class="n">09</span>Refunds</a>
+          <a href="#ip"><span class="n">10</span>Intellectual Property</a>
+          <a href="#liability"><span class="n">11</span>Limitation of Liability</a>
+          <a href="#privacy"><span class="n">12</span>Privacy</a>
+          <a href="#changes"><span class="n">13</span>Changes to Terms</a>
+          <a href="#contact-info"><span class="n">14</span>Contact Information</a>
+        </div>
+      </nav>
+
+      <!-- Content -->
+      <article>
+
+        <div class="terms-section" id="acceptance">
+          <div class="terms-section-head"><span class="num">01</span><h3>Acceptance of Terms</h3></div>
+          <p>By accessing or purchasing products from Beeway, you agree to comply with these Terms of Service. If you do not agree with these terms, please do not use our website or purchase our products.</p>
+        </div>
+
+        <div class="terms-section" id="eligibility">
+          <div class="terms-section-head"><span class="num">02</span><h3>Eligibility</h3></div>
+          <p>You must be at least 18 years old or have permission from a parent or legal guardian to purchase products from Beeway.</p>
+        </div>
+
+        <div class="terms-section" id="products">
+          <div class="terms-section-head"><span class="num">03</span><h3>Products &amp; Services</h3></div>
+          <p>Beeway offers:</p>
+          <ul>
+            <li>OTT Subscriptions</li>
+            <li>Digital Tools</li>
+            <li>AI Software</li>
+            <li>Activation Keys</li>
+            <li>Digital Licenses</li>
+            <li>PS4 &amp; PS5 Digital Games</li>
+            <li>Digital Marketing Services</li>
+          </ul>
+          <p>Availability may change without prior notice.</p>
+        </div>
+
+        <div class="terms-section" id="pricing">
+          <div class="terms-section-head"><span class="num">04</span><h3>Pricing</h3></div>
+          <p>All prices are displayed in Indian Rupees (₹). Prices may change at any time without prior notice. Offers and discounts may be modified or withdrawn at our discretion.</p>
+        </div>
+
+        <div class="terms-section" id="orders">
+          <div class="terms-section-head"><span class="num">05</span><h3>Orders</h3></div>
+          <p>Orders are confirmed only after successful payment verification. Beeway reserves the right to reject or cancel any order suspected of fraud, abuse, or policy violations.</p>
+        </div>
+
+        <div class="terms-section" id="delivery">
+          <div class="terms-section-head"><span class="num">06</span><h3>Delivery</h3></div>
+          <p>Most digital products are delivered within a few minutes after payment confirmation. Delivery time may vary depending on product availability and verification. Customers are responsible for providing accurate email addresses and phone numbers.</p>
+        </div>
+
+        <div class="terms-section" id="responsibilities">
+          <div class="terms-section-head"><span class="num">07</span><h3>Customer Responsibilities</h3></div>
+          <p>Customers agree to:</p>
+          <ul>
+            <li>Provide accurate information.</li>
+            <li>Follow product instructions.</li>
+            <li>Keep account credentials secure.</li>
+            <li>Not misuse shared accounts.</li>
+            <li>Not resell products without permission.</li>
+            <li>Comply with platform-specific terms and conditions.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section" id="warranty">
+          <div class="terms-section-head"><span class="num">08</span><h3>Warranty</h3></div>
+          <p>Warranty is available only on eligible products. Warranty duration varies depending on the product. Warranty does not cover:</p>
+          <ul>
+            <li>Password changes made by customers.</li>
+            <li>Account misuse.</li>
+            <li>Violations of platform policies.</li>
+            <li>Customer negligence.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section" id="refunds">
+          <div class="terms-section-head"><span class="num">09</span><h3>Refund Policy</h3></div>
+          <p>Refund eligibility follows the official Refund Policy. Refunds may be approved if:</p>
+          <ul>
+            <li>Product cannot be delivered.</li>
+            <li>Incorrect product is delivered.</li>
+            <li>Product is proven defective.</li>
+          </ul>
+          <p>Refunds are not provided after successful activation unless specifically mentioned.</p>
+        </div>
+
+        <div class="terms-section" id="ip">
+          <div class="terms-section-head"><span class="num">10</span><h3>Intellectual Property</h3></div>
+          <p>All logos, trademarks, brand names, and product names belong to their respective owners. Beeway is an independent reseller and is not affiliated with or endorsed by any platform unless explicitly stated.</p>
+        </div>
+
+        <div class="terms-section" id="liability">
+          <div class="terms-section-head"><span class="num">11</span><h3>Limitation of Liability</h3></div>
+          <p>Beeway shall not be liable for:</p>
+          <ul>
+            <li>Service interruptions caused by third-party providers.</li>
+            <li>Platform policy changes.</li>
+            <li>Temporary downtime.</li>
+            <li>Customer misuse.</li>
+            <li>Loss of data.</li>
+            <li>Indirect or consequential damages.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section" id="privacy">
+          <div class="terms-section-head"><span class="num">12</span><h3>Privacy</h3></div>
+          <p>Customer information is handled according to our Privacy Policy. We do not sell personal information to third parties.</p>
+        </div>
+
+        <div class="terms-section" id="changes">
+          <div class="terms-section-head"><span class="num">13</span><h3>Changes to Terms</h3></div>
+          <p>Beeway may update these Terms of Service at any time. Updated versions become effective immediately after publication on the website. Customers are encouraged to review this page periodically.</p>
+        </div>
+
+        <div class="terms-section" id="contact-info">
+          <div class="terms-section-head"><span class="num">14</span><h3>Contact Information</h3></div>
+          <p>For any questions regarding these Terms of Service, contact us through:</p>
+          <ul>
+            <li>WhatsApp Support</li>
+            <li>Email Support</li>
+            <li>Contact Page</li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== NEED HELP ===== -->
+<section class="help-band">
+  <div class="wrap help-grid">
+    <div>
+      <h2>Have questions about our Terms?</h2>
+      <p>If you need clarification about our Terms of Service, our support team is available to assist you before you place your order.</p>
+    </div>
+    <div class="help-actions">
+      <a class="btn" style="background:var(--black); color:var(--yellow); border-color:var(--black);" href="https://wa.me/917382680200?text=Hi%20Beeway%2C%20I%20have%20a%20question%20about%20your%20Terms%20of%20Service" target="_blank" rel="noopener">Contact on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RELATED LEGAL PAGES ===== -->
+<section style="padding-top:0;">
+  <div class="wrap" style="padding-top:88px;">
+    <div class="sec-head" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;">
+      <div>
+        <div class="eyebrow">Also see</div>
+        <h2 style="font-size:clamp(28px,3.6vw,42px);">Related Legal Pages</h2>
+      </div>
+    </div>
+  </div>
+  <div class="related-grid">
+    <a class="related-cell" href="privacy.html">
+      <div class="num">01</div>
+      <h4>Privacy Policy</h4>
+      <span class="arrow">View page →</span>
+    </a>
+    <a class="related-cell" href="refund.html">
+      <div class="num">02</div>
+      <h4>Refund Policy</h4>
+      <span class="arrow">View page →</span>
+    </a>
+    <a class="related-cell" href="disclaimer.html">
+      <div class="num">03</div>
+      <h4>Legal Disclaimer</h4>
+      <span class="arrow">View page →</span>
+    </a>
+    <a class="related-cell" href="contact.html">
+      <div class="num">04</div>
+      <h4>Contact Us</h4>
+      <span class="arrow">View page →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">BEEWAY</div>
+        <p style="max-width:280px;">Your one hive for OTT subscriptions, digital tools, marketing services and PS4/PS5 games — genuine access, reseller prices.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="ott.html">OTT</a>
+        <a href="https://tools.ottloop.com/">Tools</a>
+        <a href="psgames.html">PS Games</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/917382680200" target="_blank" rel="noopener">+91 73826 80200</a>
+        <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">WhatsApp Community</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Beeway.in — All rights reserved.</span>
+      <span>Built for the hive 🐝</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/917382680200" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#0b0b0c"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.9 7.9 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.3 3.1 13.6 13.6 0 0 0 5.2 4.6c.7.3 1.3.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.3 17L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.3 8.3 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+/* ================= TICKER ================= */
+const TICKER_ITEMS = [
+  "Genuine-access OTT, Tools & PS Games",
+  "Read the full Refund Policy",
+  "Delivery usually within 15–60 min",
+  "Warranty on every eligible order",
+  "Fast support on WhatsApp",
+  "Prices in ₹ · No hidden fees",
+];
+const tickerHTML = TICKER_ITEMS.map(t => `<span>${t}</span>`).join("");
+document.getElementById("tickerTrack").innerHTML = tickerHTML + tickerHTML;
+
+/* ================= NAV (mobile menu) ================= */
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("navLinks");
+const navOverlay = document.getElementById("navOverlay");
+
+function openMobileNav(){
+  navLinks.classList.add("open");
+  burger.classList.add("open");
+  navOverlay.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("mobileSearchPanel").classList.remove("open");
+}
+function closeMobileNav(){
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+  navOverlay.classList.remove("show");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", ()=>{
+  if(navLinks.classList.contains("open")) closeMobileNav();
+  else openMobileNav();
+});
+navOverlay.addEventListener("click", closeMobileNav);
+document.querySelectorAll("#navLinks a").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    if(a.id === "legalToggle") return;
+    closeMobileNav();
+  });
+});
+document.getElementById("legalToggle").addEventListener("click",(e)=>{
+  if(window.innerWidth <= 760){
+    e.preventDefault();
+    document.getElementById("legalDrop").classList.toggle("open");
+  }
+});
+
+/* ================= MOBILE SEARCH TOGGLE ================= */
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+const mobileSearchPanel = document.getElementById("mobileSearchPanel");
+mobileSearchBtn.addEventListener("click", ()=>{
+  mobileSearchPanel.classList.toggle("open");
+  closeMobileNav();
+  if(mobileSearchPanel.classList.contains("open")){
+    setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
+  }
+});
+
+/* ================= ON-PAGE SEARCH (searches the Terms sections) ================= */
+const SECTIONS = [...document.querySelectorAll(".terms-section")].map(sec=>({
+  id: sec.id,
+  title: sec.querySelector("h3").textContent,
+  body: sec.querySelector("p") ? sec.querySelector("p").textContent : ""
+}));
+
+function highlight(text, q){
+  if(!q) return text;
+  const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
+  return text.replace(re, "<mark style='background:var(--yellow);color:var(--black);padding:0 2px;border-radius:2px;'>$1</mark>");
+}
+
+function buildResultsHTML(query){
+  const q = query.trim().toLowerCase();
+  if(q.length === 0) return "";
+  const matches = SECTIONS.filter(s => s.title.toLowerCase().includes(q) || s.body.toLowerCase().includes(q));
+  if(matches.length === 0){
+    return `<div class="sr-empty">No matching section on this page for "${query}".</div>`;
+  }
+  return matches.map(s => `
+    <div class="sr-item" data-jump="${s.id}">
+      <div>
+        <div class="sr-name">${highlight(s.title, query)}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function wireSearch(inputId, resultsId){
+  const input = document.getElementById(inputId);
+  const resultsBox = document.getElementById(resultsId);
+
+  input.addEventListener("input", ()=>{
+    resultsBox.innerHTML = buildResultsHTML(input.value);
+    resultsBox.classList.toggle("show", input.value.trim().length > 0);
+  });
+  input.addEventListener("focus", ()=>{
+    if(input.value.trim().length > 0) resultsBox.classList.add("show");
+  });
+  resultsBox.addEventListener("click", (e)=>{
+    const item = e.target.closest(".sr-item");
+    if(!item) return;
+    const target = document.getElementById(item.dataset.jump);
+    if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+    resultsBox.classList.remove("show");
+    input.value = "";
+    resultsBox.innerHTML = "";
+    mobileSearchPanel.classList.remove("open");
+  });
+  document.addEventListener("click", (e)=>{
+    if(!input.contains(e.target) && !resultsBox.contains(e.target)){
+      resultsBox.classList.remove("show");
+    }
+  });
+}
+wireSearch("searchInputDesktop","searchResultsDesktop");
+wireSearch("searchInputMobile","searchResultsMobile");
+
+/* ================= SCROLLSPY FOR STICKY TOC ================= */
+const tocLinks = [...document.querySelectorAll("#tocList a")];
+const sections = tocLinks.map(a => document.querySelector(a.getAttribute("href")));
+
+function setActiveTOC(){
+  let current = sections[0];
+  const scrollPos = window.scrollY + 150;
+  sections.forEach(sec=>{
+    if(sec && sec.offsetTop <= scrollPos) current = sec;
+  });
+  tocLinks.forEach(a=>a.classList.remove("active"));
+  if(current){
+    const match = tocLinks.find(a => a.getAttribute("href") === "#" + current.id);
+    if(match) match.classList.add("active");
+  }
+}
+window.addEventListener("scroll", setActiveTOC, {passive:true});
+setActiveTOC();
+
+tocLinks.forEach(a=>{
+  a.addEventListener("click", (e)=>{
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute("href"));
+    if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+});
+</script>
+</body>
+</html>
