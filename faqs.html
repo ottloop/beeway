@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs — Orders, OTT, Tools, PS Games, Payments & Delivery | Beeway</title>
+<meta name="description" content="Answers to common Beeway questions about OTT subscriptions, digital tools, PS4/PS5 games, orders, payments, delivery, warranty and account access.">
+<link rel="canonical" href="https://www.beeway.in/faqs.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0b0c;
+    --black-soft:#151516;
+    --panel:#1c1c1e;
+    --white:#faf9f5;
+    --yellow:#ffc900;
+    --yellow-dim:#8a6f00;
+    --red:#e8352e;
+    --line:#2c2c2a;
+    --text-dim:#a9a9a3;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black); color:var(--white); font-family:'Space Grotesk', sans-serif; line-height:1.5; overflow-x:hidden;}
+  h1,h2,h3,.display{font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.5px; line-height:1.05;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--yellow); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);display:inline-block;}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 26px; font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:14px; letter-spacing:1px; text-transform:uppercase; border:2px solid var(--black); border-radius:var(--radius); cursor:pointer; transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;}
+  .btn-primary{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+  .btn-primary:hover{background:var(--black); color:var(--yellow); border-color:var(--yellow); transform:translateY(-2px);}
+  .btn-outline{background:transparent; color:var(--white); border-color:var(--white);}
+  .btn-outline:hover{background:var(--white); color:var(--black); transform:translateY(-2px);}
+  .btn-red{background:var(--red); color:var(--white); border-color:var(--red);}
+  .btn-red:hover{background:var(--black); color:var(--red); border-color:var(--red); transform:translateY(-2px);}
+
+  header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(11,11,12,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 24px; max-width:1200px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px; flex-shrink:0;}
+  .logo .hex{width:28px;height:28px; position:relative;}
+  .logo .hex svg{width:100%;height:100%;}
+  .nav-search{position:relative; flex:1 1 auto; max-width:340px; margin:0 8px;}
+  .nav-search input{width:100%; background:var(--black-soft); border:1px solid var(--line); color:var(--white); font-family:'IBM Plex Mono', monospace; font-size:13px; padding:10px 14px 10px 36px; border-radius:20px; outline:none; transition:border-color .15s ease;}
+  .nav-search input:focus{border-color:var(--yellow);}
+  .nav-search input::placeholder{color:var(--text-dim);}
+  .nav-search .icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); width:14px; height:14px; pointer-events:none; opacity:0.6;}
+  .nav-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+  .search-results{position:absolute; top:calc(100% + 10px); left:0; right:0; background:var(--panel); border:1px solid var(--line); max-height:420px; overflow-y:auto; display:none; z-index:50; box-shadow:0 10px 30px rgba(0,0,0,0.5);}
+  .search-results.show{display:block;}
+  .sr-group-label{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); padding:12px 16px 6px;}
+  .sr-item{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:11px 16px; border-top:1px solid var(--line); cursor:pointer;}
+  .sr-item:hover{background:var(--black-soft);}
+  .sr-item .sr-name{font-size:13.5px; font-weight:600;}
+  .sr-item .sr-faq{font-size:12.5px; color:var(--text-dim); margin-top:3px;}
+  .sr-empty{padding:20px 16px; color:var(--text-dim); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; flex-shrink:0;}
+  .nav-links a{position:relative; padding:6px 0; color:var(--white);}
+  .nav-links a:hover{color:var(--yellow);}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .has-drop{position:relative;}
+  .drop{position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%); background:var(--panel); border:1px solid var(--line); min-width:220px; opacity:0; visibility:hidden; transform:translate(-50%,6px); transition:opacity .18s ease, transform .18s ease; padding:8px 0;}
+  .has-drop:hover .drop{opacity:1; visibility:visible; transform:translate(-50%,0);}
+  .drop a{display:block; padding:11px 18px; text-transform:none; letter-spacing:0.3px; font-size:13px;}
+  .drop a:hover{background:var(--black-soft); color:var(--yellow);}
+  .nav-cta{display:flex; gap:12px; flex-shrink:0;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; flex-shrink:0;}
+  .burger span{width:24px;height:2px;background:var(--white); transition:transform .2s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-search-btn{display:none; background:none; border:1px solid var(--line); color:var(--white); width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;}
+  .mobile-search-btn svg{width:16px;height:16px;stroke:var(--white);}
+  .mobile-search-panel{display:none; padding:14px 24px 18px; border-bottom:1px solid var(--line); background:var(--black);}
+  .mobile-search-panel.open{display:block;}
+  .mobile-search-panel .nav-search{max-width:none; margin:0;}
+
+  .ticker-bar{background:repeating-linear-gradient(135deg, var(--yellow), var(--yellow) 14px, var(--black) 14px, var(--black) 28px); padding:10px 0; overflow:hidden; border-top:1px solid var(--black); border-bottom:1px solid var(--black);}
+  .ticker-track{display:flex; gap:48px; white-space:nowrap; animation:scroll-left 32s linear infinite; width:max-content;}
+  .ticker-track span{font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; letter-spacing:0.5px; color:var(--black); background:var(--white); padding:5px 14px; border-radius:20px;}
+  @keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  .hero{padding:170px 0 90px; position:relative; background:radial-gradient(circle at 85% 15%, rgba(232,53,46,0.18), transparent 45%), var(--black); overflow:hidden;}
+  .hex-bg{position:absolute; inset:0; opacity:0.5; pointer-events:none; z-index:0;}
+  .hero .wrap{position:relative; z-index:1;}
+  .hero-inner{max-width:760px;}
+  .hero h1{font-size:clamp(38px,5.6vw,68px); color:var(--white);}
+  .hero h1 .hl{color:var(--yellow);}
+  .hero p.lead{margin-top:22px; font-size:18px; color:var(--text-dim); max-width:600px;}
+  .hero-actions{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+  .hero-highlights{display:flex; gap:24px; margin-top:44px; flex-wrap:wrap;}
+  .hl-chip{font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.5px; color:var(--white); display:flex; align-items:center; gap:8px;}
+  .hl-chip .tick{color:var(--yellow); font-weight:700;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+
+  .sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(30px,4vw,48px);}
+  .sec-head p{color:var(--text-dim); max-width:420px; font-size:15px;}
+
+  .ott-toolbar{position:sticky; top:92px; z-index:40; background:rgba(11,11,12,0.94); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:12px; padding:22px; margin-bottom:40px;}
+  .section-search{position:relative; max-width:100%;}
+  .section-search input{width:100%; background:var(--panel); border:1px solid var(--line); color:var(--white); font-family:'IBM Plex Mono', monospace; font-size:13.5px; padding:13px 40px 13px 40px; border-radius:24px; outline:none; transition:border-color .15s ease;}
+  .section-search input:focus{border-color:var(--yellow);}
+  .section-search input::placeholder{color:var(--text-dim);}
+  .section-search .icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); width:15px; height:15px; pointer-events:none; opacity:0.6;}
+  .section-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+  .section-search .clear-btn{position:absolute; right:14px; top:50%; transform:translateY(-50%); cursor:pointer; color:var(--text-dim); font-size:13px;}
+  .section-search .clear-btn:hover{color:var(--white);}
+
+  .cat-tabs{display:flex; gap:10px; flex-wrap:wrap;}
+  .cat-tab{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; padding:12px 20px; border:1px solid var(--line); background:var(--panel); color:var(--text-dim); cursor:pointer; transition:all .15s ease;}
+  .cat-tab.active, .cat-tab:hover{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+
+  .stripe{height:14px; background:repeating-linear-gradient(-45deg, var(--red), var(--red) 16px, var(--yellow) 16px, var(--yellow) 32px);}
+
+  /* Popular question cards */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:18px;}
+  .pop-card{background:var(--panel); border:1px solid var(--line); padding:22px; cursor:pointer; transition:transform .18s ease, border-color .18s ease;}
+  .pop-card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .pop-card .q-icon{width:34px; height:34px; border-radius:50%; background:var(--black-soft); border:1px solid var(--yellow); color:var(--yellow); display:grid; place-items:center; font-family:'Anton',sans-serif; font-size:15px; margin-bottom:14px;}
+  .pop-card h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15.5px; text-transform:none;}
+
+  /* Category cards */
+  .catcard-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:14px;}
+  .catcard{border:1px solid var(--line); background:var(--panel); padding:22px 18px; text-align:center; cursor:pointer; transition:all .15s ease; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--text-dim);}
+  .catcard.active, .catcard:hover{border-color:var(--yellow); color:var(--yellow); transform:translateY(-3px);}
+  .catcard .cc-count{display:block; font-family:'Anton',sans-serif; font-size:20px; color:var(--yellow); margin-bottom:8px;}
+  .catcard.active .cc-count, .catcard:hover .cc-count{color:var(--black);}
+  .catcard.active{background:var(--yellow); color:var(--black);}
+
+  /* FAQ accordion */
+  .faq-group{margin-bottom:12px;}
+  .faq-group-title{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--yellow); margin:36px 0 8px;}
+  .faq-group-title:first-child{margin-top:0;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item.faq-hidden{display:none;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; padding:22px 0; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; gap:16px;}
+  .faq-q .icon{font-family:'IBM Plex Mono',monospace; font-size:20px; color:var(--yellow); transition:transform .2s ease; flex-shrink:0;}
+  .faq-item.open .icon{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 0 22px; color:var(--text-dim); font-size:15px; max-width:700px;}
+  mark{background:var(--yellow); color:var(--black); padding:0 2px; border-radius:2px;}
+
+  .contact-band{background:var(--yellow); color:var(--black);}
+  .contact-band .sec-head p{color:#4a3b00;}
+  .cta-center{text-align:center; max-width:640px; margin:0 auto;}
+  .cta-center .btn{margin-top:8px;}
+
+  .related-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .related-card{background:var(--panel); border:1px solid var(--line); padding:26px; text-align:center; transition:transform .18s ease, border-color .18s ease; cursor:pointer;}
+  .related-card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .related-card .icon-wrap{width:44px; height:44px; border:2px solid var(--yellow); border-radius:50%; margin:0 auto 14px; display:grid; place-items:center; color:var(--yellow); font-family:'Anton',sans-serif; font-size:18px;}
+  .related-card h4{font-size:15px; text-transform:none; font-family:'Space Grotesk',sans-serif; font-weight:700;}
+
+  footer{background:var(--black); border-top:1px solid var(--line); padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;}
+  .foot-logo{font-family:'Anton',sans-serif; font-size:24px; margin-bottom:14px;}
+  .foot-col h5{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; color:var(--text-dim); font-size:14px; margin-bottom:10px;}
+  .foot-col a:hover{color:var(--white);}
+  .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);}
+
+  .wa-fab{position:fixed; bottom:24px; right:24px; z-index:99; width:58px; height:58px; border-radius:50%; background:var(--yellow); color:var(--black); display:grid; place-items:center; box-shadow:0 6px 20px rgba(0,0,0,0.4); border:2px solid var(--black); transition:transform .2s ease;}
+  .wa-fab:hover{transform:scale(1.08);}
+
+  @media(max-width:1050px){ .nav-search{max-width:220px;} .related-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:900px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:760px){
+    .nav{padding:14px 18px; position:relative; z-index:80;}
+    .nav-search{display:none;}
+    .mobile-search-btn{display:flex;}
+    .nav-links-desktop{display:none;}
+    .nav-links-mobile{display:flex; position:fixed; top:0; right:0; left:auto; bottom:0; width:min(82vw, 320px); background:var(--black); flex-direction:column; align-items:stretch; justify-content:flex-start; padding:96px 24px 36px; gap:22px; transform:translateX(100%); transition:transform .28s ease; overflow-y:auto; z-index:65; box-shadow:-8px 0 24px rgba(0,0,0,0.4);}
+    .nav-links-mobile.open{transform:translateX(0);}
+    .nav-links-mobile .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
+    .nav-links-mobile .has-drop.open .drop{display:block;}
+    .nav-links-mobile .nav-cta-mobile{display:flex; margin-top:12px;}
+    .nav-cta{display:none;}
+    .burger{display:flex; z-index:90;}
+    section{padding:64px 0;}
+    .foot-grid{grid-template-columns:1fr;}
+    .mobile-search-panel{padding:12px 18px 16px; position:relative; z-index:80;}
+    .ott-toolbar{top:76px;}
+    .related-grid{grid-template-columns:1fr 1fr;}
+    .nav-overlay{content:""; position:fixed; inset:0; background:rgba(0,0,0,0.5); opacity:0; visibility:hidden; transition:opacity .25s ease; z-index:55;}
+    .nav-overlay.show{opacity:1; visibility:visible;}
+  }
+  @media(min-width:761px){
+    .mobile-search-panel{display:none !important;}
+    .nav-cta-mobile{display:none;}
+    .nav-overlay{display:none !important;}
+    .nav-links-mobile{display:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="https://www.beeway.in/" class="logo">
+      <span class="hex"><svg viewBox="0 0 100 100"><polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#ffc900" stroke-width="6"/></svg></span>
+      BEEWAY
+    </a>
+    <div class="nav-search" id="navSearchDesktop">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search your question..." autocomplete="off" id="searchInputDesktop">
+      <div class="search-results" id="searchResultsDesktop"></div>
+    </div>
+    <ul class="nav-links nav-links-desktop">
+      <li><a href="https://www.beeway.in/">Home</a></li>
+      <li><a href="ott.html">OTT</a></li>
+      <li><a href="https://tools.ottloop.com/">Tools</a></li>
+      <li><a href="psgames.html">PS Games</a></li>
+      <li><a href="faqs.html" aria-current="page" style="color:var(--yellow);">FAQs</a></li>
+      <li class="has-drop" id="legalDropDesktop">
+        <a href="legal.html">Legal ▾</a>
+        <div class="drop">
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="refund.html">Refund Policy</a>
+          <a href="disclaimer.html">Legal Disclaimer</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a></div>
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-search-panel" id="mobileSearchPanel">
+    <div class="nav-search">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search your question..." autocomplete="off" id="searchInputMobile">
+      <div class="search-results" id="searchResultsMobile"></div>
+    </div>
+  </div>
+  <div class="ticker-bar"><div class="ticker-track" id="tickerTrack"></div></div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-links nav-links-mobile" id="navLinks">
+  <li><a href="https://www.beeway.in/">Home</a></li>
+  <li><a href="ott.html">OTT</a></li>
+  <li><a href="https://tools.ottloop.com/">Tools</a></li>
+  <li><a href="psgames.html">PS Games</a></li>
+  <li><a href="faqs.html">FAQs</a></li>
+  <li class="has-drop" id="legalDrop">
+    <a href="legal.html" id="legalToggle">Legal ▾</a>
+    <div class="drop">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="disclaimer.html">Legal Disclaimer</a>
+    </div>
+  </li>
+  <li><a href="contact.html">Contact</a></li>
+  <li class="nav-cta-mobile"><a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a></li>
+</ul>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="faq-hero">
+  <svg class="hex-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#ffc900" stroke-width="1" opacity="0.18">
+      <polygon points="1050,60 1110,95 1110,165 1050,200 990,165 990,95"/>
+      <polygon points="1140,150 1200,185 1200,255 1140,290 1080,255 1080,185"/>
+      <polygon points="960,220 1020,255 1020,325 960,360 900,325 900,255"/>
+      <polygon points="1080,290 1140,325 1140,395 1080,430 1020,395 1020,325"/>
+      <polygon points="1050,430 1110,465 1110,535 1050,570 990,535 990,465"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-inner reveal" id="heroReveal">
+      <div class="eyebrow">Frequently Asked Questions</div>
+      <h1>We're Here <span class="hl">to Help</span></h1>
+      <p class="lead">Find answers to the most common questions about OTT subscriptions, Digital Tools, PS Games, payments, delivery, warranty, and customer support.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#browse-faqs">Browse FAQs</a>
+        <a class="btn btn-outline" href="https://wa.me/917382680200" target="_blank" rel="noopener">Contact on WhatsApp</a>
+      </div>
+      <div class="hero-highlights">
+        <span class="hl-chip"><span class="tick">✓</span> Instant Support</span>
+        <span class="hl-chip"><span class="tick">✓</span> Quick Answers</span>
+        <span class="hl-chip"><span class="tick">✓</span> Secure Payments</span>
+        <span class="hl-chip"><span class="tick">✓</span> Trusted Service</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== POPULAR QUESTIONS ===== -->
+<section id="popular">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Quick answers</div><h2>Popular Questions</h2></div>
+      <p>The questions our customers ask us most — tap one to jump straight to the answer.</p>
+    </div>
+    <div class="grid" id="popularGrid"></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== BROWSE / SEARCH + CATEGORIES + ACCORDION ===== -->
+<section id="browse-faqs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">All questions</div><h2>Search FAQs</h2></div>
+      <p>Search or filter by category to find exactly what you need.</p>
+    </div>
+
+    <div class="ott-toolbar reveal">
+      <div class="section-search">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <input type="text" placeholder="Search your question..." autocomplete="off" id="faqSearchInput">
+        <span class="clear-btn" id="faqSearchClear" style="display:none;">✕</span>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-bottom:24px;">
+      <div><h2 style="font-size:22px;">FAQ Categories</h2></div>
+    </div>
+    <div class="catcard-grid reveal" id="categoryCards" style="margin-bottom:48px;"></div>
+
+    <div id="faqContainer"></div>
+    <div class="sr-empty" id="faqNoResults" style="display:none; padding:24px 0 0;">No FAQs match your search.</div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== STILL NEED HELP ===== -->
+<section class="contact-band" id="still-need-help">
+  <div class="wrap">
+    <div class="cta-center reveal">
+      <div class="eyebrow" style="justify-content:center;">Still stuck?</div>
+      <h2>Didn't Find Your Answer?</h2>
+      <p style="margin-top:14px;">Our support team is available on WhatsApp to help you with orders, subscriptions, digital tools, PS games, payments, and technical issues.</p>
+      <a class="btn btn-red" href="https://wa.me/917382680200" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== RELATED PAGES ===== -->
+<section id="related">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Explore more</div><h2>Related Pages</h2></div>
+    </div>
+    <div class="related-grid">
+      <a class="related-card reveal" href="ott.html"><div class="icon-wrap">📺</div><h4>OTT Subscriptions</h4></a>
+      <a class="related-card reveal" href="https://tools.ottloop.com/"><div class="icon-wrap">🛠</div><h4>Digital Tools</h4></a>
+      <a class="related-card reveal" href="psgames.html"><div class="icon-wrap">🎮</div><h4>PS4 &amp; PS5 Games</h4></a>
+      <a class="related-card reveal" href="contact.html"><div class="icon-wrap">💬</div><h4>Contact Us</h4></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">BEEWAY</div>
+        <p style="max-width:280px;">Your one hive for OTT subscriptions, digital tools, marketing services and PS4/PS5 games — genuine access, reseller prices.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="ott.html">OTT</a>
+        <a href="https://tools.ottloop.com/">Tools</a>
+        <a href="psgames.html">PS Games</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/917382680200" target="_blank" rel="noopener">+91 73826 80200</a>
+        <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">WhatsApp Community</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Beeway.in — All rights reserved.</span>
+      <span>Built for the hive 🐝</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/917382680200" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#0b0b0c"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.9 7.9 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.3 3.1 13.6 13.6 0 0 0 5.2 4.6c.7.3 1.3.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.3 17L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.3 8.3 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+/* ================= DATA ================= */
+/* [id, question, answer, category] */
+const FAQS = [
+  ["q1","How do I place an order?","Click the Order button or message us on WhatsApp. Our team will confirm availability, share payment details, and deliver your order after payment.","orders"],
+  ["q2","How long does delivery take?","Most orders are delivered within a few minutes after payment confirmation. Delivery time may vary depending on product availability.","delivery"],
+  ["q3","How can I contact Beeway?","You can contact us anytime through WhatsApp for orders, support, or inquiries.","technical-support"],
+
+  ["q4","Are the subscriptions genuine?","Yes. We provide genuine subscription access using the delivery method mentioned on each product.","ott"],
+  ["q5","What does \"Customer Mail\" mean?","The subscription will be activated using your own email address.","account-access"],
+  ["q6","What does \"My Mail\" mean?","The subscription will be delivered using our managed account.","account-access"],
+  ["q7","Do subscriptions include warranty?","Warranty depends on the individual product. Please check the product details before purchasing.","warranty"],
+  ["q8","Can I renew my subscription?","Yes. Simply contact us on WhatsApp before your subscription expires.","ott"],
+
+  ["q9","How are digital tools delivered?","Depending on the product, delivery may be through email, activation key, redeem code, or account access.","tools"],
+  ["q10","Will I receive activation instructions?","Yes. Complete setup instructions are provided whenever required.","tools"],
+
+  ["q11","Are these digital games?","Yes. We provide digital game accounts or digital access depending on the product.","ps-games"],
+  ["q12","Can I request a specific game?","Yes. Contact us on WhatsApp and we'll check availability.","ps-games"],
+  ["q13","How quickly are games delivered?","Most game accounts are delivered shortly after payment confirmation.","ps-games"],
+
+  ["q14","Which payment methods do you accept?","UPI, Bank Transfer, and other supported payment methods.","payments"],
+  ["q15","Is payment secure?","Yes. Payments are processed securely and order details are shared only after confirmation.","payments"],
+
+  ["q16","Will I receive my order instantly?","Most products are delivered within minutes, subject to stock availability.","delivery"],
+  ["q17","What happens if an item is out of stock?","We'll notify you immediately and offer a replacement or refund where applicable.","delivery"],
+
+  ["q18","What if my subscription doesn't work?","Contact us immediately with screenshots. If eligible, we'll provide a replacement or refund according to our policy.","warranty"],
+  ["q19","How do I claim warranty?","Simply contact our WhatsApp support with your order details.","warranty"],
+];
+
+const CATEGORIES = [
+  ["all","All Questions"],
+  ["ott","OTT Subscriptions"],
+  ["tools","Digital Tools"],
+  ["ps-games","PS4 & PS5 Games"],
+  ["orders","Orders"],
+  ["payments","Payments"],
+  ["delivery","Delivery"],
+  ["warranty","Warranty"],
+  ["account-access","Account Access"],
+  ["technical-support","Technical Support"],
+];
+
+/* group headers shown above the accordion, matching source order in the prompt */
+const GROUPS = [
+  ["General", ["q1","q2","q3"]],
+  ["OTT Subscriptions", ["q4","q5","q6","q7","q8"]],
+  ["Digital Tools", ["q9","q10"]],
+  ["PS4 & PS5 Games", ["q11","q12","q13"]],
+  ["Payments", ["q14","q15"]],
+  ["Delivery", ["q16","q17"]],
+  ["Warranty & Support", ["q18","q19"]],
+];
+
+const POPULAR_IDS = ["q1","q2","q14","q18","q3","q8"];
+
+/* ================= STATE ================= */
+let activeCategory = "all";
+let activeQuery = "";
+
+/* ================= HELPERS ================= */
+function faqById(id){ return FAQS.find(f => f[0] === id); }
+
+function faqItemHTML(f){
+  const [id, question, answer] = f;
+  return `<div class="faq-item" id="faq-${id}" data-id="${id}" data-question="${question.replace(/"/g,'&quot;')}">
+    <div class="faq-q"><span>${question}</span><span class="icon">+</span></div>
+    <div class="faq-a"><p>${answer}</p></div>
+  </div>`;
+}
+
+function matchesFilters(f){
+  const [, question, answer, category] = f;
+  const matchesCat = activeCategory === "all" || category === activeCategory;
+  const q = activeQuery.trim().toLowerCase();
+  const matchesQuery = q.length === 0 || question.toLowerCase().includes(q) || answer.toLowerCase().includes(q);
+  return matchesCat && matchesQuery;
+}
+
+/* ================= RENDER ACCORDION (grouped) ================= */
+const faqContainer = document.getElementById("faqContainer");
+const faqNoResults = document.getElementById("faqNoResults");
+
+function renderFaqContainer(){
+  let html = "";
+  let totalVisible = 0;
+
+  GROUPS.forEach(([groupTitle, ids])=>{
+    const items = ids.map(faqById).filter(Boolean).filter(matchesFilters);
+    if(items.length === 0) return;
+    totalVisible += items.length;
+    html += `<div class="faq-group"><div class="faq-group-title">${groupTitle}</div>`;
+    html += items.map(faqItemHTML).join("");
+    html += `</div>`;
+  });
+
+  faqContainer.innerHTML = html;
+  faqNoResults.style.display = totalVisible === 0 ? "block" : "none";
+  wireAccordion();
+}
+
+function wireAccordion(){
+  document.querySelectorAll("#faqContainer .faq-item").forEach(item=>{
+    item.querySelector(".faq-q").addEventListener("click", ()=>{
+      const wasOpen = item.classList.contains("open");
+      document.querySelectorAll("#faqContainer .faq-item").forEach(i=>{
+        i.classList.remove("open");
+        i.querySelector(".faq-a").style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add("open");
+        const a = item.querySelector(".faq-a");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    });
+  });
+}
+
+renderFaqContainer();
+
+/* ================= CATEGORY CARDS ================= */
+const categoryCards = document.getElementById("categoryCards");
+function categoryCount(cat){
+  return cat === "all" ? FAQS.length : FAQS.filter(f => f[3] === cat).length;
+}
+categoryCards.innerHTML = CATEGORIES.map(([id,label])=>`
+  <div class="catcard ${id==='all' ? 'active' : ''}" data-cat="${id}">
+    <span class="cc-count">${categoryCount(id)}</span>${label}
+  </div>
+`).join("");
+categoryCards.querySelectorAll(".catcard").forEach(card=>{
+  card.addEventListener("click", ()=>{
+    categoryCards.querySelectorAll(".catcard").forEach(c=>c.classList.remove("active"));
+    card.classList.add("active");
+    activeCategory = card.dataset.cat;
+    renderFaqContainer();
+  });
+});
+
+/* ================= SEARCH (main FAQ search bar) ================= */
+const faqSearchInput = document.getElementById("faqSearchInput");
+const faqSearchClear = document.getElementById("faqSearchClear");
+faqSearchInput.addEventListener("input", ()=>{
+  activeQuery = faqSearchInput.value;
+  faqSearchClear.style.display = activeQuery.trim().length ? "block" : "none";
+  renderFaqContainer();
+});
+faqSearchClear.addEventListener("click", ()=>{
+  faqSearchInput.value = "";
+  activeQuery = "";
+  faqSearchClear.style.display = "none";
+  renderFaqContainer();
+  faqSearchInput.focus();
+});
+
+/* ================= POPULAR QUESTIONS ================= */
+const popularGrid = document.getElementById("popularGrid");
+popularGrid.innerHTML = POPULAR_IDS.map(id=>{
+  const f = faqById(id);
+  if(!f) return "";
+  return `<div class="pop-card reveal in-view" data-id="${f[0]}">
+    <div class="q-icon">?</div>
+    <h4>${f[1]}</h4>
+  </div>`;
+}).join("");
+
+function jumpToFaq(id){
+  activeCategory = "all";
+  activeQuery = "";
+  faqSearchInput.value = "";
+  faqSearchClear.style.display = "none";
+  categoryCards.querySelectorAll(".catcard").forEach(c=>c.classList.remove("active"));
+  categoryCards.querySelector('.catcard[data-cat="all"]').classList.add("active");
+  renderFaqContainer();
+
+  document.getElementById("browse-faqs").scrollIntoView({behavior:"smooth", block:"start"});
+  setTimeout(()=>{
+    const match = document.getElementById("faq-" + id);
+    if(match){
+      match.scrollIntoView({behavior:"smooth", block:"center"});
+      match.classList.add("open");
+      const a = match.querySelector(".faq-a");
+      a.style.maxHeight = a.scrollHeight + "px";
+    }
+  }, 400);
+}
+
+popularGrid.querySelectorAll(".pop-card").forEach(card=>{
+  card.addEventListener("click", ()=>jumpToFaq(card.dataset.id));
+});
+
+/* ================= TICKER ================= */
+const tickerHTML = FAQS.slice(0,10).map(f=>`<span>${f[1]}</span>`).join("");
+document.getElementById("tickerTrack").innerHTML = tickerHTML + tickerHTML;
+
+/* ================= NAV (mobile menu) ================= */
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("navLinks");
+const navOverlay = document.getElementById("navOverlay");
+function openMobileNav(){
+  navLinks.classList.add("open");
+  burger.classList.add("open");
+  navOverlay.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("mobileSearchPanel").classList.remove("open");
+}
+function closeMobileNav(){
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+  navOverlay.classList.remove("show");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", ()=>{
+  if(navLinks.classList.contains("open")) closeMobileNav();
+  else openMobileNav();
+});
+navOverlay.addEventListener("click", closeMobileNav);
+document.querySelectorAll("#navLinks a").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    if(a.id === "legalToggle") return;
+    closeMobileNav();
+  });
+});
+document.getElementById("legalToggle").addEventListener("click",(e)=>{
+  if(window.innerWidth <= 760){
+    e.preventDefault();
+    document.getElementById("legalDrop").classList.toggle("open");
+  }
+});
+
+/* ================= MOBILE SEARCH TOGGLE ================= */
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+const mobileSearchPanel = document.getElementById("mobileSearchPanel");
+mobileSearchBtn.addEventListener("click", ()=>{
+  mobileSearchPanel.classList.toggle("open");
+  closeMobileNav();
+  if(mobileSearchPanel.classList.contains("open")){
+    setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
+  }
+});
+
+/* ================= NAVBAR SEARCH (site-wide quick search over FAQs) ================= */
+function highlight(text, q){
+  if(!q) return text;
+  const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
+  return text.replace(re, "<mark>$1</mark>");
+}
+function buildResultsHTML(query){
+  const q = query.trim().toLowerCase();
+  if(q.length === 0) return {html:"", count:0};
+  const matches = FAQS.filter(f => f[1].toLowerCase().includes(q) || f[2].toLowerCase().includes(q));
+  if(matches.length === 0){
+    return {html:`<div class="sr-empty">No matches for "${query}". Try another keyword or contact us on WhatsApp.</div>`, count:0};
+  }
+  let html = `<div class="sr-group-label">FAQs (${matches.length})</div>`;
+  matches.slice(0,10).forEach(f=>{
+    html += `<div class="sr-item" data-id="${f[0]}">
+      <div>
+        <div class="sr-name">${highlight(f[1],query)}</div>
+        <div class="sr-faq">${highlight(f[2].slice(0,90),query)}${f[2].length>90?"…":""}</div>
+      </div>
+    </div>`;
+  });
+  return {html, count: matches.length};
+}
+function wireSearch(inputId, resultsId){
+  const input = document.getElementById(inputId);
+  const resultsBox = document.getElementById(resultsId);
+  input.addEventListener("input", ()=>{
+    const {html} = buildResultsHTML(input.value);
+    resultsBox.innerHTML = html;
+    resultsBox.classList.toggle("show", input.value.trim().length > 0);
+  });
+  input.addEventListener("focus", ()=>{
+    if(input.value.trim().length > 0) resultsBox.classList.add("show");
+  });
+  resultsBox.addEventListener("click", (e)=>{
+    const item = e.target.closest(".sr-item");
+    if(!item) return;
+    jumpToFaq(item.dataset.id);
+    resultsBox.classList.remove("show");
+    input.value = "";
+    resultsBox.innerHTML = "";
+    document.getElementById("mobileSearchPanel").classList.remove("open");
+  });
+  document.addEventListener("click", (e)=>{
+    if(!input.contains(e.target) && !resultsBox.contains(e.target)){
+      resultsBox.classList.remove("show");
+    }
+  });
+}
+wireSearch("searchInputDesktop","searchResultsDesktop");
+wireSearch("searchInputMobile","searchResultsMobile");
+
+/* ================= SCROLL REVEAL ================= */
+const revealEls = document.querySelectorAll(".reveal");
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("in-view");
+      io.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+requestAnimationFrame(()=>document.getElementById("heroReveal").classList.add("in-view"));
+</script>
+</body>
+</html>
