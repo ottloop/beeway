@@ -79,11 +79,65 @@
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1200px; margin:0 auto;}
-  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px;}
+  .nav{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 24px; max-width:1200px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px; flex-shrink:0;}
   .logo .hex{width:28px;height:28px; position:relative;}
   .logo .hex svg{width:100%;height:100%;}
-  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase;}
+
+  /* Search bar (desktop, inline in nav) */
+  .nav-search{
+    position:relative;
+    flex:1 1 auto;
+    max-width:340px;
+    margin:0 8px;
+  }
+  .nav-search input{
+    width:100%;
+    background:var(--black-soft);
+    border:1px solid var(--line);
+    color:var(--white);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:10px 14px 10px 36px;
+    border-radius:20px;
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .nav-search input:focus{border-color:var(--yellow);}
+  .nav-search input::placeholder{color:var(--text-dim);}
+  .nav-search .icon{
+    position:absolute; left:12px; top:50%; transform:translateY(-50%);
+    width:14px; height:14px; pointer-events:none; opacity:0.6;
+  }
+  .nav-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+
+  .search-results{
+    position:absolute; top:calc(100% + 10px); left:0; right:0;
+    background:var(--panel); border:1px solid var(--line);
+    max-height:420px; overflow-y:auto;
+    display:none; z-index:50;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  }
+  .search-results.show{display:block;}
+  .sr-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--yellow); padding:12px 16px 6px;
+  }
+  .sr-item{
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    padding:11px 16px; border-top:1px solid var(--line); cursor:pointer;
+  }
+  .sr-item:hover{background:var(--black-soft);}
+  .sr-item .sr-name{font-size:13.5px; font-weight:600;}
+  .sr-item .sr-sub{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); margin-top:2px;}
+  .sr-item .sr-price{font-family:'Anton',sans-serif; color:var(--yellow); font-size:15px; flex-shrink:0;}
+  .sr-item .sr-faq{font-size:12.5px; color:var(--text-dim); margin-top:3px; max-width:100%;}
+  .sr-empty{padding:20px 16px; color:var(--text-dim); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+
+  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; flex-shrink:0;}
   .nav-links a{position:relative; padding:6px 0; color:var(--white);}
   .nav-links a:hover{color:var(--yellow);}
   .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
@@ -99,9 +153,29 @@
   .has-drop:hover .drop{opacity:1; visibility:visible; transform:translate(-50%,0);}
   .drop a{display:block; padding:11px 18px; text-transform:none; letter-spacing:0.3px; font-size:13px;}
   .drop a:hover{background:var(--black-soft); color:var(--yellow);}
-  .nav-cta{display:flex; gap:12px;}
-  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
-  .burger span{width:24px;height:2px;background:var(--white);}
+  .nav-cta{display:flex; gap:12px; flex-shrink:0;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; flex-shrink:0;}
+  .burger span{width:24px;height:2px;background:var(--white); transition:transform .2s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* Mobile search toggle button (icon only, shown in mobile nav row) */
+  .mobile-search-btn{
+    display:none; background:none; border:1px solid var(--line); color:var(--white);
+    width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  }
+  .mobile-search-btn svg{width:16px;height:16px;stroke:var(--white);}
+
+  /* Mobile search panel (full width under header) */
+  .mobile-search-panel{
+    display:none;
+    padding:14px 24px 18px;
+    border-bottom:1px solid var(--line);
+    background:var(--black);
+  }
+  .mobile-search-panel.open{display:block;}
+  .mobile-search-panel .nav-search{max-width:none; margin:0;}
 
   /* ===== TICKER ===== */
   .ticker-bar{
@@ -160,6 +234,7 @@
     transition:transform .18s ease, border-color .18s ease;
   }
   .card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .card.highlight{border-color:var(--yellow); box-shadow:0 0 0 2px rgba(255,201,0,0.25);}
   .card .badge{
     position:absolute; top:0; right:0; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600;
     letter-spacing:0.5px; padding:5px 10px; text-transform:uppercase;
@@ -206,6 +281,7 @@
 
   /* ===== FAQ ===== */
   .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item.faq-hidden{display:none;}
   .faq-q{
     display:flex; justify-content:space-between; align-items:center; padding:22px 0; cursor:pointer;
     font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px;
@@ -214,6 +290,7 @@
   .faq-item.open .icon{transform:rotate(45deg);}
   .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
   .faq-a p{padding:0 0 22px; color:var(--text-dim); font-size:15px; max-width:700px;}
+  mark{background:var(--yellow); color:var(--black); padding:0 2px; border-radius:2px;}
 
   /* ===== LEGAL ===== */
   .legal-block{border:1px solid var(--line); background:var(--panel); padding:36px; margin-bottom:24px;}
@@ -253,6 +330,9 @@
   .wa-fab:hover{transform:scale(1.08);}
 
   /* ===== RESPONSIVE ===== */
+  @media(max-width:1050px){
+    .nav-search{max-width:220px;}
+  }
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;}
     .hive{max-width:320px; margin:0 auto;}
@@ -262,14 +342,29 @@
     .contact-grid{grid-template-columns:1fr;}
   }
   @media(max-width:760px){
-    .nav-links{position:fixed; top:73px; left:0; right:0; bottom:0; background:var(--black); flex-direction:column; justify-content:flex-start; padding:36px 24px; gap:22px; transform:translateX(100%); transition:transform .25s ease; overflow-y:auto;}
+    .nav{padding:14px 18px;}
+    .nav-search{display:none;} /* hide inline search on mobile, use the icon toggle instead */
+    .mobile-search-btn{display:flex;}
+    .nav-links{
+      position:fixed; top:0; left:0; right:0; bottom:0; background:var(--black);
+      flex-direction:column; align-items:stretch; justify-content:flex-start;
+      padding:96px 24px 36px; gap:22px;
+      transform:translateX(100%); transition:transform .25s ease;
+      overflow-y:auto; z-index:60;
+    }
     .nav-links.open{transform:translateX(0);}
     .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
     .has-drop.open .drop{display:block;}
+    .nav-links .nav-cta-mobile{display:flex; margin-top:12px;}
     .nav-cta{display:none;}
-    .burger{display:flex;}
+    .burger{display:flex; z-index:70;}
     section{padding:64px 0;}
     .foot-grid{grid-template-columns:1fr;}
+    .mobile-search-panel{padding:12px 18px 16px;}
+  }
+  @media(min-width:761px){
+    .mobile-search-panel{display:none !important;}
+    .nav-cta-mobile{display:none;}
   }
 </style>
 </head>
@@ -278,12 +373,20 @@
 <!-- ===== HEADER ===== -->
 <header>
   <nav class="nav">
-    <a href="#home" class="logo">
+    <a href="https://www.beeway.in/" class="logo">
       <span class="hex">
         <svg viewBox="0 0 100 100"><polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#ffc900" stroke-width="6"/></svg>
       </span>
       BEEWAY
     </a>
+
+    <!-- Desktop inline search -->
+    <div class="nav-search" id="navSearchDesktop">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputDesktop">
+      <div class="search-results" id="searchResultsDesktop"></div>
+    </div>
+
     <ul class="nav-links" id="navLinks">
       <li><a href="https://www.beeway.in/">Home</a></li>
       <li><a href="ott.html">OTT</a></li>
@@ -300,12 +403,32 @@
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
+      <li class="nav-cta-mobile">
+        <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+      </li>
     </ul>
+
     <div class="nav-cta">
       <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
     </div>
+
+    <!-- Mobile search icon toggle -->
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
+
+  <!-- Mobile search panel -->
+  <div class="mobile-search-panel" id="mobileSearchPanel">
+    <div class="nav-search">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputMobile">
+      <div class="search-results" id="searchResultsMobile"></div>
+    </div>
+  </div>
+
   <div class="ticker-bar">
     <div class="ticker-track" id="tickerTrack"></div>
   </div>
@@ -568,17 +691,17 @@
       </div>
       <div class="foot-col">
         <h5>Explore</h5>
-        <a href="#ott">OTT</a>
-        <a href="#tools">Tools</a>
-        <a href="#ps-games">PS Games</a>
-        <a href="#faqs">FAQs</a>
+        <a href="ott.html">OTT</a>
+        <a href="https://tools.ottloop.com/">Tools</a>
+        <a href="psgames.html">PS Games</a>
+        <a href="faqs.html">FAQs</a>
       </div>
       <div class="foot-col">
         <h5>Legal</h5>
-        <a href="#terms">Terms of Service</a>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#refund">Refund Policy</a>
-        <a href="#disclaimer">Legal Disclaimer</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
       </div>
       <div class="foot-col">
         <h5>Contact</h5>
@@ -674,7 +797,8 @@ function cardHTML(item){
   const [name, validity, price, access, stock] = item;
   const stockLabel = stock === "in" ? "In Stock" : "Out of Stock";
   const waText = encodeURIComponent(`Hi Beeway, I want to order: ${name} (${validity}) - ₹${price}`);
-  return `<div class="card" data-stock="${stock}">
+  const idAttr = `data-name="${name.replace(/"/g,'&quot;')}" data-validity="${validity}"`;
+  return `<div class="card" data-stock="${stock}" ${idAttr}>
     <span class="badge ${stock}">${stockLabel}</span>
     <h4>${name}</h4>
     <div class="meta">Validity: ${validity}<span>Access: ${access}</span></div>
@@ -719,7 +843,7 @@ document.getElementById("tickerTrack").innerHTML = tickerHTML + tickerHTML;
 /* ================= FAQ ================= */
 const faqList = document.getElementById("faqList");
 faqList.innerHTML = FAQS.map((f,i)=>`
-  <div class="faq-item" id="faq-${i}">
+  <div class="faq-item" id="faq-${i}" data-question="${f[0].replace(/"/g,'&quot;')}">
     <div class="faq-q"><span>${f[0]}</span><span class="icon">+</span></div>
     <div class="faq-a"><p>${f[1]}</p></div>
   </div>
@@ -739,14 +863,20 @@ document.querySelectorAll(".faq-item").forEach(item=>{
   });
 });
 
-/* ================= NAV ================= */
+/* ================= NAV (mobile menu) ================= */
 const burger = document.getElementById("burger");
 const navLinks = document.getElementById("navLinks");
-burger.addEventListener("click", ()=> navLinks.classList.toggle("open"));
+burger.addEventListener("click", ()=>{
+  navLinks.classList.toggle("open");
+  burger.classList.toggle("open");
+  // close mobile search panel if open
+  document.getElementById("mobileSearchPanel").classList.remove("open");
+});
 document.querySelectorAll("#navLinks a").forEach(a=>{
   a.addEventListener("click", ()=>{
     if(a.id === "legalToggle") return;
     navLinks.classList.remove("open");
+    burger.classList.remove("open");
   });
 });
 document.getElementById("legalToggle").addEventListener("click",(e)=>{
@@ -755,6 +885,160 @@ document.getElementById("legalToggle").addEventListener("click",(e)=>{
     document.getElementById("legalDrop").classList.toggle("open");
   }
 });
+
+/* ================= MOBILE SEARCH TOGGLE ================= */
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+const mobileSearchPanel = document.getElementById("mobileSearchPanel");
+mobileSearchBtn.addEventListener("click", ()=>{
+  mobileSearchPanel.classList.toggle("open");
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+  if(mobileSearchPanel.classList.contains("open")){
+    setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
+  }
+});
+
+/* ================= UNIVERSAL SEARCH ================= */
+function highlight(text, q){
+  if(!q) return text;
+  const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
+  return text.replace(re, "<mark>$1</mark>");
+}
+
+function buildResultsHTML(query){
+  const q = query.trim().toLowerCase();
+  if(q.length === 0){
+    return {html:"", count:0};
+  }
+
+  const ottMatches = OTT.filter(i => i[0].toLowerCase().includes(q));
+  const toolMatches = TOOLS.filter(i => i[0].toLowerCase().includes(q));
+  const faqMatches = FAQS.filter(f => f[0].toLowerCase().includes(q) || f[1].toLowerCase().includes(q));
+
+  const total = ottMatches.length + toolMatches.length + faqMatches.length;
+  if(total === 0){
+    return {html:`<div class="sr-empty">No matches for "${query}". Try another OTT app, tool name, or keyword.</div>`, count:0};
+  }
+
+  let html = "";
+
+  if(ottMatches.length){
+    html += `<div class="sr-group-label">OTT (${ottMatches.length})</div>`;
+    ottMatches.slice(0,8).forEach(item=>{
+      const [name, validity, price, access, stock] = item;
+      html += `<div class="sr-item" data-jump="ott" data-name="${name.replace(/"/g,'&quot;')}">
+        <div>
+          <div class="sr-name">${highlight(name,query)}</div>
+          <div class="sr-sub">${validity} · ${access} · ${stock==="in"?"In Stock":"Out of Stock"}</div>
+        </div>
+        <div class="sr-price">₹${price}</div>
+      </div>`;
+    });
+  }
+
+  if(toolMatches.length){
+    html += `<div class="sr-group-label">Tools (${toolMatches.length})</div>`;
+    toolMatches.slice(0,8).forEach(item=>{
+      const [name, validity, price, access, stock] = item;
+      html += `<div class="sr-item" data-jump="tools" data-name="${name.replace(/"/g,'&quot;')}">
+        <div>
+          <div class="sr-name">${highlight(name,query)}</div>
+          <div class="sr-sub">${validity} · ${access} · ${stock==="in"?"In Stock":"Out of Stock"}</div>
+        </div>
+        <div class="sr-price">₹${price}</div>
+      </div>`;
+    });
+  }
+
+  if(faqMatches.length){
+    html += `<div class="sr-group-label">FAQs (${faqMatches.length})</div>`;
+    faqMatches.slice(0,6).forEach(f=>{
+      html += `<div class="sr-item" data-jump="faqs" data-question="${f[0].replace(/"/g,'&quot;')}">
+        <div>
+          <div class="sr-name">${highlight(f[0],query)}</div>
+          <div class="sr-faq">${highlight(f[1].slice(0,90),query)}${f[1].length>90?"…":""}</div>
+        </div>
+      </div>`;
+    });
+  }
+
+  return {html, count: total};
+}
+
+function jumpToResult(el){
+  const jump = el.dataset.jump;
+  if(jump === "ott" || jump === "tools"){
+    const gridId = jump === "ott" ? "ottGrid" : "toolGrid";
+    const secId = jump === "ott" ? "ott" : "tools";
+    const name = el.dataset.name;
+    document.getElementById(secId).scrollIntoView({behavior:"smooth", block:"start"});
+    document.querySelectorAll(`#${gridId} .card`).forEach(c=>{
+      c.classList.remove("highlight");
+      c.style.display = "";
+      if(c.dataset.name === name){
+        setTimeout(()=>{
+          c.scrollIntoView({behavior:"smooth", block:"center"});
+          c.classList.add("highlight");
+          setTimeout(()=>c.classList.remove("highlight"), 2200);
+        }, 400);
+      }
+    });
+    // reset filter buttons to "all" so the matched card is visible
+    document.querySelectorAll(`#${jump==="ott"?"ottFilters":"toolFilters"} .filter-btn`).forEach(b=>b.classList.remove("active"));
+    document.querySelector(`#${jump==="ott"?"ottFilters":"toolFilters"} .filter-btn[data-filter="all"]`).classList.add("active");
+  } else if(jump === "faqs"){
+    const question = el.dataset.question;
+    document.getElementById("faqs").scrollIntoView({behavior:"smooth", block:"start"});
+    document.querySelectorAll(".faq-item").forEach(item=>{
+      item.classList.remove("open");
+      item.querySelector(".faq-a").style.maxHeight = null;
+    });
+    setTimeout(()=>{
+      const match = [...document.querySelectorAll(".faq-item")].find(i => i.dataset.question === question);
+      if(match){
+        match.scrollIntoView({behavior:"smooth", block:"center"});
+        match.classList.add("open");
+        const a = match.querySelector(".faq-a");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    }, 400);
+  }
+}
+
+function wireSearch(inputId, resultsId){
+  const input = document.getElementById(inputId);
+  const resultsBox = document.getElementById(resultsId);
+
+  input.addEventListener("input", ()=>{
+    const {html, count} = buildResultsHTML(input.value);
+    resultsBox.innerHTML = html;
+    resultsBox.classList.toggle("show", input.value.trim().length > 0);
+  });
+
+  input.addEventListener("focus", ()=>{
+    if(input.value.trim().length > 0) resultsBox.classList.add("show");
+  });
+
+  resultsBox.addEventListener("click", (e)=>{
+    const item = e.target.closest(".sr-item");
+    if(!item) return;
+    jumpToResult(item);
+    resultsBox.classList.remove("show");
+    input.value = "";
+    resultsBox.innerHTML = "";
+    // close mobile panels if applicable
+    document.getElementById("mobileSearchPanel").classList.remove("open");
+  });
+
+  document.addEventListener("click", (e)=>{
+    if(!input.contains(e.target) && !resultsBox.contains(e.target)){
+      resultsBox.classList.remove("show");
+    }
+  });
+}
+
+wireSearch("searchInputDesktop","searchResultsDesktop");
+wireSearch("searchInputMobile","searchResultsMobile");
 </script>
 </body>
 </html>
