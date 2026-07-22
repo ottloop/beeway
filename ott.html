@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTT Subscriptions — Beeway | Netflix, Prime, Hotstar & More</title>
+<meta name="description" content="Beeway OTT — Premium OTT subscriptions at affordable prices. Netflix, Prime Video, Hotstar, SonyLIV, Zee5, Aha, Crunchyroll & more. Instant delivery on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0b0c;
+    --black-soft:#151516;
+    --panel:#1c1c1e;
+    --white:#faf9f5;
+    --yellow:#ffc900;
+    --yellow-dim:#8a6f00;
+    --red:#e8352e;
+    --line:#2c2c2a;
+    --text-dim:#a9a9a3;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    line-height:1.05;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--yellow);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);display:inline-block;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    border:2px solid var(--black);
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+  .btn-primary:hover{background:var(--black); color:var(--yellow); border-color:var(--yellow); transform:translateY(-2px);}
+  .btn-outline{background:transparent; color:var(--white); border-color:var(--white);}
+  .btn-outline:hover{background:var(--white); color:var(--black); transform:translateY(-2px);}
+  .btn-red{background:var(--red); color:var(--white); border-color:var(--red);}
+  .btn-red:hover{background:var(--black); color:var(--red); border-color:var(--red); transform:translateY(-2px);}
+
+  /* ===== HEADER ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(11,11,12,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 24px; max-width:1200px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px; flex-shrink:0;}
+  .logo .hex{width:28px;height:28px; position:relative;}
+  .logo .hex svg{width:100%;height:100%;}
+
+  .nav-search{position:relative; flex:1 1 auto; max-width:340px; margin:0 8px;}
+  .nav-search input{
+    width:100%; background:var(--black-soft); border:1px solid var(--line); color:var(--white);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; padding:10px 14px 10px 36px;
+    border-radius:20px; outline:none; transition:border-color .15s ease;
+  }
+  .nav-search input:focus{border-color:var(--yellow);}
+  .nav-search input::placeholder{color:var(--text-dim);}
+  .nav-search .icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); width:14px; height:14px; pointer-events:none; opacity:0.6;}
+  .nav-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+
+  .search-results{
+    position:absolute; top:calc(100% + 10px); left:0; right:0;
+    background:var(--panel); border:1px solid var(--line); max-height:420px; overflow-y:auto;
+    display:none; z-index:50; box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  }
+  .search-results.show{display:block;}
+  .sr-group-label{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); padding:12px 16px 6px;}
+  .sr-item{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:11px 16px; border-top:1px solid var(--line); cursor:pointer;}
+  .sr-item:hover{background:var(--black-soft);}
+  .sr-item .sr-name{font-size:13.5px; font-weight:600;}
+  .sr-item .sr-sub{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); margin-top:2px;}
+  .sr-item .sr-price{font-family:'Anton',sans-serif; color:var(--yellow); font-size:15px; flex-shrink:0;}
+  .sr-item .sr-faq{font-size:12.5px; color:var(--text-dim); margin-top:3px; max-width:100%;}
+  .sr-empty{padding:20px 16px; color:var(--text-dim); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+
+  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; flex-shrink:0;}
+  .nav-links a{position:relative; padding:6px 0; color:var(--white);}
+  .nav-links a:hover, .nav-links a.active{color:var(--yellow);}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
+  .nav-links a:hover::after, .nav-links a.active::after{width:100%;}
+  .nav-links-mobile{display:none;}
+  .has-drop{position:relative;}
+  .drop{
+    position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
+    background:var(--panel); border:1px solid var(--line); min-width:220px;
+    opacity:0; visibility:hidden; transform:translate(-50%,6px);
+    transition:opacity .18s ease, transform .18s ease; padding:8px 0;
+  }
+  .has-drop:hover .drop{opacity:1; visibility:visible; transform:translate(-50%,0);}
+  .drop a{display:block; padding:11px 18px; text-transform:none; letter-spacing:0.3px; font-size:13px;}
+  .drop a:hover{background:var(--black-soft); color:var(--yellow);}
+  .nav-cta{display:flex; gap:12px; flex-shrink:0;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; flex-shrink:0;}
+  .burger span{width:24px;height:2px;background:var(--white); transition:transform .2s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-search-btn{
+    display:none; background:none; border:1px solid var(--line); color:var(--white);
+    width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  }
+  .mobile-search-btn svg{width:16px;height:16px;stroke:var(--white);}
+
+  .mobile-search-panel{display:none; padding:14px 24px 18px; border-bottom:1px solid var(--line); background:var(--black);}
+  .mobile-search-panel.open{display:block;}
+  .mobile-search-panel .nav-search{max-width:none; margin:0;}
+
+  /* ===== TICKER ===== */
+  .ticker-bar{
+    background:repeating-linear-gradient(135deg, var(--yellow), var(--yellow) 14px, var(--black) 14px, var(--black) 28px);
+    padding:10px 0; overflow:hidden; border-top:1px solid var(--black); border-bottom:1px solid var(--black);
+  }
+  .ticker-track{display:flex; gap:48px; white-space:nowrap; animation:scroll-left 32s linear infinite; width:max-content;}
+  .ticker-track span{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; letter-spacing:0.5px;
+    color:var(--black); background:var(--white); padding:5px 14px; border-radius:20px;
+  }
+  @keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ===== STRIPE DIVIDER ===== */
+  .stripe{height:14px; background:repeating-linear-gradient(-45deg, var(--red), var(--red) 16px, var(--yellow) 16px, var(--yellow) 32px);}
+
+  /* ===== SECTION HEADS ===== */
+  .sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(30px,4vw,48px);}
+  .sec-head p{color:var(--text-dim); max-width:420px; font-size:15px;}
+
+  /* ===== PAGE HERO ===== */
+  .page-hero{
+    padding:170px 0 80px; position:relative; overflow:hidden;
+    background:radial-gradient(circle at 88% 10%, rgba(232,53,46,0.2), transparent 45%), var(--black);
+  }
+  .hex-bg{position:absolute; inset:0; opacity:0.5; pointer-events:none; z-index:0;}
+  .page-hero .wrap{position:relative; z-index:1; text-align:center; max-width:820px;}
+  .page-hero .eyebrow{justify-content:center;}
+  .page-hero h1{font-size:clamp(38px,6vw,64px); color:var(--white);}
+  .page-hero h1 .hl{color:var(--yellow);}
+  .page-hero p.lead{margin:20px auto 0; font-size:17px; color:var(--text-dim); max-width:600px;}
+  .page-hero-actions{display:flex; gap:16px; justify-content:center; margin-top:34px; flex-wrap:wrap;}
+  .highlight-row{
+    display:flex; justify-content:center; gap:28px; flex-wrap:wrap; margin-top:48px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.5px; color:var(--text-dim);
+  }
+  .highlight-row span{display:flex; align-items:center; gap:8px;}
+  .highlight-row .tick{color:var(--yellow); font-weight:700;}
+
+  /* ===== SEARCH & FILTER SECTION ===== */
+  .filter-search-section{padding-top:56px; padding-bottom:0;}
+  .page-search{position:relative; max-width:480px; margin:0 auto 32px;}
+  .page-search input{
+    width:100%; background:var(--panel); border:1px solid var(--line); color:var(--white);
+    font-family:'IBM Plex Mono', monospace; font-size:14px; padding:15px 44px 15px 44px;
+    border-radius:26px; outline:none; transition:border-color .15s ease;
+  }
+  .page-search input:focus{border-color:var(--yellow);}
+  .page-search input::placeholder{color:var(--text-dim);}
+  .page-search .icon{position:absolute; left:16px; top:50%; transform:translateY(-50%); width:16px; height:16px; pointer-events:none; opacity:0.6;}
+  .page-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+  .page-search .clear-btn{position:absolute; right:16px; top:50%; transform:translateY(-50%); cursor:pointer; color:var(--text-dim); font-size:14px;}
+  .page-search .clear-btn:hover{color:var(--white);}
+
+  .filter-groups{display:flex; flex-direction:column; align-items:center; gap:16px;}
+  .filter-row-label{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-dim); margin-bottom:2px;}
+  .filters{display:flex; gap:10px; flex-wrap:wrap; justify-content:center;}
+  .filter-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase;
+    padding:9px 18px; border:1px solid var(--line); background:transparent; color:var(--text-dim);
+    cursor:pointer; border-radius:20px; transition:all .15s ease;
+  }
+  .filter-btn.active, .filter-btn:hover{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+  .filter-btn.avail-btn.active, .filter-btn.avail-btn:hover{background:var(--white); color:var(--black); border-color:var(--white);}
+
+  /* ===== FEATURED PLANS ===== */
+  .featured-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:16px;}
+  .featured-card{
+    background:var(--panel); border:1px solid var(--line); padding:24px 16px; text-align:center;
+    position:relative; transition:transform .18s ease, border-color .18s ease; cursor:pointer;
+  }
+  .featured-card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .featured-card .top-badge{
+    position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+    background:var(--red); color:var(--white); font-family:'IBM Plex Mono',monospace; font-size:9px;
+    letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:12px; white-space:nowrap;
+  }
+  .plat-hex{
+    width:52px; height:52px; margin:8px auto 14px; position:relative; display:grid; place-items:center;
+  }
+  .plat-hex svg{position:absolute; inset:0; width:100%; height:100%;}
+  .plat-hex span{position:relative; font-family:'Anton',sans-serif; font-size:18px; color:var(--yellow);}
+  .featured-card h4{font-size:13px; font-weight:700; text-transform:none; margin-bottom:6px;}
+  .featured-card .from-price{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim);}
+  .featured-card .from-price b{color:var(--yellow); font-family:'Anton',sans-serif; font-size:16px; margin-left:2px;}
+
+  /* ===== PRODUCT GRID ===== */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); padding:22px; position:relative;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .card.highlight{border-color:var(--yellow); box-shadow:0 0 0 2px rgba(255,201,0,0.25);}
+  .card .badge{
+    position:absolute; top:0; right:0; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600;
+    letter-spacing:0.5px; padding:5px 10px; text-transform:uppercase;
+    clip-path:polygon(15% 0,100% 0,100% 100%,0 100%);
+  }
+  .badge.in{background:var(--yellow); color:var(--black);}
+  .badge.out{background:var(--red); color:var(--white);}
+  .card-top{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+  .card-hex{width:38px; height:38px; position:relative; display:grid; place-items:center; flex-shrink:0;}
+  .card-hex svg{position:absolute; inset:0; width:100%; height:100%;}
+  .card-hex span{position:relative; font-family:'Anton',sans-serif; font-size:14px; color:var(--yellow);}
+  .card h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15.5px; text-transform:none; padding-right:52px;}
+  .card .cat-tag{font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px;}
+  .card .feat-list{list-style:none; margin:0 0 14px; padding:0;}
+  .card .feat-list li{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-dim); margin-bottom:5px; display:flex; gap:6px;}
+  .card .feat-list li .tick{color:var(--yellow);}
+  .card .price-row{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:14px;}
+  .card .price{font-family:'Anton',sans-serif; font-size:24px; color:var(--yellow);}
+  .card .price sup{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); margin-left:2px;}
+  .card .order{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:var(--white); border:1px solid var(--white); padding:8px 12px; border-radius:20px;}
+  .card .order:hover{background:var(--white); color:var(--black);}
+
+  /* ===== SERVICES / WHY CHOOSE ===== */
+  .why-band{background:var(--black-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  .why-cell{background:var(--black-soft); padding:36px 30px;}
+  .why-cell .why-icon{width:34px; height:34px; margin-bottom:16px;}
+  .why-cell .why-icon svg{width:100%;height:100%; stroke:var(--yellow); fill:none; stroke-width:1.6;}
+  .why-cell h3{font-size:19px; margin-bottom:10px; color:var(--white);}
+  .why-cell p{color:var(--text-dim); font-size:14px;}
+
+  /* ===== HOW IT WORKS ===== */
+  .steps-row{display:flex; align-items:flex-start; justify-content:space-between; gap:8px;}
+  .step{flex:1; text-align:center; position:relative;}
+  .step-hex{width:64px; height:64px; margin:0 auto 18px; position:relative; display:grid; place-items:center;}
+  .step-hex svg{position:absolute; inset:0; width:100%; height:100%;}
+  .step-hex span{position:relative; font-family:'Anton',sans-serif; font-size:22px; color:var(--yellow);}
+  .step h4{font-size:14px; text-transform:none; font-weight:700; margin-bottom:6px;}
+  .step p{font-size:12.5px; color:var(--text-dim); max-width:150px; margin:0 auto;}
+  .step-arrow{
+    font-family:'IBM Plex Mono',monospace; color:var(--yellow); font-size:20px;
+    align-self:center; padding-top:14px; flex-shrink:0;
+  }
+
+  /* ===== SUPPORTED PLATFORMS ===== */
+  .platform-pills{display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
+  .platform-pill{
+    display:flex; align-items:center; gap:10px; border:1px solid var(--line); background:var(--panel);
+    padding:12px 18px; border-radius:24px; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+    letter-spacing:0.3px; color:var(--white); transition:border-color .15s ease, color .15s ease;
+  }
+  .platform-pill:hover{border-color:var(--yellow); color:var(--yellow);}
+  .platform-pill .dot{width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;}
+
+  /* ===== REVIEWS ===== */
+  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .review-card{background:var(--panel); border:1px solid var(--line); padding:28px;}
+  .review-card .stars{color:var(--yellow); font-size:15px; letter-spacing:2px; margin-bottom:14px;}
+  .review-card p.quote{font-size:15px; color:var(--white); margin-bottom:18px; line-height:1.6;}
+  .review-card .reviewer{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px;}
+
+  /* ===== FAQ ===== */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; padding:22px 0; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px;}
+  .faq-q .icon{font-family:'IBM Plex Mono',monospace; font-size:20px; color:var(--yellow); transition:transform .2s ease;}
+  .faq-item.open .icon{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 0 22px; color:var(--text-dim); font-size:15px; max-width:700px;}
+
+  /* ===== CTA BAND ===== */
+  .cta-band{background:var(--yellow); color:var(--black); text-align:center;}
+  .cta-band h2{font-size:clamp(30px,4.5vw,48px); margin-bottom:14px;}
+  .cta-band p{color:#4a3b00; font-size:16px; margin-bottom:30px;}
+
+  /* ===== RELATED SERVICES ===== */
+  .related-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  .related-card{
+    background:var(--panel); border:1px solid var(--line); padding:28px 18px; text-align:center;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .related-card:hover{transform:translateY(-4px); border-color:var(--yellow);}
+  .related-hex{width:44px; height:44px; margin:0 auto 14px; position:relative; display:grid; place-items:center;}
+  .related-hex svg{position:absolute; inset:0; width:100%; height:100%;}
+  .related-card h4{font-size:13.5px; text-transform:none; font-weight:700;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--black); border-top:1px solid var(--line); padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;}
+  .foot-logo{font-family:'Anton',sans-serif; font-size:24px; margin-bottom:14px;}
+  .foot-col h5{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; color:var(--text-dim); font-size:14px; margin-bottom:10px;}
+  .foot-col a:hover{color:var(--white);}
+  .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);}
+
+  /* ===== WHATSAPP FAB ===== */
+  .wa-fab{
+    position:fixed; bottom:24px; right:24px; z-index:99; width:58px; height:58px; border-radius:50%;
+    background:var(--yellow); color:var(--black); display:grid; place-items:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.4); border:2px solid var(--black); transition:transform .2s ease;
+  }
+  .wa-fab:hover{transform:scale(1.08);}
+
+  mark{background:var(--yellow); color:var(--black); padding:0 2px; border-radius:2px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1050px){
+    .nav-search{max-width:220px;}
+    .featured-grid{grid-template-columns:repeat(3,1fr);}
+    .related-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(max-width:900px){
+    .why-grid{grid-template-columns:1fr;}
+    .reviews-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .steps-row{flex-direction:column; align-items:center; gap:28px;}
+    .step-arrow{transform:rotate(90deg); padding:0;}
+    .step{max-width:280px;}
+  }
+  @media(max-width:760px){
+    .nav{padding:14px 18px; position:relative; z-index:80;}
+    .nav-search{display:none;}
+    .mobile-search-btn{display:flex;}
+    .nav-links-desktop{display:none;}
+    .nav-links-mobile{
+      display:flex; position:fixed; top:0; right:0; left:auto; bottom:0; width:min(82vw, 320px);
+      background:var(--black); flex-direction:column; align-items:stretch; justify-content:flex-start;
+      padding:96px 24px 36px; gap:22px; transform:translateX(100%); transition:transform .28s ease;
+      overflow-y:auto; z-index:65; box-shadow:-8px 0 24px rgba(0,0,0,0.4);
+    }
+    .nav-links-mobile.open{transform:translateX(0);}
+    .nav-links-mobile .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
+    .nav-links-mobile .has-drop.open .drop{display:block;}
+    .nav-links-mobile .nav-cta-mobile{display:flex; margin-top:12px;}
+    .nav-cta{display:none;}
+    .burger{display:flex; z-index:90;}
+    section{padding:64px 0;}
+    .foot-grid{grid-template-columns:1fr;}
+    .mobile-search-panel{padding:12px 18px 16px; position:relative; z-index:80;}
+    .nav-overlay{content:""; position:fixed; inset:0; background:rgba(0,0,0,0.5); opacity:0; visibility:hidden; transition:opacity .25s ease; z-index:55;}
+    .nav-overlay.show{opacity:1; visibility:visible;}
+    .featured-grid{grid-template-columns:repeat(2,1fr);}
+    .related-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:761px){
+    .mobile-search-panel{display:none !important;}
+    .nav-cta-mobile{display:none;}
+    .nav-overlay{display:none !important;}
+    .nav-links-mobile{display:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav class="nav">
+    <a href="https://www.beeway.in/" class="logo">
+      <span class="hex"><svg viewBox="0 0 100 100"><polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#ffc900" stroke-width="6"/></svg></span>
+      BEEWAY
+    </a>
+
+    <div class="nav-search" id="navSearchDesktop">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputDesktop">
+      <div class="search-results" id="searchResultsDesktop"></div>
+    </div>
+
+    <ul class="nav-links nav-links-desktop">
+      <li><a href="https://www.beeway.in/">Home</a></li>
+      <li><a href="ott.html" class="active">OTT</a></li>
+      <li><a href="https://tools.ottloop.com/">Tools</a></li>
+      <li><a href="psgames.html">PS Games</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li class="has-drop" id="legalDropDesktop">
+        <a href="legal.html">Legal ▾</a>
+        <div class="drop">
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="refund.html">Refund Policy</a>
+          <a href="disclaimer.html">Legal Disclaimer</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-search-panel" id="mobileSearchPanel">
+    <div class="nav-search">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputMobile">
+      <div class="search-results" id="searchResultsMobile"></div>
+    </div>
+  </div>
+
+  <div class="ticker-bar"><div class="ticker-track" id="tickerTrack"></div></div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-links nav-links-mobile" id="navLinks">
+  <li><a href="https://www.beeway.in/">Home</a></li>
+  <li><a href="ott.html" class="active">OTT</a></li>
+  <li><a href="https://tools.ottloop.com/">Tools</a></li>
+  <li><a href="psgames.html">PS Games</a></li>
+  <li><a href="faqs.html">FAQs</a></li>
+  <li class="has-drop" id="legalDrop">
+    <a href="legal.html" id="legalToggle">Legal ▾</a>
+    <div class="drop">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="disclaimer.html">Legal Disclaimer</a>
+    </div>
+  </li>
+  <li><a href="contact.html">Contact</a></li>
+  <li class="nav-cta-mobile"><a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a></li>
+</ul>
+
+<!-- ===== 1. HERO ===== -->
+<section class="page-hero" id="home">
+  <svg class="hex-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#ffc900" stroke-width="1" opacity="0.15">
+      <polygon points="1050,60 1110,95 1110,165 1050,200 990,165 990,95"/>
+      <polygon points="1140,150 1200,185 1200,255 1140,290 1080,255 1080,185"/>
+      <polygon points="960,220 1020,255 1020,325 960,360 900,325 900,255"/>
+      <polygon points="1080,290 1140,325 1140,395 1080,430 1020,395 1020,325"/>
+      <polygon points="150,460 210,495 210,565 150,600 90,565 90,495"/>
+      <polygon points="60,340 120,375 120,445 60,480 0,445 0,375"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">OTT Subscriptions</div>
+    <h1>Premium OTT Subscriptions<br>at <span class="hl">Affordable Prices</span></h1>
+    <p class="lead">Netflix, Prime Video, Hotstar, SonyLIV, Zee5, Aha, Crunchyroll &amp; More — genuine access, reseller pricing, delivered to your WhatsApp.</p>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="#products">View Plans</a>
+      <a class="btn btn-outline" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+    <div class="highlight-row">
+      <span><span class="tick">✔</span> Instant Delivery</span>
+      <span><span class="tick">✔</span> Genuine Access</span>
+      <span><span class="tick">✔</span> WhatsApp Support</span>
+      <span><span class="tick">✔</span> Secure Payment</span>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== 2. SEARCH & FILTER ===== -->
+<section class="filter-search-section">
+  <div class="wrap">
+    <div class="page-search">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT Platform..." autocomplete="off" id="ottSearchInput">
+      <span class="clear-btn" id="ottSearchClear" style="display:none;">✕</span>
+    </div>
+    <div class="filter-groups">
+      <div>
+        <div class="filter-row-label">Category</div>
+        <div class="filters" id="catFilters">
+          <button class="filter-btn active" data-cat="all">All</button>
+          <button class="filter-btn" data-cat="streaming">Streaming</button>
+          <button class="filter-btn" data-cat="sports">Sports</button>
+          <button class="filter-btn" data-cat="music">Music</button>
+          <button class="filter-btn" data-cat="anime">Anime</button>
+          <button class="filter-btn" data-cat="kids">Kids</button>
+        </div>
+      </div>
+      <div>
+        <div class="filter-row-label">Availability</div>
+        <div class="filters" id="availFilters">
+          <button class="filter-btn avail-btn active" data-avail="all">All</button>
+          <button class="filter-btn avail-btn" data-avail="in">In Stock</button>
+          <button class="filter-btn avail-btn" data-avail="out">Out of Stock</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. FEATURED PLANS ===== -->
+<section id="featured">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Most Ordered</div>
+        <h2>Top Selling Plans</h2>
+      </div>
+      <p>The platforms our customers order the most, every single week.</p>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== 4. ALL OTT PRODUCTS GRID ===== -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Full Catalog</div>
+        <h2>All OTT Products</h2>
+      </div>
+      <p>Live stock &amp; prices from our current OTTLOOP list. Tap a card to order that plan on WhatsApp.</p>
+    </div>
+    <div class="grid" id="ottGrid"></div>
+    <div class="sr-empty" id="ottNoResults" style="display:none; padding:24px 0 0;">No OTT platform matches your search/filters.</div>
+  </div>
+</section>
+
+<!-- ===== 5. WHY CHOOSE BEEWAY ===== -->
+<div class="why-band">
+  <div class="wrap" style="padding:88px 24px 0;">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">The Beeway Difference</div>
+        <h2>Why Choose Beeway</h2>
+      </div>
+      <p>Six reasons customers keep coming back to reorder.</p>
+    </div>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ===== 6. HOW IT WORKS ===== -->
+<section id="how-it-works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">5 Simple Steps</div>
+        <h2>How It Works</h2>
+      </div>
+      <p>From choosing a plan to streaming — usually done within the hour.</p>
+    </div>
+    <div class="steps-row" id="stepsRow"></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== 7. SUPPORTED PLATFORMS ===== -->
+<section id="supported-platforms">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center; text-align:center; flex-direction:column; align-items:center;">
+      <div class="eyebrow">One Hive, Every Platform</div>
+      <h2>Supported Platforms</h2>
+    </div>
+    <div class="platform-pills" id="platformPills"></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== 8. CUSTOMER REVIEWS ===== -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Real Customers</div>
+        <h2>Customer Reviews</h2>
+      </div>
+      <p>What people say after ordering from Beeway.</p>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== 9. FAQS ===== -->
+<section id="faqs">
+  <div class="wrap" style="max-width:820px;">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Good to know</div>
+        <h2>FAQs</h2>
+      </div>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- ===== 10. CTA SECTION ===== -->
+<section class="cta-band">
+  <div class="wrap" style="max-width:640px;">
+    <h2>Need Help Choosing?</h2>
+    <p>Message us on WhatsApp — we'll help you pick the right plan and get it delivered fast.</p>
+    <a class="btn" style="background:var(--black); color:var(--yellow); border-color:var(--black);" href="https://wa.me/917382680200" target="_blank" rel="noopener">Chat on WhatsApp</a>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== 11. RELATED SERVICES ===== -->
+<section id="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Explore More</div>
+        <h2>Related Services</h2>
+      </div>
+      <p>Everything else in the hive, beyond streaming.</p>
+    </div>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 12. FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">BEEWAY</div>
+        <p style="max-width:280px;">Your one hive for OTT subscriptions, digital tools, marketing services and PS4/PS5 games — genuine access, reseller prices.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <a href="https://www.beeway.in/">Home</a>
+        <a href="ott.html">OTT</a>
+        <a href="https://tools.ottloop.com/">Tools</a>
+        <a href="psgames.html">PS Games</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/917382680200" target="_blank" rel="noopener">+91 73826 80200</a>
+        <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">WhatsApp Community</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Beeway.in — All rights reserved.</span>
+      <span>Built for the hive 🐝</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/917382680200" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#0b0b0c"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.9 7.9 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.3 3.1 13.6 13.6 0 0 0 5.2 4.6c.7.3 1.3.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.3 17L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.3 8.3 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+/* ================= DATA ================= */
+const OTT = [
+  {name:"NETFLIX PREMIUM", validity:"1M", price:199, access:"Customer Mail", stock:"in", category:"streaming", warranty:true},
+  {name:"HOTSTAR SUPER", validity:"1M", price:75, access:"Customer Number", stock:"in", category:"streaming", warranty:true},
+  {name:"HOTSTAR SUPER", validity:"1Y", price:569, access:"Customer Number", stock:"in", category:"streaming", warranty:true},
+  {name:"CRUNCHYROLL (FAN)", validity:"1M", price:75, access:"My Mail", stock:"in", category:"anime", warranty:true},
+  {name:"AHA", validity:"1M", price:69, access:"My Mail", stock:"in", category:"streaming", warranty:true},
+  {name:"SONYLIV", validity:"1Y", price:349, access:"Customer Number", stock:"out", category:"streaming", warranty:true},
+  {name:"SONYLIV", validity:"1M", price:75, access:"Customer Number", stock:"in", category:"streaming", warranty:true},
+  {name:"ZEE5", validity:"1Y", price:349, access:"Customer Number", stock:"in", category:"streaming", warranty:true},
+  {name:"PRIME VIDEO", validity:"1M", price:79, access:"My Mail", stock:"out", category:"streaming", warranty:true},
+  {name:"PRIME VIDEO", validity:"1Y", price:949, access:"Customer Mail", stock:"in", category:"streaming", warranty:true},
+  {name:"GAANA", validity:"1Y", price:349, access:"Customer Number", stock:"out", category:"music", warranty:true},
+  {name:"APPLE TV+", validity:"6M", price:449, access:"Redeem Code", stock:"in", category:"streaming", warranty:true},
+  {name:"APPLE MUSIC", validity:"6M", price:449, access:"Redeem Code", stock:"in", category:"music", warranty:true},
+  {name:"YOUTUBE PREMIUM (FAM)", validity:"1M", price:99, access:"My Mail", stock:"out", category:"streaming", warranty:true},
+  {name:"FANCODE", validity:"1Y", price:899, access:"Customer Number", stock:"in", category:"sports", warranty:true},
+  {name:"SUN NXT", validity:"1M", price:79, access:"Customer Number", stock:"in", category:"streaming", warranty:true},
+  {name:"WATCHO", validity:"6M", price:549, access:"Customer Number", stock:"out", category:"kids", warranty:true},
+  {name:"HOICHOI", validity:"1M", price:75, access:"Customer Number", stock:"in", category:"streaming", warranty:true},
+];
+
+const FEATURED_NAMES = ["NETFLIX PREMIUM","PRIME VIDEO","HOTSTAR SUPER","YOUTUBE PREMIUM (FAM)","SONYLIV","ZEE5"];
+
+const SUPPORTED_PLATFORMS = [
+  "Netflix","Prime Video","Disney+ Hotstar","SonyLIV","Zee5","Aha","Crunchyroll",
+  "Apple TV+","Apple Music","Sun NXT","Hoichoi","FanCode","YouTube Premium","Gaana","Watcho"
+];
+
+const WHY_CHOOSE = [
+  ["Instant WhatsApp Delivery","Most orders are delivered within minutes, right in your WhatsApp chat — no waiting around."],
+  ["Affordable Pricing","Reseller pricing on every plan means you pay a fraction of what the official app charges."],
+  ["Trusted by Customers","Hundreds of repeat orders every month from customers who keep coming back."],
+  ["Warranty Support","Every plan is covered for its full validity — free replacement if something stops working."],
+  ["Secure Payments","UPI and bank transfer, confirmed directly with you before anything is shared."],
+  ["Fast Customer Support","Real replies on WhatsApp, not a bot — usually within minutes during working hours."],
+];
+
+const HOW_IT_WORKS = [
+  ["1","Choose Subscription","Browse the catalog and pick the plan that fits you."],
+  ["2","Order on WhatsApp","Tap order — it opens WhatsApp with your plan pre-filled."],
+  ["3","Complete Payment","Pay via UPI or bank transfer, confirmed directly with us."],
+  ["4","Receive Login Details","Get your access details sent straight to your chat."],
+  ["5","Start Streaming","Log in and start watching — usually within the hour."],
+];
+
+const REVIEWS = [
+  ["Instant delivery within 5 minutes.", "Priya S."],
+  ["Best reseller prices.", "Rahul M."],
+  ["Genuine accounts and great support.", "Anitha K."],
+];
+
+const FAQS = [
+  ["How long does delivery take?","Most OTT subscriptions are delivered within 15–60 minutes of payment during working hours. Anything delayed beyond the promised time is refunded or replaced."],
+  ["What is Customer Mail?","\"Customer Mail\" means the subscription is activated directly on your own email address, so it's fully in your control from day one."],
+  ["What is My Mail?","\"My Mail\" means the account stays on Beeway's own email and you're given login access to use it."],
+  ["Is there warranty?","Yes — every plan is covered for its full validity period. If access stops working before validity ends (and it isn't due to a password/settings change on your side), message us for a free replacement."],
+  ["Which payment methods are accepted?","UPI and bank transfer, shared directly with you when you message us on WhatsApp to place an order."],
+  ["How do I renew?","Just message us on WhatsApp before your current plan expires and we'll set up the renewal — no need to place a fresh order from scratch."],
+];
+
+const RELATED_SERVICES = [
+  ["Digital Tools", "https://tools.ottloop.com/"],
+  ["PS4 Games", "psgames.html"],
+  ["PS5 Games", "psgames.html"],
+  ["Gift Cards", "contact.html"],
+  ["Digital Marketing", "contact.html"],
+];
+
+/* ================= HEX ICON HELPER ================= */
+function hexSVG(strokeColor){
+  return `<svg viewBox="0 0 100 100"><polygon points="50,4 92,26 92,74 50,96 8,74 8,26" fill="none" stroke="${strokeColor}" stroke-width="5"/></svg>`;
+}
+
+/* ================= RENDER: FEATURED PLANS ================= */
+function renderFeatured(){
+  const grid = document.getElementById("featuredGrid");
+  grid.innerHTML = FEATURED_NAMES.map(name=>{
+    const matches = OTT.filter(i=>i.name===name);
+    const cheapest = matches.reduce((a,b)=> (a.price<b.price?a:b));
+    const initial = name.replace(/\(.*\)/,"").trim().charAt(0);
+    return `<div class="featured-card" data-jump-name="${name}">
+      <span class="top-badge">Top Seller</span>
+      <div class="plat-hex">${hexSVG("#ffc900")}<span>${initial}</span></div>
+      <h4>${name.replace(/\(.*\)/,"").trim()}</h4>
+      <div class="from-price">From <b>₹${cheapest.price}</b></div>
+    </div>`;
+  }).join("");
+  grid.querySelectorAll(".featured-card").forEach(card=>{
+    card.addEventListener("click", ()=>{
+      const name = card.dataset.jumpName;
+      document.getElementById("ottSearchInput").value = name.split(" ")[0];
+      applyOttFilters();
+      document.getElementById("products").scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+}
+
+/* ================= RENDER: PRODUCT GRID ================= */
+function cardHTML(item){
+  const {name, validity, price, access, stock, category, warranty} = item;
+  const stockLabel = stock === "in" ? "In Stock" : "Out of Stock";
+  const waText = encodeURIComponent(`Hi Beeway, I want to order: ${name} (${validity}) - ₹${price}`);
+  const initial = name.replace(/\(.*\)/,"").trim().charAt(0);
+  return `<div class="card" data-stock="${stock}" data-category="${category}" data-name="${name.replace(/"/g,'&quot;')}">
+    <span class="badge ${stock}">${stockLabel}</span>
+    <div class="card-top">
+      <div class="card-hex">${hexSVG("#ffc900")}<span>${initial}</span></div>
+      <div>
+        <h4>${name}</h4>
+        <div class="cat-tag">${category}</div>
+      </div>
+    </div>
+    <ul class="feat-list">
+      <li><span class="tick">✔</span> Validity : ${validity}</li>
+      <li><span class="tick">✔</span> Access : ${access}</li>
+      ${warranty ? '<li><span class="tick">✔</span> Warranty Available</li>' : ''}
+    </ul>
+    <div class="price-row">
+      <div class="price">₹${price}<sup>/${validity}</sup></div>
+      <a class="order" href="https://wa.me/917382680200?text=${waText}" target="_blank" rel="noopener">Order Now</a>
+    </div>
+  </div>`;
+}
+function renderGrid(){
+  document.getElementById("ottGrid").innerHTML = OTT.map(cardHTML).join("");
+}
+
+/* ================= RENDER: WHY CHOOSE ================= */
+function renderWhy(){
+  document.getElementById("whyGrid").innerHTML = WHY_CHOOSE.map(([title,desc])=>`
+    <div class="why-cell">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><polygon points="12,2 22,7.5 22,16.5 12,22 2,16.5 2,7.5"/></svg></div>
+      <h3>${title}</h3>
+      <p>${desc}</p>
+    </div>
+  `).join("");
+}
+
+/* ================= RENDER: HOW IT WORKS ================= */
+function renderSteps(){
+  const row = document.getElementById("stepsRow");
+  row.innerHTML = HOW_IT_WORKS.map(([num,title,desc],i)=>{
+    const arrow = i < HOW_IT_WORKS.length-1 ? `<div class="step-arrow">→</div>` : "";
+    return `<div class="step">
+      <div class="step-hex">${hexSVG("#ffc900")}<span>${num}</span></div>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>${arrow}`;
+  }).join("");
+}
+
+/* ================= RENDER: SUPPORTED PLATFORMS ================= */
+function renderPlatforms(){
+  document.getElementById("platformPills").innerHTML = SUPPORTED_PLATFORMS.map(p=>`
+    <div class="platform-pill"><span class="dot"></span>${p}</div>
+  `).join("");
+}
+
+/* ================= RENDER: REVIEWS ================= */
+function renderReviews(){
+  document.getElementById("reviewsGrid").innerHTML = REVIEWS.map(([quote,name])=>`
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"${quote}"</p>
+      <div class="reviewer">${name}</div>
+    </div>
+  `).join("");
+}
+
+/* ================= RENDER: FAQ ================= */
+function renderFAQ(){
+  const faqList = document.getElementById("faqList");
+  faqList.innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}" data-question="${f[0].replace(/"/g,'&quot;')}">
+      <div class="faq-q"><span>${f[0]}</span><span class="icon">+</span></div>
+      <div class="faq-a"><p>${f[1]}</p></div>
+    </div>
+  `).join("");
+  document.querySelectorAll(".faq-item").forEach(item=>{
+    item.querySelector(".faq-q").addEventListener("click", ()=>{
+      const wasOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(i=>{
+        i.classList.remove("open");
+        i.querySelector(".faq-a").style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add("open");
+        const a = item.querySelector(".faq-a");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    });
+  });
+}
+
+/* ================= RENDER: RELATED SERVICES ================= */
+function renderRelated(){
+  document.getElementById("relatedGrid").innerHTML = RELATED_SERVICES.map(([name,href])=>`
+    <a class="related-card" href="${href}">
+      <div class="related-hex">${hexSVG("#ffc900")}</div>
+      <h4>${name}</h4>
+    </a>
+  `).join("");
+}
+
+/* ================= INITIAL RENDER ================= */
+renderFeatured();
+renderGrid();
+renderWhy();
+renderSteps();
+renderPlatforms();
+renderReviews();
+renderFAQ();
+renderRelated();
+
+/* ================= TICKER ================= */
+const tickerItems = OTT.filter(i=>i.stock==="in").slice(0,14);
+const tickerHTML = tickerItems.map(i=>`<span>${i.name} · ₹${i.price}/${i.validity}</span>`).join("");
+document.getElementById("tickerTrack").innerHTML = tickerHTML + tickerHTML;
+
+/* ================= NAV (mobile menu) ================= */
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("navLinks");
+const navOverlay = document.getElementById("navOverlay");
+
+function openMobileNav(){
+  navLinks.classList.add("open");
+  burger.classList.add("open");
+  navOverlay.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("mobileSearchPanel").classList.remove("open");
+}
+function closeMobileNav(){
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+  navOverlay.classList.remove("show");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", ()=>{
+  if(navLinks.classList.contains("open")) closeMobileNav();
+  else openMobileNav();
+});
+navOverlay.addEventListener("click", closeMobileNav);
+document.querySelectorAll("#navLinks a").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    if(a.id === "legalToggle") return;
+    closeMobileNav();
+  });
+});
+document.getElementById("legalToggle").addEventListener("click",(e)=>{
+  if(window.innerWidth <= 760){
+    e.preventDefault();
+    document.getElementById("legalDrop").classList.toggle("open");
+  }
+});
+
+/* ================= MOBILE SEARCH TOGGLE ================= */
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+const mobileSearchPanel = document.getElementById("mobileSearchPanel");
+mobileSearchBtn.addEventListener("click", ()=>{
+  mobileSearchPanel.classList.toggle("open");
+  closeMobileNav();
+  if(mobileSearchPanel.classList.contains("open")){
+    setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
+  }
+});
+
+/* ================= HEADER UNIVERSAL SEARCH (OTT + FAQs) ================= */
+function highlight(text, q){
+  if(!q) return text;
+  const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
+  return text.replace(re, "<mark>$1</mark>");
+}
+function buildResultsHTML(query){
+  const q = query.trim().toLowerCase();
+  if(q.length === 0) return {html:"", count:0};
+  const ottMatches = OTT.filter(i => i.name.toLowerCase().includes(q));
+  const faqMatches = FAQS.filter(f => f[0].toLowerCase().includes(q) || f[1].toLowerCase().includes(q));
+  const total = ottMatches.length + faqMatches.length;
+  if(total === 0) return {html:`<div class="sr-empty">No matches for "${query}".</div>`, count:0};
+  let html = "";
+  if(ottMatches.length){
+    html += `<div class="sr-group-label">OTT (${ottMatches.length})</div>`;
+    ottMatches.slice(0,8).forEach(item=>{
+      html += `<div class="sr-item" data-jump="ott" data-name="${item.name.replace(/"/g,'&quot;')}">
+        <div>
+          <div class="sr-name">${highlight(item.name,query)}</div>
+          <div class="sr-sub">${item.validity} · ${item.access} · ${item.stock==="in"?"In Stock":"Out of Stock"}</div>
+        </div>
+        <div class="sr-price">₹${item.price}</div>
+      </div>`;
+    });
+  }
+  if(faqMatches.length){
+    html += `<div class="sr-group-label">FAQs (${faqMatches.length})</div>`;
+    faqMatches.slice(0,6).forEach(f=>{
+      html += `<div class="sr-item" data-jump="faqs" data-question="${f[0].replace(/"/g,'&quot;')}">
+        <div>
+          <div class="sr-name">${highlight(f[0],query)}</div>
+          <div class="sr-faq">${highlight(f[1].slice(0,90),query)}${f[1].length>90?"…":""}</div>
+        </div>
+      </div>`;
+    });
+  }
+  return {html, count: total};
+}
+function jumpToResult(el){
+  const jump = el.dataset.jump;
+  if(jump === "ott"){
+    const name = el.dataset.name;
+    document.getElementById("ottSearchInput").value = name;
+    applyOttFilters();
+    document.getElementById("products").scrollIntoView({behavior:"smooth", block:"start"});
+    setTimeout(()=>{
+      const match = [...document.querySelectorAll("#ottGrid .card")].find(c => c.dataset.name === name);
+      if(match){
+        match.scrollIntoView({behavior:"smooth", block:"center"});
+        match.classList.add("highlight");
+        setTimeout(()=>match.classList.remove("highlight"), 2200);
+      }
+    }, 400);
+  } else if(jump === "faqs"){
+    const question = el.dataset.question;
+    document.getElementById("faqs").scrollIntoView({behavior:"smooth", block:"start"});
+    document.querySelectorAll(".faq-item").forEach(item=>{
+      item.classList.remove("open");
+      item.querySelector(".faq-a").style.maxHeight = null;
+    });
+    setTimeout(()=>{
+      const match = [...document.querySelectorAll(".faq-item")].find(i => i.dataset.question === question);
+      if(match){
+        match.scrollIntoView({behavior:"smooth", block:"center"});
+        match.classList.add("open");
+        const a = match.querySelector(".faq-a");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    }, 400);
+  }
+}
+function wireSearch(inputId, resultsId){
+  const input = document.getElementById(inputId);
+  const resultsBox = document.getElementById(resultsId);
+  input.addEventListener("input", ()=>{
+    const {html} = buildResultsHTML(input.value);
+    resultsBox.innerHTML = html;
+    resultsBox.classList.toggle("show", input.value.trim().length > 0);
+  });
+  input.addEventListener("focus", ()=>{
+    if(input.value.trim().length > 0) resultsBox.classList.add("show");
+  });
+  resultsBox.addEventListener("click", (e)=>{
+    const item = e.target.closest(".sr-item");
+    if(!item) return;
+    jumpToResult(item);
+    resultsBox.classList.remove("show");
+    input.value = "";
+    resultsBox.innerHTML = "";
+    document.getElementById("mobileSearchPanel").classList.remove("open");
+  });
+  document.addEventListener("click", (e)=>{
+    if(!input.contains(e.target) && !resultsBox.contains(e.target)){
+      resultsBox.classList.remove("show");
+    }
+  });
+}
+wireSearch("searchInputDesktop","searchResultsDesktop");
+wireSearch("searchInputMobile","searchResultsMobile");
+
+/* ================= SECTION 2: SEARCH & FILTER (drives products grid) ================= */
+const ottSearchInput = document.getElementById("ottSearchInput");
+const ottSearchClear = document.getElementById("ottSearchClear");
+const ottNoResults = document.getElementById("ottNoResults");
+let activeCategory = "all";
+let activeAvailability = "all";
+
+function applyOttFilters(){
+  const q = ottSearchInput.value.trim().toLowerCase();
+  ottSearchClear.style.display = q.length ? "block" : "none";
+
+  let visibleCount = 0;
+  document.querySelectorAll("#ottGrid .card").forEach(card=>{
+    const name = (card.dataset.name || "").toLowerCase();
+    const matchesText = q.length === 0 || name.includes(q);
+    const matchesCat = activeCategory === "all" || card.dataset.category === activeCategory;
+    const matchesAvail = activeAvailability === "all" || card.dataset.stock === activeAvailability;
+    const show = matchesText && matchesCat && matchesAvail;
+    card.style.display = show ? "" : "none";
+    if(show) visibleCount++;
+  });
+  ottNoResults.style.display = visibleCount === 0 ? "block" : "none";
+}
+ottSearchInput.addEventListener("input", applyOttFilters);
+ottSearchClear.addEventListener("click", ()=>{
+  ottSearchInput.value = "";
+  applyOttFilters();
+  ottSearchInput.focus();
+});
+document.querySelectorAll("#catFilters .filter-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("#catFilters .filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCategory = btn.dataset.cat;
+    applyOttFilters();
+  });
+});
+document.querySelectorAll("#availFilters .filter-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("#availFilters .filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    activeAvailability = btn.dataset.avail;
+    applyOttFilters();
+  });
+});
+</script>
+</body>
+</html>
