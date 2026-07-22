@@ -142,6 +142,7 @@
   .nav-links a:hover{color:var(--yellow);}
   .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
   .nav-links a:hover::after{width:100%;}
+  .nav-links-mobile{display:none;} /* hidden on desktop; shown as fixed drawer only inside the mobile media query below */
   .has-drop{position:relative;}
   .drop{
     position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
@@ -217,6 +218,35 @@
   .sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
   .sec-head h2{font-size:clamp(30px,4vw,48px);}
   .sec-head p{color:var(--text-dim); max-width:420px; font-size:15px;}
+
+  /* ===== IN-SECTION SEARCH (e.g. Streaming/OTT) ===== */
+  .section-search{
+    position:relative; max-width:420px; margin-bottom:24px;
+  }
+  .section-search input{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line);
+    color:var(--white);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    padding:13px 40px 13px 40px;
+    border-radius:24px;
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .section-search input:focus{border-color:var(--yellow);}
+  .section-search input::placeholder{color:var(--text-dim);}
+  .section-search .icon{
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    width:15px; height:15px; pointer-events:none; opacity:0.6;
+  }
+  .section-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+  .section-search .clear-btn{
+    position:absolute; right:14px; top:50%; transform:translateY(-50%);
+    cursor:pointer; color:var(--text-dim); font-size:13px;
+  }
+  .section-search .clear-btn:hover{color:var(--white);}
 
   /* ===== FILTER TABS ===== */
   .filters{display:flex; gap:10px; margin-bottom:32px; flex-wrap:wrap;}
@@ -342,29 +372,45 @@
     .contact-grid{grid-template-columns:1fr;}
   }
   @media(max-width:760px){
-    .nav{padding:14px 18px;}
+    .nav{padding:14px 18px; position:relative; z-index:80;}
     .nav-search{display:none;} /* hide inline search on mobile, use the icon toggle instead */
     .mobile-search-btn{display:flex;}
-    .nav-links{
-      position:fixed; top:0; left:0; right:0; bottom:0; background:var(--black);
+    .nav-links-desktop{display:none;} /* the hover-dropdown version stays hidden on mobile */
+    .nav-links-mobile{
+      display:flex;
+      position:fixed; top:0; right:0; left:auto; bottom:0;
+      width:min(82vw, 320px);
+      background:var(--black);
       flex-direction:column; align-items:stretch; justify-content:flex-start;
       padding:96px 24px 36px; gap:22px;
-      transform:translateX(100%); transition:transform .25s ease;
-      overflow-y:auto; z-index:60;
+      transform:translateX(100%);
+      transition:transform .28s ease;
+      overflow-y:auto; z-index:65;
+      box-shadow:-8px 0 24px rgba(0,0,0,0.4);
     }
-    .nav-links.open{transform:translateX(0);}
-    .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
-    .has-drop.open .drop{display:block;}
-    .nav-links .nav-cta-mobile{display:flex; margin-top:12px;}
+    .nav-links-mobile.open{transform:translateX(0);}
+    .nav-links-mobile .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
+    .nav-links-mobile .has-drop.open .drop{display:block;}
+    .nav-links-mobile .nav-cta-mobile{display:flex; margin-top:12px;}
     .nav-cta{display:none;}
-    .burger{display:flex; z-index:70;}
+    .burger{display:flex; z-index:90;}
     section{padding:64px 0;}
     .foot-grid{grid-template-columns:1fr;}
-    .mobile-search-panel{padding:12px 18px 16px;}
+    .mobile-search-panel{padding:12px 18px 16px; position:relative; z-index:80;}
+
+    /* dark overlay behind the drawer */
+    .nav-overlay{
+      content:""; position:fixed; inset:0; background:rgba(0,0,0,0.5);
+      opacity:0; visibility:hidden; transition:opacity .25s ease;
+      z-index:55;
+    }
+    .nav-overlay.show{opacity:1; visibility:visible;}
   }
   @media(min-width:761px){
     .mobile-search-panel{display:none !important;}
     .nav-cta-mobile{display:none;}
+    .nav-overlay{display:none !important;}
+    .nav-links-mobile{display:none !important;}
   }
 </style>
 </head>
@@ -387,14 +433,15 @@
       <div class="search-results" id="searchResultsDesktop"></div>
     </div>
 
-    <ul class="nav-links" id="navLinks">
+    <!-- Desktop-only nav links live here; on mobile these are duplicated in the fixed drawer below (outside header) so position:fixed isn't broken by header's backdrop-filter -->
+    <ul class="nav-links nav-links-desktop">
       <li><a href="https://www.beeway.in/">Home</a></li>
       <li><a href="ott.html">OTT</a></li>
       <li><a href="https://tools.ottloop.com/">Tools</a></li>
       <li><a href="psgames.html">PS Games</a></li>
       <li><a href="faqs.html">FAQs</a></li>
-      <li class="has-drop" id="legalDrop">
-        <a href="legal.html" id="legalToggle">Legal ▾</a>
+      <li class="has-drop" id="legalDropDesktop">
+        <a href="legal.html">Legal ▾</a>
         <div class="drop">
           <a href="terms.html">Terms of Service</a>
           <a href="privacy.html">Privacy Policy</a>
@@ -403,9 +450,6 @@
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
-      <li class="nav-cta-mobile">
-        <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
-      </li>
     </ul>
 
     <div class="nav-cta">
@@ -428,6 +472,34 @@
       <div class="search-results" id="searchResultsMobile"></div>
     </div>
   </div>
+</header>
+
+<!-- Mobile nav drawer + overlay: kept OUTSIDE <header> on purpose.
+     header has backdrop-filter, which creates a new containing block for
+     any position:fixed descendant — that was clipping the drawer to the
+     header's own (short) height instead of the full viewport. -->
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-links nav-links-mobile" id="navLinks">
+  <li><a href="https://www.beeway.in/">Home</a></li>
+  <li><a href="ott.html">OTT</a></li>
+  <li><a href="https://tools.ottloop.com/">Tools</a></li>
+  <li><a href="psgames.html">PS Games</a></li>
+  <li><a href="faqs.html">FAQs</a></li>
+  <li class="has-drop" id="legalDrop">
+    <a href="legal.html" id="legalToggle">Legal ▾</a>
+    <div class="drop">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="disclaimer.html">Legal Disclaimer</a>
+    </div>
+  </li>
+  <li><a href="contact.html">Contact</a></li>
+  <li class="nav-cta-mobile">
+    <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </li>
+</ul>
+
 
   <div class="ticker-bar">
     <div class="ticker-track" id="tickerTrack"></div>
@@ -488,12 +560,18 @@
       </div>
       <p>Live stock &amp; prices from our current OTTLOOP list. Tap a card to order that plan on WhatsApp.</p>
     </div>
+    <div class="section-search" id="ottSectionSearch">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input type="text" placeholder="Search OTT platforms (Netflix, Hotstar, Zee5...)" autocomplete="off" id="ottSearchInput">
+      <span class="clear-btn" id="ottSearchClear" style="display:none;">✕</span>
+    </div>
     <div class="filters" id="ottFilters">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="in">In Stock</button>
       <button class="filter-btn" data-filter="out">Out of Stock</button>
     </div>
     <div class="grid" id="ottGrid"></div>
+    <div class="sr-empty" id="ottNoResults" style="display:none; padding:24px 0 0;">No OTT platform matches your search.</div>
   </div>
 </section>
 
@@ -818,12 +896,13 @@ renderGrid("toolGrid", TOOLS);
 document.getElementById("ottCount").textContent = OTT.length + "+";
 document.getElementById("toolCount").textContent = TOOLS.length + "+";
 
-function wireFilters(filterId, gridId){
+function wireFilters(filterId, gridId, skipDisplayToggle){
   const buttons = document.querySelectorAll(`#${filterId} .filter-btn`);
   buttons.forEach(btn=>{
     btn.addEventListener("click", ()=>{
       buttons.forEach(b=>b.classList.remove("active"));
       btn.classList.add("active");
+      if(skipDisplayToggle) return; // OTT grid display is handled by applyOttSectionSearch instead
       const f = btn.dataset.filter;
       document.querySelectorAll(`#${gridId} .card`).forEach(card=>{
         const show = f === "all" || card.dataset.stock === f;
@@ -832,8 +911,8 @@ function wireFilters(filterId, gridId){
     });
   });
 }
-wireFilters("ottFilters","ottGrid");
-wireFilters("toolFilters","toolGrid");
+wireFilters("ottFilters","ottGrid", true);
+wireFilters("toolFilters","toolGrid", false);
 
 /* ================= TICKER ================= */
 const tickerItems = [...OTT, ...TOOLS].filter(i=>i[4]==="in").slice(0,14);
@@ -866,17 +945,30 @@ document.querySelectorAll(".faq-item").forEach(item=>{
 /* ================= NAV (mobile menu) ================= */
 const burger = document.getElementById("burger");
 const navLinks = document.getElementById("navLinks");
-burger.addEventListener("click", ()=>{
-  navLinks.classList.toggle("open");
-  burger.classList.toggle("open");
-  // close mobile search panel if open
+const navOverlay = document.getElementById("navOverlay");
+
+function openMobileNav(){
+  navLinks.classList.add("open");
+  burger.classList.add("open");
+  navOverlay.classList.add("show");
+  document.body.style.overflow = "hidden";
   document.getElementById("mobileSearchPanel").classList.remove("open");
+}
+function closeMobileNav(){
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+  navOverlay.classList.remove("show");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", ()=>{
+  if(navLinks.classList.contains("open")) closeMobileNav();
+  else openMobileNav();
 });
+navOverlay.addEventListener("click", closeMobileNav);
 document.querySelectorAll("#navLinks a").forEach(a=>{
   a.addEventListener("click", ()=>{
     if(a.id === "legalToggle") return;
-    navLinks.classList.remove("open");
-    burger.classList.remove("open");
+    closeMobileNav();
   });
 });
 document.getElementById("legalToggle").addEventListener("click",(e)=>{
@@ -891,8 +983,7 @@ const mobileSearchBtn = document.getElementById("mobileSearchBtn");
 const mobileSearchPanel = document.getElementById("mobileSearchPanel");
 mobileSearchBtn.addEventListener("click", ()=>{
   mobileSearchPanel.classList.toggle("open");
-  navLinks.classList.remove("open");
-  burger.classList.remove("open");
+  closeMobileNav();
   if(mobileSearchPanel.classList.contains("open")){
     setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
   }
@@ -1039,6 +1130,43 @@ function wireSearch(inputId, resultsId){
 
 wireSearch("searchInputDesktop","searchResultsDesktop");
 wireSearch("searchInputMobile","searchResultsMobile");
+
+/* ================= OTT SECTION SEARCH ================= */
+const ottSearchInput = document.getElementById("ottSearchInput");
+const ottSearchClear = document.getElementById("ottSearchClear");
+const ottNoResults = document.getElementById("ottNoResults");
+
+function applyOttSectionSearch(){
+  const q = ottSearchInput.value.trim().toLowerCase();
+  ottSearchClear.style.display = q.length ? "block" : "none";
+
+  const activeFilterBtn = document.querySelector("#ottFilters .filter-btn.active");
+  const stockFilter = activeFilterBtn ? activeFilterBtn.dataset.filter : "all";
+
+  let visibleCount = 0;
+  document.querySelectorAll("#ottGrid .card").forEach(card=>{
+    const name = (card.dataset.name || "").toLowerCase();
+    const matchesText = q.length === 0 || name.includes(q);
+    const matchesStock = stockFilter === "all" || card.dataset.stock === stockFilter;
+    const show = matchesText && matchesStock;
+    card.style.display = show ? "" : "none";
+    if(show) visibleCount++;
+  });
+
+  ottNoResults.style.display = visibleCount === 0 ? "block" : "none";
+}
+
+ottSearchInput.addEventListener("input", applyOttSectionSearch);
+ottSearchClear.addEventListener("click", ()=>{
+  ottSearchInput.value = "";
+  applyOttSectionSearch();
+  ottSearchInput.focus();
+});
+
+// re-apply text filter whenever a stock filter button is clicked
+document.querySelectorAll("#ottFilters .filter-btn").forEach(btn=>{
+  btn.addEventListener("click", applyOttSectionSearch);
+});
 </script>
 </body>
 </html>
