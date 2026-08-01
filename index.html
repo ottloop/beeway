@@ -1,1172 +1,1620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beeway — OTT Subscriptions, Digital Tools & PS Games</title>
-<meta name="description" content="Beeway.in — Cheapest OTT subscriptions, AI & productivity tools, digital marketing services and PS4/PS5 games. Order on WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OTTLoop — OTT Subscriptions, Digital Tools & Marketing Services</title>
+<meta name="description" content="OTTLoop — genuine OTT subscriptions, digital tools & software, and digital marketing services at the best prices. Fast delivery, real support." />
 <style>
-  :root{
-    --black:#0b0b0c;
-    --black-soft:#151516;
-    --panel:#1c1c1e;
-    --white:#faf9f5;
-    --yellow:#ffc900;
-    --yellow-dim:#8a6f00;
-    --red:#e8352e;
-    --line:#2c2c2a;
-    --text-dim:#a9a9a3;
-    --radius:2px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--black);
-    color:var(--white);
-    font-family:'Space Grotesk', sans-serif;
-    line-height:1.5;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,.display{
-    font-family:'Anton', sans-serif;
-    font-weight:400;
-    text-transform:uppercase;
-    letter-spacing:0.5px;
-    line-height:1.05;
-  }
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit; text-decoration:none;}
-  ul{list-style:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
-  section{padding:88px 0;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:var(--yellow);
-    display:flex; align-items:center; gap:10px;
-    margin-bottom:16px;
-  }
-  .eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);display:inline-block;}
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:14px 26px;
-    font-family:'IBM Plex Mono', monospace;
-    font-weight:600;
-    font-size:14px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    border:2px solid var(--black);
-    border-radius:var(--radius);
-    cursor:pointer;
-    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
-  }
-  .btn-primary{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
-  .btn-primary:hover{background:var(--black); color:var(--yellow); border-color:var(--yellow); transform:translateY(-2px);}
-  .btn-outline{background:transparent; color:var(--white); border-color:var(--white);}
-  .btn-outline:hover{background:var(--white); color:var(--black); transform:translateY(-2px);}
-  .btn-red{background:var(--red); color:var(--white); border-color:var(--red);}
-  .btn-red:hover{background:var(--black); color:var(--red); border-color:var(--red); transform:translateY(-2px);}
+/* ============================================================
+   OTTLOOP — STYLE SHEET
+   Palette : Blue / Red / White / Black (brand-locked)
+   Type    : Space Grotesk (display) + Inter (body) + IBM Plex Mono (data)
+   Motif   : Broadcast ticker + "subscription pass" ticket cards
+   ============================================================ */
 
-  /* ===== HEADER ===== */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(11,11,12,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-    padding:16px 24px; max-width:1200px; margin:0 auto;
-  }
-  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:1px; flex-shrink:0;}
-  .logo .hex{width:28px;height:28px; position:relative;}
-  .logo .hex svg{width:100%;height:100%;}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
-  /* Search bar (desktop, inline in nav) */
-  .nav-search{
-    position:relative;
-    flex:1 1 auto;
-    max-width:340px;
-    margin:0 8px;
-  }
-  .nav-search input{
-    width:100%;
-    background:var(--black-soft);
-    border:1px solid var(--line);
-    color:var(--white);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    padding:10px 14px 10px 36px;
-    border-radius:20px;
-    outline:none;
-    transition:border-color .15s ease;
-  }
-  .nav-search input:focus{border-color:var(--yellow);}
-  .nav-search input::placeholder{color:var(--text-dim);}
-  .nav-search .icon{
-    position:absolute; left:12px; top:50%; transform:translateY(-50%);
-    width:14px; height:14px; pointer-events:none; opacity:0.6;
-  }
-  .nav-search .icon svg{width:100%;height:100%;stroke:var(--white);}
+:root{
+  --navy:      #0A1A3C;
+  --navy-2:    #0E2255;
+  --blue:      #1D4ED8;
+  --blue-2:    #2F6FFF;
+  --red:       #E11D2E;
+  --red-2:     #FF3B4E;
+  --black:     #0B0B0D;
+  --white:     #FFFFFF;
+  --paper:     #F4F6FB;
+  --ink:       #10131A;
+  --ink-soft:  #4A5170;
+  --line:      rgba(10,26,60,.12);
+  --line-soft: rgba(10,26,60,.07);
 
-  .search-results{
-    position:absolute; top:calc(100% + 10px); left:0; right:0;
-    background:var(--panel); border:1px solid var(--line);
-    max-height:420px; overflow-y:auto;
-    display:none; z-index:50;
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
-  }
-  .search-results.show{display:block;}
-  .sr-group-label{
-    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
-    color:var(--yellow); padding:12px 16px 6px;
-  }
-  .sr-item{
-    display:flex; justify-content:space-between; align-items:center; gap:10px;
-    padding:11px 16px; border-top:1px solid var(--line); cursor:pointer;
-  }
-  .sr-item:hover{background:var(--black-soft);}
-  .sr-item .sr-name{font-size:13.5px; font-weight:600;}
-  .sr-item .sr-sub{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); margin-top:2px;}
-  .sr-item .sr-price{font-family:'Anton',sans-serif; color:var(--yellow); font-size:15px; flex-shrink:0;}
-  .sr-item .sr-faq{font-size:12.5px; color:var(--text-dim); margin-top:3px; max-width:100%;}
-  .sr-empty{padding:20px 16px; color:var(--text-dim); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 
-  .nav-links{display:flex; align-items:center; gap:32px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; flex-shrink:0;}
-  .nav-links a{position:relative; padding:6px 0; color:var(--white);}
-  .nav-links a:hover{color:var(--yellow);}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .2s ease;}
-  .nav-links a:hover::after{width:100%;}
-  .nav-links-mobile{display:none;} /* hidden on desktop; shown as fixed drawer only inside the mobile media query below */
-  .has-drop{position:relative;}
-  .drop{
-    position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
-    background:var(--panel); border:1px solid var(--line); min-width:220px;
-    opacity:0; visibility:hidden; transform:translate(-50%,6px);
-    transition:opacity .18s ease, transform .18s ease;
-    padding:8px 0;
-  }
-  .has-drop:hover .drop{opacity:1; visibility:visible; transform:translate(-50%,0);}
-  .drop a{display:block; padding:11px 18px; text-transform:none; letter-spacing:0.3px; font-size:13px;}
-  .drop a:hover{background:var(--black-soft); color:var(--yellow);}
-  .nav-cta{display:flex; gap:12px; flex-shrink:0;}
-  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; flex-shrink:0;}
-  .burger span{width:24px;height:2px;background:var(--white); transition:transform .2s ease, opacity .2s ease;}
-  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .burger.open span:nth-child(2){opacity:0;}
-  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 12px 32px rgba(10,26,60,.10);
+  --shadow-lg: 0 24px 60px rgba(10,26,60,.18);
+  --nav-h: 72px;
+  --topbar-h: 40px;
+}
 
-  /* Mobile search toggle button (icon only, shown in mobile nav row) */
-  .mobile-search-btn{
-    display:none; background:none; border:1px solid var(--line); color:var(--white);
-    width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
-  }
-  .mobile-search-btn svg{width:16px;height:16px;stroke:var(--white);}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top: calc(var(--nav-h) + var(--topbar-h) + 12px); }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+html{ overflow-x: hidden; }
 
-  /* Mobile search panel (full width under header) */
-  .mobile-search-panel{
-    display:none;
-    padding:14px 24px 18px;
-    border-bottom:1px solid var(--line);
-    background:var(--black);
-  }
-  .mobile-search-panel.open{display:block;}
-  .mobile-search-panel .nav-search{max-width:none; margin:0;}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+input,textarea{ font-family:inherit; }
+section{ overflow: hidden; }
 
-  /* ===== TICKER ===== */
-  .ticker-bar{
-    background:repeating-linear-gradient(135deg, var(--yellow), var(--yellow) 14px, var(--black) 14px, var(--black) 28px);
-    padding:10px 0; overflow:hidden; border-top:1px solid var(--black); border-bottom:1px solid var(--black);
-  }
-  .ticker-track{display:flex; gap:48px; white-space:nowrap; animation:scroll-left 32s linear infinite; width:max-content;}
-  .ticker-track span{
-    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; letter-spacing:0.5px;
-    color:var(--black); background:var(--white); padding:5px 14px; border-radius:20px;
-  }
-  @keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+.container{
+  width:100%;
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 24px;
+}
 
-  /* ===== HERO ===== */
-  .hero{
-    padding:170px 0 90px;
-    position:relative;
-    background:
-      radial-gradient(circle at 85% 15%, rgba(232,53,46,0.18), transparent 45%),
-      var(--black);
-    overflow:hidden;
-  }
-  .hex-bg{position:absolute; inset:0; opacity:0.5; pointer-events:none; z-index:0;}
-  .hero .wrap{position:relative; z-index:1;}
-  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;}
-  .hero h1{font-size:clamp(44px,6.2vw,84px); color:var(--white);}
-  .hero h1 .hl{color:var(--yellow);}
-  .hero p.lead{margin-top:22px; font-size:18px; color:var(--text-dim); max-width:520px;}
-  .hero-actions{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
-  .hero-stats{display:flex; gap:32px; margin-top:52px; flex-wrap:wrap;}
-  .stat b{font-family:'Anton',sans-serif; font-size:32px; color:var(--yellow); display:block;}
-  .stat span{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); letter-spacing:1px; text-transform:uppercase;}
-  .hive{
-    position:relative; aspect-ratio:1/1; display:grid; place-items:center;
-  }
-  .hive-comb{width:100%; height:100%;}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family: var(--font-mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color: var(--blue);
+  font-weight:600;
+}
+.eyebrow::before{
+  content:"";
+  width:7px; height:7px; border-radius:50%;
+  background: var(--red);
+  box-shadow: 0 0 0 4px rgba(225,29,46,.15);
+}
 
-  /* ===== SECTION HEADS ===== */
-  .sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
-  .sec-head h2{font-size:clamp(30px,4vw,48px);}
-  .sec-head p{color:var(--text-dim); max-width:420px; font-size:15px;}
+h1,h2,h3,h4{ font-family: var(--font-display); color: var(--navy); margin:0; line-height:1.08; }
+h2{ font-size: clamp(28px,4vw,42px); font-weight:700; letter-spacing:-.01em; }
+h3{ font-size: 20px; font-weight:600; }
+p{ margin:0; color: var(--ink-soft); line-height:1.65; }
 
-  /* ===== IN-SECTION SEARCH (e.g. Streaming/OTT) ===== */
-  .section-search{
-    position:relative; max-width:420px; margin-bottom:24px;
-  }
-  .section-search input{
-    width:100%;
-    background:var(--panel);
-    border:1px solid var(--line);
-    color:var(--white);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13.5px;
-    padding:13px 40px 13px 40px;
-    border-radius:24px;
-    outline:none;
-    transition:border-color .15s ease;
-  }
-  .section-search input:focus{border-color:var(--yellow);}
-  .section-search input::placeholder{color:var(--text-dim);}
-  .section-search .icon{
-    position:absolute; left:14px; top:50%; transform:translateY(-50%);
-    width:15px; height:15px; pointer-events:none; opacity:0.6;
-  }
-  .section-search .icon svg{width:100%;height:100%;stroke:var(--white);}
-  .section-search .clear-btn{
-    position:absolute; right:14px; top:50%; transform:translateY(-50%);
-    cursor:pointer; color:var(--text-dim); font-size:13px;
-  }
-  .section-search .clear-btn:hover{color:var(--white);}
+.section-head{ max-width:640px; margin-bottom:40px; }
+.section-head p{ margin-top:12px; font-size:16px; }
 
-  /* ===== FILTER TABS ===== */
-  .filters{display:flex; gap:10px; margin-bottom:32px; flex-wrap:wrap;}
-  .filter-btn{
-    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase;
-    padding:9px 18px; border:1px solid var(--line); background:transparent; color:var(--text-dim);
-    cursor:pointer; border-radius:20px; transition:all .15s ease;
-  }
-  .filter-btn.active, .filter-btn:hover{background:var(--yellow); color:var(--black); border-color:var(--yellow);}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 26px;
+  border-radius: 999px;
+  font-weight:600; font-size:14.5px;
+  border:1.5px solid transparent;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+.btn:active{ transform: scale(.97); }
+.btn-primary{ background: var(--red); color:var(--white); box-shadow: 0 10px 24px rgba(225,29,46,.28); }
+.btn-primary:hover{ background: var(--red-2); box-shadow: 0 12px 28px rgba(225,29,46,.38); transform: translateY(-1px); }
+.btn-navy{ background: var(--navy); color: var(--white); }
+.btn-navy:hover{ background: var(--blue); transform: translateY(-1px); }
+.btn-outline{ background: transparent; color: var(--navy); border-color: var(--line); }
+.btn-outline:hover{ border-color: var(--blue); color: var(--blue); }
+.btn-ghost-white{ background: rgba(255,255,255,.08); color:var(--white); border-color: rgba(255,255,255,.28); }
+.btn-ghost-white:hover{ background: rgba(255,255,255,.16); }
+.btn-sm{ padding:9px 18px; font-size:13px; }
+.btn-block{ width:100%; }
 
-  /* ===== PRODUCT GRID ===== */
-  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:18px;}
-  .card{
-    background:var(--panel); border:1px solid var(--line); padding:22px; position:relative;
-    transition:transform .18s ease, border-color .18s ease;
-  }
-  .card:hover{transform:translateY(-4px); border-color:var(--yellow);}
-  .card.highlight{border-color:var(--yellow); box-shadow:0 0 0 2px rgba(255,201,0,0.25);}
-  .card .badge{
-    position:absolute; top:0; right:0; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600;
-    letter-spacing:0.5px; padding:5px 10px; text-transform:uppercase;
-    clip-path:polygon(15% 0,100% 0,100% 100%,0 100%);
-  }
-  .badge.in{background:var(--yellow); color:var(--black);}
-  .badge.out{background:var(--red); color:var(--white);}
-  .card h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; margin-bottom:6px; padding-right:60px; text-transform:none;}
-  .card .meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:14px;}
-  .card .meta span{display:block; margin-top:3px;}
-  .card .price-row{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:14px;}
-  .card .price{font-family:'Anton',sans-serif; font-size:24px; color:var(--yellow);}
-  .card .price sup{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); margin-left:2px;}
-  .card .order{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:var(--white); border:1px solid var(--white); padding:8px 12px; border-radius:20px;}
-  .card .order:hover{background:var(--white); color:var(--black);}
+/* ============ TOP UTILITY BAR ============ */
+.topbar{
+  background: var(--black);
+  color: rgba(255,255,255,.85);
+  height: var(--topbar-h);
+  position: sticky; top:0; z-index:60;
+}
+.topbar .container{
+  height:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+}
+.topbar-socials{ display:flex; align-items:center; gap:14px; flex:0 0 auto; }
+.topbar-socials a{
+  width:26px; height:26px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  transition: background .18s ease, transform .18s ease;
+}
+.topbar-socials a:hover{ background: var(--blue); transform: translateY(-1px); }
+.topbar-socials svg{ width:13px; height:13px; }
 
-  .see-more{text-align:center; margin-top:36px;}
+.topbar-search{
+  flex:1 1 auto;
+  max-width:420px;
+  margin:0 auto;
+  position:relative;
+}
+.topbar-search form{
+  display:flex; align-items:center; gap:8px;
+  background: rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  padding:5px 6px 5px 14px;
+}
+.topbar-search input{
+  flex:1; background:transparent; border:0; outline:0;
+  color:#fff; font-size:12.5px;
+}
+.topbar-search input::placeholder{ color: rgba(255,255,255,.5); }
+.topbar-search svg{ width:14px; height:14px; color: rgba(255,255,255,.6); flex:0 0 auto; }
+.topbar-search button{
+  background: var(--blue); color:#fff; border:0;
+  border-radius:999px; padding:6px 14px; font-size:11.5px; font-weight:600;
+}
+.topbar-search button:hover{ background: var(--blue-2); }
 
-  /* ===== STRIPE DIVIDER ===== */
-  .stripe{height:14px; background:repeating-linear-gradient(-45deg, var(--red), var(--red) 16px, var(--yellow) 16px, var(--yellow) 32px);}
+.topbar-tag{
+  flex:0 0 auto;
+  font-family: var(--font-mono);
+  font-size:11px;
+  color: rgba(255,255,255,.55);
+  letter-spacing:.04em;
+}
 
-  /* ===== SERVICES (marketing) ===== */
-  .services-band{background:var(--black-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
-  .service-cell{background:var(--black-soft); padding:36px 30px;}
-  .service-cell .num{font-family:'IBM Plex Mono',monospace; color:var(--red); font-size:13px; letter-spacing:1px;}
-  .service-cell h3{font-size:22px; margin:14px 0 12px; color:var(--white);}
-  .service-cell p{color:var(--text-dim); font-size:14px;}
+/* Search results dropdown */
+.search-results{
+  position:absolute;
+  top: calc(100% + 10px);
+  left:0; right:0;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-height: 420px;
+  overflow-y:auto;
+  padding:10px;
+  display:none;
+  z-index: 80;
+}
+.search-results.active{ display:block; }
+.sr-group-label{
+  font-family: var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color: var(--blue);
+  padding:10px 10px 4px;
+}
+.sr-item{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:10px; border-radius:10px;
+  color: var(--ink);
+}
+.sr-item:hover{ background: var(--paper); }
+.sr-item-name{ font-weight:600; font-size:13.5px; color:var(--navy); }
+.sr-item-meta{ font-size:11.5px; color: var(--ink-soft); font-family: var(--font-mono); }
+.sr-item-price{ font-family: var(--font-mono); font-weight:600; font-size:13px; color: var(--red); flex:0 0 auto; }
+.sr-empty{ padding:18px 10px; font-size:13px; color: var(--ink-soft); text-align:center; }
+.sr-faq-q{ font-weight:600; font-size:13px; color:var(--navy); }
+.sr-faq-a{ font-size:12px; color:var(--ink-soft); margin-top:2px; }
 
-  /* ===== PS GAMES ===== */
-  .ps-section{position:relative;}
-  .ps-wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
-  .ps-cat-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
-  .ps-cat{
-    border:1px solid var(--line); padding:22px 18px; text-align:center; background:var(--panel);
-    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--text-dim);
-    transition:all .15s ease;
+/* ============ NAVBAR ============ */
+.navbar{
+  background: var(--white);
+  border-bottom:1px solid var(--line-soft);
+  position: sticky; top: var(--topbar-h); z-index:55;
+  height: var(--nav-h);
+}
+.navbar .container{
+  height:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:20px;
+}
+.brand{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.brand-mark{
+  width:42px; height:42px; border-radius:11px;
+  background: linear-gradient(145deg, var(--blue) 0%, var(--navy) 100%);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family: var(--font-display); font-weight:700; font-size:18px;
+  position:relative;
+  box-shadow: 0 6px 16px rgba(29,78,216,.3);
+}
+.brand-mark::after{
+  content:"";
+  position:absolute; right:-2px; bottom:-2px;
+  width:11px; height:11px; border-radius:50%;
+  background: var(--red); border:2px solid #fff;
+}
+.brand-name{ font-family: var(--font-display); font-weight:700; font-size:20px; color:var(--navy); letter-spacing:-.01em; }
+.brand-name span{ color: var(--blue); }
+
+.nav-menu{ display:flex; align-items:center; gap:2px; flex:1 1 auto; justify-content:center; }
+.nav-menu > li{ position:relative; }
+.nav-link{
+  display:flex; align-items:center; gap:5px;
+  padding:10px 16px; border-radius:8px;
+  font-weight:600; font-size:14.5px; color: var(--ink);
+  transition: color .15s ease, background .15s ease;
+}
+.nav-link:hover, .nav-link.active{ color: var(--blue); background: rgba(29,78,216,.07); }
+.nav-link svg{ width:13px; height:13px; transition: transform .18s ease; }
+.has-dropdown:hover .nav-link svg{ transform: rotate(180deg); }
+
+.dropdown{
+  position:absolute; top: calc(100% + 8px); left:0;
+  min-width:230px;
+  background:#fff; border-radius:12px; border:1px solid var(--line-soft);
+  box-shadow: var(--shadow-lg);
+  padding:8px;
+  opacity:0; visibility:hidden; transform: translateY(6px);
+  transition: all .18s ease;
+  z-index:70;
+}
+.has-dropdown:hover .dropdown, .has-dropdown.open .dropdown{
+  opacity:1; visibility:visible; transform: translateY(0);
+}
+.dropdown a{
+  display:block; padding:10px 12px; border-radius:8px;
+  font-size:13.5px; font-weight:500; color: var(--ink);
+}
+.dropdown a:hover{ background: var(--paper); color: var(--blue); }
+
+.nav-actions{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.nav-actions .btn-primary svg{ width:15px; height:15px; }
+
+.nav-toggle{
+  display:none; flex-direction:column; gap:5px;
+  width:38px; height:38px; border-radius:9px;
+  align-items:center; justify-content:center;
+  background: var(--paper); border:1px solid var(--line-soft);
+}
+.nav-toggle span{ width:18px; height:2px; background: var(--navy); border-radius:2px; transition: all .2s ease; }
+.nav-toggle.active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2){ opacity:0; }
+.nav-toggle.active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu is off by default; the media query below turns it into a fixed panel on small screens. Without this base rule it sits in normal document flow on desktop and blocks clicks on sections beneath the navbar. */
+.mobile-menu{ display:none; }
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  background: radial-gradient(1100px 520px at 82% -10%, rgba(47,111,255,.35), transparent 60%), var(--navy);
+  padding: 76px 0 0;
+  color:#fff;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns: 1.05fr .95fr; gap:48px; align-items:center;
+  padding-bottom:64px;
+}
+.hero-copy h1{ color:#fff; font-size: clamp(34px, 5vw, 56px); }
+.hero-copy h1 .hl{ color: var(--red-2); }
+.hero-copy p{ color: rgba(255,255,255,.7); font-size:17px; margin-top:18px; max-width:480px; }
+.hero-cta{ display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; }
+.hero-stats{ display:flex; gap:28px; margin-top:40px; flex-wrap:wrap; }
+.hero-stat b{ display:block; font-family: var(--font-display); font-size:26px; color:#fff; }
+.hero-stat span{ font-size:12.5px; color: rgba(255,255,255,.55); font-family: var(--font-mono); }
+
+/* hero visual: mock "channel guide" panel */
+.hero-panel{
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  padding:20px;
+  backdrop-filter: blur(6px);
+}
+.hero-panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.hero-panel-head b{ color:#fff; font-family: var(--font-mono); font-size:12px; letter-spacing:.08em; }
+.live-pill{
+  display:inline-flex; align-items:center; gap:6px;
+  background: rgba(225,29,46,.18); color: var(--red-2);
+  font-family: var(--font-mono); font-size:10.5px; font-weight:600;
+  padding:4px 10px; border-radius:999px; letter-spacing:.06em;
+}
+.live-pill::before{ content:""; width:6px; height:6px; border-radius:50%; background: var(--red-2); animation: pulse 1.4s infinite; }
+@keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+.hero-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 4px; border-bottom:1px dashed rgba(255,255,255,.14);
+  font-size:13.5px;
+}
+.hero-row:last-child{ border-bottom:0; }
+.hero-row-name{ color:#fff; font-weight:600; }
+.hero-row-meta{ color: rgba(255,255,255,.5); font-family: var(--font-mono); font-size:11.5px; }
+.hero-row-price{ font-family: var(--font-mono); color: var(--blue-2); font-weight:600; }
+.stock-dot{ width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:6px; }
+.stock-dot.in{ background:#3CE07B; } .stock-dot.out{ background: var(--red-2); }
+
+/* ============ TICKER ============ */
+.ticker-wrap{
+  background: var(--blue);
+  border-top:1px solid rgba(255,255,255,.15);
+  overflow:hidden;
+  position:relative;
+}
+.ticker-track{
+  display:flex; gap:40px; white-space:nowrap;
+  padding:12px 0;
+  animation: ticker 32s linear infinite;
+  width:max-content;
+}
+.ticker-wrap:hover .ticker-track{ animation-play-state: paused; }
+@keyframes ticker{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.ticker-item{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--font-mono); font-size:12.5px; color:#fff; font-weight:500;
+}
+.ticker-item b{ color:#fff; }
+.ticker-item .dot{ width:6px; height:6px; border-radius:50%; }
+.ticker-item .dot.in{ background:#3CE07B; } .ticker-item .dot.out{ background: var(--red-2); }
+
+/* ============ SERVICES ============ */
+.services{ padding:88px 0; background:#fff; }
+.services-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:20px; }
+.service-card{
+  border:1px solid var(--line-soft); border-radius: var(--radius);
+  padding:28px 24px; background: var(--white);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  display:flex; flex-direction:column; gap:14px;
+}
+.service-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
+.service-icon{
+  width:46px; height:46px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  background: var(--navy); color:#fff;
+}
+.service-icon svg{ width:22px; height:22px; }
+.service-card:nth-child(2) .service-icon{ background: var(--blue); }
+.service-card:nth-child(3) .service-icon{ background: var(--red); }
+.service-card:nth-child(4) .service-icon{ background: var(--navy-2); }
+.service-card h3{ font-size:17.5px; }
+.service-card p{ font-size:13.5px; }
+.service-card .link-arrow{ margin-top:auto; font-size:13px; font-weight:600; color: var(--blue); display:flex; align-items:center; gap:6px; }
+.service-card:hover .link-arrow svg{ transform: translateX(3px); }
+.link-arrow svg{ width:14px; height:14px; transition: transform .18s ease; }
+
+/* ============ CATALOGUE ============ */
+.catalogue{ padding: 88px 0 100px; background: var(--paper); }
+.cat-head-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:34px; }
+.cat-tabs{ display:flex; gap:8px; flex-wrap:wrap; }
+.cat-tab{
+  padding:9px 18px; border-radius:999px; font-size:13.5px; font-weight:600;
+  background:#fff; border:1px solid var(--line); color: var(--ink-soft);
+  transition: all .18s ease;
+}
+.cat-tab.active, .cat-tab:hover{ background: var(--navy); color:#fff; border-color: var(--navy); }
+
+.product-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
+.product-card{
+  background:#fff; border-radius: var(--radius); overflow:hidden;
+  border:1px solid var(--line-soft);
+  box-shadow: 0 2px 8px rgba(10,26,60,.03);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display:flex; flex-direction:column;
+}
+.product-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+.pc-top{ padding:18px 18px 14px; display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+.pc-name{ font-family: var(--font-display); font-weight:700; font-size:15.5px; color: var(--navy); line-height:1.3; }
+.pc-badge{
+  flex:0 0 auto; font-family: var(--font-mono); font-size:10px; font-weight:600;
+  padding:4px 9px; border-radius:999px; white-space:nowrap; letter-spacing:.03em;
+}
+.pc-badge.in{ background: rgba(60,224,123,.15); color:#1a9c52; }
+.pc-badge.out{ background: rgba(225,29,46,.1); color: var(--red); }
+.pc-perf{
+  position:relative;
+  border-top:1.5px dashed var(--line);
+  margin:0 18px;
+}
+.pc-perf::before, .pc-perf::after{
+  content:""; position:absolute; top:-8px; width:16px; height:16px; border-radius:50%;
+  background: var(--paper); border:1px solid var(--line-soft);
+}
+.pc-perf::before{ left:-26px; }
+.pc-perf::after{ right:-26px; }
+.pc-bottom{ padding:14px 18px 18px; display:flex; justify-content:space-between; align-items:flex-end; gap:10px; }
+.pc-meta{ display:flex; flex-direction:column; gap:4px; }
+.pc-meta-row{ font-family: var(--font-mono); font-size:11px; color: var(--ink-soft); }
+.pc-meta-row b{ color: var(--navy); font-weight:600; }
+.pc-price{ text-align:right; }
+.pc-price b{ font-family: var(--font-mono); font-size:20px; color: var(--red); font-weight:700; }
+.pc-price span{ display:block; font-size:10.5px; color: var(--ink-soft); font-family: var(--font-mono); }
+
+.cat-footer{ display:flex; justify-content:center; margin-top:38px; }
+
+/* ============ ABOUT ============ */
+.about{ padding:90px 0; background:#fff; }
+.about-grid{ display:grid; grid-template-columns: .9fr 1.1fr; gap:56px; align-items:center; }
+.about-visual{
+  background: var(--navy); border-radius:20px; padding:30px;
+  position:relative; aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center;
+}
+.about-visual-ring{
+  width:78%; aspect-ratio:1/1; border-radius:50%;
+  border:1.5px dashed rgba(255,255,255,.25);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.about-visual-core{
+  width:56%; aspect-ratio:1/1; border-radius:50%;
+  background: linear-gradient(145deg, var(--blue), var(--navy-2));
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family: var(--font-display); font-weight:700; font-size:15px;
+  text-align:center; box-shadow: 0 20px 50px rgba(29,78,216,.4);
+  flex-direction:column; gap:4px;
+}
+.orbit-badge{
+  position:absolute; background:#fff; border-radius:10px; padding:8px 12px;
+  font-family: var(--font-mono); font-size:11px; font-weight:600; color: var(--navy);
+  box-shadow: var(--shadow); display:flex; align-items:center; gap:6px;
+}
+.orbit-badge span{ width:6px; height:6px; border-radius:50%; background: var(--red); }
+.orbit-badge.b1{ top:-4%; right:6%; }
+.orbit-badge.b2{ bottom:6%; left:-8%; }
+.orbit-badge.b3{ bottom:-2%; right:14%; }
+
+.about-copy .stat-strip{ display:flex; gap:30px; margin:26px 0; flex-wrap:wrap; }
+.stat-strip div b{ display:block; font-family: var(--font-display); font-size:26px; color: var(--navy); }
+.stat-strip div span{ font-size:12px; color: var(--ink-soft); font-family: var(--font-mono); }
+.about-copy p + p{ margin-top:14px; }
+.rating-btn{ margin-top:26px; }
+
+/* ============ MARKETING SERVICES DETAIL ============ */
+.marketing{ padding:90px 0; background: var(--navy); color:#fff; position:relative; overflow:hidden; }
+.marketing::after{
+  content:""; position:absolute; right:-120px; top:-120px; width:360px; height:360px;
+  border-radius:50%; background: radial-gradient(circle, rgba(47,111,255,.35), transparent 70%);
+}
+.marketing .section-head h2{ color:#fff; }
+.marketing .section-head p{ color: rgba(255,255,255,.65); }
+.marketing-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:18px; position:relative; z-index:2; }
+.mkt-card{
+  background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius); padding:26px 22px;
+}
+.mkt-num{ font-family: var(--font-mono); font-size:12px; color: var(--red-2); letter-spacing:.1em; }
+.mkt-card h3{ color:#fff; margin-top:12px; font-size:16.5px; }
+.mkt-card p{ margin-top:8px; color: rgba(255,255,255,.6); font-size:13px; }
+
+/* ============ FAQ SECTION ============ */
+.faq{ padding:90px 0; background: var(--paper); }
+.faq-list{ max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+.faq-item{ background:#fff; border:1px solid var(--line-soft); border-radius:12px; overflow:hidden; }
+.faq-q{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:18px 22px; font-weight:600; font-size:15px; color: var(--navy);
+}
+.faq-q svg{ width:16px; height:16px; flex:0 0 auto; transition: transform .2s ease; color: var(--blue); }
+.faq-item.open .faq-q svg{ transform: rotate(45deg); }
+.faq-a{ max-height:0; overflow:hidden; transition: max-height .25s ease; }
+.faq-a-inner{ padding:0 22px 18px; font-size:14px; color: var(--ink-soft); }
+.faq-item.open .faq-a{ max-height:220px; }
+
+/* ============ CTA / COMMUNITY STRIP ============ */
+.community{ padding:64px 0; background:#fff; }
+.community-box{
+  background: linear-gradient(120deg, var(--blue) 0%, var(--navy) 100%);
+  border-radius:22px; padding:46px 40px;
+  display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  color:#fff; position:relative; overflow:hidden;
+}
+.community-box::before{
+  content:""; position:absolute; left:-60px; bottom:-90px; width:260px; height:260px; border-radius:50%;
+  background: rgba(225,29,46,.28); filter: blur(10px);
+}
+.community-text{ position:relative; z-index:2; max-width:480px; }
+.community-text h2{ color:#fff; font-size:26px; }
+.community-text p{ color: rgba(255,255,255,.72); margin-top:8px; }
+.community-actions{ display:flex; gap:12px; flex-wrap:wrap; position:relative; z-index:2; }
+
+/* ============ FOOTER ============ */
+.footer{ background: var(--black); color: rgba(255,255,255,.6); padding: 70px 0 0; }
+.footer-top{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.08); }
+.footer-brand .brand-name{ color:#fff; }
+.footer-brand .brand-name span{ color: var(--blue-2); }
+.footer-brand p{ color: rgba(255,255,255,.5); margin-top:14px; font-size:13.5px; max-width:320px; }
+.footer-socials{ display:flex; gap:10px; margin-top:20px; }
+.footer-socials a{
+  width:34px; height:34px; border-radius:9px; background: rgba(255,255,255,.06);
+  display:flex; align-items:center; justify-content:center; color:#fff;
+  transition: background .18s ease;
+}
+.footer-socials a:hover{ background: var(--blue); }
+.footer-socials svg{ width:15px; height:15px; }
+
+.form-card h3{ color:#fff; font-size:16px; margin-bottom:14px; }
+.field{
+  width:100%; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  border-radius:10px; padding:12px 14px; color:#fff; font-size:13.5px; margin-bottom:10px; outline:0;
+  transition: border-color .18s ease;
+}
+.field::placeholder{ color: rgba(255,255,255,.4); }
+.field:focus{ border-color: var(--blue-2); }
+textarea.field{ resize:vertical; min-height:80px; }
+.form-note{ font-size:11.5px; color: rgba(255,255,255,.35); margin-top:8px; }
+.form-status{ font-size:12.5px; margin-top:8px; display:none; }
+.form-status.show{ display:block; }
+.form-status.ok{ color:#3CE07B; }
+.form-status.err{ color: var(--red-2); }
+
+.footer-bottom{
+  display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  padding:24px 0; font-size:12.5px; color: rgba(255,255,255,.4);
+}
+.footer-legal-links{ display:flex; gap:18px; flex-wrap:wrap; }
+.footer-legal-links a:hover{ color:#fff; }
+
+/* ============ CHATBOT ============ */
+.chat-launcher{
+  position:fixed; right:24px; bottom:24px; z-index:200;
+  width:60px; height:60px; border-radius:50%;
+  background: var(--red); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 14px 34px rgba(225,29,46,.4);
+  border:0; transition: transform .2s ease;
+}
+.chat-launcher:hover{ transform: scale(1.06); }
+.chat-launcher svg{ width:26px; height:26px; }
+.chat-launcher .icon-close{ display:none; }
+.chat-launcher.active .icon-chat{ display:none; }
+.chat-launcher.active .icon-close{ display:block; }
+.chat-dot{
+  position:absolute; top:2px; right:2px; width:13px; height:13px; border-radius:50%;
+  background: #3CE07B; border:2px solid var(--black);
+}
+
+.chat-window{
+  position:fixed; right:24px; bottom:96px; z-index:199;
+  width:360px; max-width:calc(100vw - 32px);
+  height:520px; max-height:calc(100vh - 140px);
+  background:#fff; border-radius:18px; overflow:hidden;
+  box-shadow: var(--shadow-lg);
+  display:flex; flex-direction:column;
+  opacity:0; visibility:hidden; transform: translateY(16px) scale(.98);
+  transition: all .22s ease;
+  border:1px solid var(--line-soft);
+}
+.chat-window.active{ opacity:1; visibility:visible; transform: translateY(0) scale(1); }
+
+.chat-head{
+  background: var(--navy); color:#fff; padding:16px 18px;
+  display:flex; align-items:center; gap:12px; flex:0 0 auto;
+}
+.chat-head-avatar{
+  width:38px; height:38px; border-radius:50%; background: var(--blue);
+  display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-weight:700;
+}
+.chat-head-info b{ display:block; font-size:14px; }
+.chat-head-info span{ font-size:11.5px; color: rgba(255,255,255,.55); display:flex; align-items:center; gap:5px; }
+.chat-head-info span::before{ content:""; width:6px; height:6px; border-radius:50%; background:#3CE07B; }
+
+.chat-body{ flex:1 1 auto; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background: var(--paper); }
+.chat-bubble{
+  background:#fff; border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13.5px;
+  max-width:88%; box-shadow: 0 2px 6px rgba(10,26,60,.06); color: var(--ink);
+}
+.chat-bubble b{ color: var(--navy); }
+.chat-options{ display:flex; flex-direction:column; gap:8px; margin-top:2px; }
+.chat-opt{
+  background:#fff; border:1px solid var(--line); border-radius:10px; padding:11px 13px;
+  text-align:left; font-size:13px; font-weight:600; color: var(--navy);
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  transition: all .15s ease;
+}
+.chat-opt:hover{ border-color: var(--blue); background: rgba(29,78,216,.05); color: var(--blue); }
+.chat-opt svg{ width:13px; height:13px; flex:0 0 auto; }
+.chat-opt.opt-wa{ border-color: rgba(37,211,102,.4); color:#1a9c52; }
+.chat-opt.opt-wa:hover{ background: rgba(37,211,102,.08); }
+.chat-opt.opt-back{ color: var(--ink-soft); border-style:dashed; }
+
+.chat-product-row{
+  display:flex; justify-content:space-between; align-items:center; gap:8px;
+  background:#fff; border:1px solid var(--line-soft); border-radius:10px; padding:10px 12px;
+}
+.chat-product-row .cpname{ font-size:12.5px; font-weight:600; color:var(--navy); }
+.chat-product-row .cpmeta{ font-size:10.5px; color: var(--ink-soft); font-family: var(--font-mono); }
+.chat-product-row .cpprice{ font-family: var(--font-mono); font-weight:700; color: var(--red); font-size:13px; white-space:nowrap; }
+
+.chat-foot{ padding:12px; border-top:1px solid var(--line-soft); flex:0 0 auto; }
+.chat-foot-btn{
+  width:100%; background: var(--red); color:#fff; border:0; border-radius:10px;
+  padding:11px; font-size:13px; font-weight:600; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.chat-foot-btn:hover{ background: var(--red-2); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1080px){
+  .hero-inner{ grid-template-columns:1fr; }
+  .hero-panel{ order:-1; max-width:480px; }
+  .services-grid{ grid-template-columns: repeat(2,1fr); }
+  .product-grid{ grid-template-columns: repeat(2,1fr); }
+  .marketing-grid{ grid-template-columns: repeat(2,1fr); }
+  .about-grid{ grid-template-columns:1fr; }
+  .about-visual{ max-width:380px; margin:0 auto; }
+  .footer-top{ grid-template-columns: 1fr; gap:36px; }
+}
+
+@media (max-width: 860px){
+  .topbar-tag{ display:none; }
+  .nav-menu, .nav-actions .btn-outline{ display:none; }
+  .nav-toggle{ display:flex; }
+  .navbar{ position:sticky; }
+  .nav-actions{ gap:8px; }
+
+  .mobile-menu{
+    display:block;
+    position:fixed; inset: calc(var(--topbar-h) + var(--nav-h)) 0 0 0;
+    background:#fff; z-index:90; padding:20px 24px 40px; overflow-y:auto;
+    transform: translateX(100%); transition: transform .25s ease;
   }
-  .ps-cat:hover{border-color:var(--yellow); color:var(--yellow);}
-  .console-tags{display:flex; gap:10px; margin:22px 0;}
-  .console-tag{
-    font-family:'Anton',sans-serif; font-size:14px; padding:8px 16px; border:2px solid var(--yellow); color:var(--yellow); border-radius:20px;
-  }
+  .mobile-menu.active{ transform: translateX(0); }
+  .mobile-menu a, .mobile-menu .m-parent{ display:block; padding:14px 4px; font-weight:600; font-size:16px; color: var(--navy); border-bottom:1px solid var(--line-soft); }
+  .mobile-submenu{ padding-left:14px; display:none; }
+  .mobile-submenu.open{ display:block; }
+  .mobile-submenu a{ font-size:14px; font-weight:500; color: var(--ink-soft); border-bottom:0; padding:10px 4px; }
+  .m-parent{ display:flex; align-items:center; justify-content:space-between; }
+  .m-parent svg{ width:14px; height:14px; transition: transform .2s ease; }
+  .m-parent.open svg{ transform: rotate(180deg); }
+  .mobile-cta{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+}
 
-  /* ===== FAQ ===== */
-  .faq-item{border-bottom:1px solid var(--line);}
-  .faq-item.faq-hidden{display:none;}
-  .faq-q{
-    display:flex; justify-content:space-between; align-items:center; padding:22px 0; cursor:pointer;
-    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px;
-  }
-  .faq-q .icon{font-family:'IBM Plex Mono',monospace; font-size:20px; color:var(--yellow); transition:transform .2s ease;}
-  .faq-item.open .icon{transform:rotate(45deg);}
-  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
-  .faq-a p{padding:0 0 22px; color:var(--text-dim); font-size:15px; max-width:700px;}
-  mark{background:var(--yellow); color:var(--black); padding:0 2px; border-radius:2px;}
+@media (max-width: 720px){
+  .services-grid{ grid-template-columns:1fr; }
+  .product-grid{ grid-template-columns:1fr; }
+  .marketing-grid{ grid-template-columns:1fr; }
+  .hero-stats{ gap:20px; }
+  .community-box{ flex-direction:column; align-items:flex-start; }
+  .chat-window{ width: calc(100vw - 24px); right:12px; bottom:88px; }
+  .chat-launcher{ right:16px; bottom:16px; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; gap:10px; }
+}
 
-  /* ===== LEGAL ===== */
-  .legal-block{border:1px solid var(--line); background:var(--panel); padding:36px; margin-bottom:24px;}
-  .legal-block h3{font-size:22px; color:var(--yellow); margin-bottom:16px;}
-  .legal-block p, .legal-block li{color:var(--text-dim); font-size:14.5px; margin-bottom:10px;}
-  .legal-block ul{padding-left:18px; list-style:disc;}
-  .legal-note{
-    border:1px dashed var(--red); background:rgba(232,53,46,0.08); padding:18px 22px; margin-bottom:36px; font-size:13.5px; color:var(--white);
-    font-family:'IBM Plex Mono',monospace;
-  }
+@media (max-width: 480px){
+  .topbar-search{ max-width:none; }
+  .topbar-search button{ display:none; }
+  .hero-copy p{ max-width:none; }
+  .cat-head-row{ flex-direction:column; align-items:flex-start; }
+}
 
-  /* ===== CONTACT ===== */
-  .contact-band{background:var(--yellow); color:var(--black);}
-  .contact-band .sec-head p{color:#4a3b00;}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
-  .contact-card{background:var(--black); color:var(--white); padding:34px; border:2px solid var(--black);}
-  .contact-card h3{font-size:20px; margin-bottom:14px;}
-  .contact-card p{color:var(--text-dim); font-size:14px; margin-bottom:20px;}
-  .contact-num{font-family:'Anton',sans-serif; font-size:28px; color:var(--yellow); margin-bottom:20px;}
-
-  /* ===== FOOTER ===== */
-  footer{background:var(--black); border-top:1px solid var(--line); padding:56px 0 28px;}
-  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;}
-  .foot-logo{font-family:'Anton',sans-serif; font-size:24px; margin-bottom:14px;}
-  .foot-col h5{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:16px;}
-  .foot-col a, .foot-col p{display:block; color:var(--text-dim); font-size:14px; margin-bottom:10px;}
-  .foot-col a:hover{color:var(--white);}
-  .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-dim);}
-
-  /* ===== WHATSAPP FAB ===== */
-  .wa-fab{
-    position:fixed; bottom:24px; right:24px; z-index:99;
-    width:58px; height:58px; border-radius:50%; background:var(--yellow); color:var(--black);
-    display:grid; place-items:center; box-shadow:0 6px 20px rgba(0,0,0,0.4);
-    border:2px solid var(--black); transition:transform .2s ease;
-  }
-  .wa-fab:hover{transform:scale(1.08);}
-
-  /* ===== RESPONSIVE ===== */
-  @media(max-width:1050px){
-    .nav-search{max-width:220px;}
-  }
-  @media(max-width:900px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hive{max-width:320px; margin:0 auto;}
-    .service-grid{grid-template-columns:1fr;}
-    .ps-wrap{grid-template-columns:1fr;}
-    .foot-grid{grid-template-columns:1fr 1fr;}
-    .contact-grid{grid-template-columns:1fr;}
-  }
-  @media(max-width:760px){
-    .nav{padding:14px 18px; position:relative; z-index:80;}
-    .nav-search{display:none;} /* hide inline search on mobile, use the icon toggle instead */
-    .mobile-search-btn{display:flex;}
-    .nav-links-desktop{display:none;} /* the hover-dropdown version stays hidden on mobile */
-    .nav-links-mobile{
-      display:flex;
-      position:fixed; top:0; right:0; left:auto; bottom:0;
-      width:min(82vw, 320px);
-      background:var(--black);
-      flex-direction:column; align-items:stretch; justify-content:flex-start;
-      padding:96px 24px 36px; gap:22px;
-      transform:translateX(100%);
-      transition:transform .28s ease;
-      overflow-y:auto; z-index:65;
-      box-shadow:-8px 0 24px rgba(0,0,0,0.4);
-    }
-    .nav-links-mobile.open{transform:translateX(0);}
-    .nav-links-mobile .has-drop .drop{position:static; opacity:1; visibility:visible; transform:none; display:none; background:transparent; border:none; padding:10px 0 0 14px; min-width:auto;}
-    .nav-links-mobile .has-drop.open .drop{display:block;}
-    .nav-links-mobile .nav-cta-mobile{display:flex; margin-top:12px;}
-    .nav-cta{display:none;}
-    .burger{display:flex; z-index:90;}
-    section{padding:64px 0;}
-    .foot-grid{grid-template-columns:1fr;}
-    .mobile-search-panel{padding:12px 18px 16px; position:relative; z-index:80;}
-
-    /* dark overlay behind the drawer */
-    .nav-overlay{
-      content:""; position:fixed; inset:0; background:rgba(0,0,0,0.5);
-      opacity:0; visibility:hidden; transition:opacity .25s ease;
-      z-index:55;
-    }
-    .nav-overlay.show{opacity:1; visibility:visible;}
-  }
-  @media(min-width:761px){
-    .mobile-search-panel{display:none !important;}
-    .nav-cta-mobile{display:none;}
-    .nav-overlay{display:none !important;}
-    .nav-links-mobile{display:none !important;}
-  }
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
-<header>
-  <nav class="nav">
-    <a href="https://www.beeway.in/" class="logo">
-      <span class="hex">
-        <svg viewBox="0 0 100 100"><polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#ffc900" stroke-width="6"/></svg>
-      </span>
-      BEEWAY
-    </a>
-
-    <!-- Desktop inline search -->
-    <div class="nav-search" id="navSearchDesktop">
-      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputDesktop">
-      <div class="search-results" id="searchResultsDesktop"></div>
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-socials">
+      <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener" aria-label="WhatsApp Community">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.79 14.06c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.13.09-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.15.46.13.63-.07.17-.21.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+      </a>
+      <a href="https://t.me/+0qhqMOigbM04YzQ9" target="_blank" rel="noopener" aria-label="Telegram Channel">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.2c.25-1.02-.75-1.86-1.72-1.5L2.5 9.6c-.98.37-.99 1.77.02 2.11l4.42 1.48 1.72 5.6c.24.79 1.24.99 1.79.36l2.47-2.83 4.35 3.28c.77.58 1.9.16 2.1-.79L21.9 4.2Zm-4.62 3.1-7.5 6.83-.3 3.1-1.5-4.9L18.6 6.1c.35-.22.68.24.4.5l-1.72 0Z"/></svg>
+      </a>
+      <a href="https://wa.me/917382680200" target="_blank" rel="noopener" aria-label="Call / WhatsApp Number">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1L6.6 10.8Z"/></svg>
+      </a>
     </div>
 
-    <!-- Desktop-only nav links live here; on mobile these are duplicated in the fixed drawer below (outside header) so position:fixed isn't broken by header's backdrop-filter -->
-    <ul class="nav-links nav-links-desktop">
-      <li><a href="https://www.beeway.in/">Home</a></li>
-      <li><a href="ott.html">OTT</a></li>
-      <li><a href="https://tools.ottloop.com/">Tools</a></li>
-      <li><a href="psgames.html">PS Games</a></li>
-      <li><a href="faqs.html">FAQs</a></li>
-      <li class="has-drop" id="legalDropDesktop">
-        <a href="legal.html">Legal ▾</a>
-        <div class="drop">
-          <a href="terms.html">Terms of Service</a>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="refund.html">Refund Policy</a>
-          <a href="disclaimer.html">Legal Disclaimer</a>
-        </div>
-      </li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <div class="nav-cta">
-      <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
+    <div class="topbar-search">
+      <form id="siteSearchForm" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="siteSearchInput" placeholder="Search products, FAQs, services..." />
+        <button type="submit">Search</button>
+      </form>
+      <div class="search-results" id="searchResults"></div>
     </div>
 
-    <!-- Mobile search icon toggle -->
-    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    </button>
-
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-
-  <!-- Mobile search panel -->
-  <div class="mobile-search-panel" id="mobileSearchPanel">
-    <div class="nav-search">
-      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      <input type="text" placeholder="Search OTT, Tools, FAQs..." autocomplete="off" id="searchInputMobile">
-      <div class="search-results" id="searchResultsMobile"></div>
-    </div>
-  </div>
-</header>
-
-<!-- Mobile nav drawer + overlay: kept OUTSIDE <header> on purpose.
-     header has backdrop-filter, which creates a new containing block for
-     any position:fixed descendant — that was clipping the drawer to the
-     header's own (short) height instead of the full viewport. -->
-<div class="nav-overlay" id="navOverlay"></div>
-<ul class="nav-links nav-links-mobile" id="navLinks">
-  <li><a href="https://www.beeway.in/">Home</a></li>
-  <li><a href="ott.html">OTT</a></li>
-  <li><a href="https://tools.ottloop.com/">Tools</a></li>
-  <li><a href="psgames.html">PS Games</a></li>
-  <li><a href="faqs.html">FAQs</a></li>
-  <li class="has-drop" id="legalDrop">
-    <a href="legal.html" id="legalToggle">Legal ▾</a>
-    <div class="drop">
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="refund.html">Refund Policy</a>
-      <a href="disclaimer.html">Legal Disclaimer</a>
-    </div>
-  </li>
-  <li><a href="contact.html">Contact</a></li>
-  <li class="nav-cta-mobile">
-    <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Order on WhatsApp</a>
-  </li>
-</ul>
-
-
-  <div class="ticker-bar">
-    <div class="ticker-track" id="tickerTrack"></div>
-  </div>
-</header>
-
-<!-- ===== HERO ===== -->
-<section class="hero" id="home">
-  <svg class="hex-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
-    <g fill="none" stroke="#ffc900" stroke-width="1" opacity="0.18">
-      <polygon points="1050,60 1110,95 1110,165 1050,200 990,165 990,95"/>
-      <polygon points="1140,150 1200,185 1200,255 1140,290 1080,255 1080,185"/>
-      <polygon points="960,220 1020,255 1020,325 960,360 900,325 900,255"/>
-      <polygon points="1080,290 1140,325 1140,395 1080,430 1020,395 1020,325"/>
-      <polygon points="1050,430 1110,465 1110,535 1050,570 990,535 990,465"/>
-    </g>
-  </svg>
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Hyderabad-based · India-wide delivery</div>
-      <h1>Every subscription<br>you need, <span class="hl">one hive.</span></h1>
-      <p class="lead">Beeway sells genuine-access OTT subscriptions, AI &amp; productivity tools, digital marketing services and PS4/PS5 games — all at reseller prices, delivered straight to your WhatsApp.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Message on WhatsApp</a>
-        <a class="btn btn-outline" href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">Join Deal Community</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><b id="ottCount">0</b><span>OTT Platforms</span></div>
-        <div class="stat"><b id="toolCount">0</b><span>Digital Tools</span></div>
-        <div class="stat"><b>PS4 / PS5</b><span>Game Accounts</span></div>
-      </div>
-    </div>
-    <div class="hive">
-      <svg class="hive-comb" viewBox="0 0 400 400">
-        <g fill="none" stroke="#ffc900" stroke-width="2">
-          <polygon points="200,40 260,75 260,145 200,180 140,145 140,75"/>
-          <polygon points="80,110 140,145 140,215 80,250 20,215 20,145"/>
-          <polygon points="320,110 380,145 380,215 320,250 260,215 260,145"/>
-          <polygon points="200,180 260,215 260,285 200,320 140,285 140,215" fill="#ffc900" fill-opacity="0.9" stroke="none"/>
-          <polygon points="80,250 140,285 140,355 80,390 20,355 20,285"/>
-          <polygon points="320,250 380,285 380,355 320,390 260,355 260,285"/>
-        </g>
-        <text x="200" y="260" text-anchor="middle" font-family="Anton" font-size="26" fill="#0b0b0c">B</text>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<div class="stripe"></div>
-
-<!-- ===== OTT ===== -->
-<section id="ott">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Streaming</div>
-        <h2>OTT Subscriptions</h2>
-      </div>
-      <p>Live stock &amp; prices from our current OTTLOOP list. Tap a card to order that plan on WhatsApp.</p>
-    </div>
-    <div class="section-search" id="ottSectionSearch">
-      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      <input type="text" placeholder="Search OTT platforms (Netflix, Hotstar, Zee5...)" autocomplete="off" id="ottSearchInput">
-      <span class="clear-btn" id="ottSearchClear" style="display:none;">✕</span>
-    </div>
-    <div class="filters" id="ottFilters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="in">In Stock</button>
-      <button class="filter-btn" data-filter="out">Out of Stock</button>
-    </div>
-    <div class="grid" id="ottGrid"></div>
-    <div class="sr-empty" id="ottNoResults" style="display:none; padding:24px 0 0;">No OTT platform matches your search.</div>
-  </div>
-</section>
-
-<!-- ===== SERVICES / DIGITAL MARKETING ===== -->
-<div class="services-band">
-  <div class="wrap" style="padding:88px 24px;">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Grow your brand</div>
-        <h2>Digital Marketing Services</h2>
-      </div>
-      <p>Beeway also runs marketing for small businesses and creators — ask on WhatsApp for a custom quote.</p>
-    </div>
-  </div>
-  <div class="service-grid">
-    <div class="service-cell">
-      <div class="num">01</div>
-      <h3>Social Media Growth</h3>
-      <p>Instagram &amp; YouTube page setup, content calendars, reels editing and organic growth strategy for local businesses and creators.</p>
-    </div>
-    <div class="service-cell">
-      <div class="num">02</div>
-      <h3>Paid Ads &amp; Promotions</h3>
-      <p>Meta and Google ad campaigns built and managed for you — targeting, creatives and reporting handled end to end.</p>
-    </div>
-    <div class="service-cell">
-      <div class="num">03</div>
-      <h3>Branding &amp; Design</h3>
-      <p>Logos, posters, menu cards and profile kits designed using our in-house Canva Pro &amp; Adobe toolkit.</p>
-    </div>
+    <div class="topbar-tag">7382680200 &nbsp;·&nbsp; ottloop.com</div>
   </div>
 </div>
 
-<div class="stripe"></div>
+<!-- ============ NAVBAR ============ -->
+<header class="navbar">
+  <div class="container">
+    <a href="#home" class="brand">
+      <div class="brand-mark">OL</div>
+      <div class="brand-name">OTT<span>Loop</span></div>
+    </a>
 
-<!-- ===== TOOLS ===== -->
-<section id="tools">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Work smarter</div>
-        <h2>Digital Tools</h2>
-      </div>
-      <p>AI tools, productivity software, design apps, courses and activation keys — genuine access, reseller pricing.</p>
-    </div>
-    <div class="filters" id="toolFilters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="in">In Stock</button>
-      <button class="filter-btn" data-filter="out">Out of Stock</button>
-    </div>
-    <div class="grid" id="toolGrid"></div>
-  </div>
-</section>
-
-<div class="stripe"></div>
-
-<!-- ===== PS GAMES ===== -->
-<section id="ps-games" class="ps-section">
-  <div class="wrap ps-wrap">
-    <div>
-      <div class="eyebrow">Play more, pay less</div>
-      <h2>PS4 &amp; PS5 Games</h2>
-      <div class="console-tags">
-        <span class="console-tag">PS4</span>
-        <span class="console-tag">PS5</span>
-      </div>
-      <p style="color:var(--text-dim); font-size:15px; max-width:460px; margin-bottom:24px;">
-        Our full PS4/PS5 game catalog changes daily with new titles and offers, so we run it live on WhatsApp instead of a static list. Tell us the title or genre you're after and we'll send price &amp; availability instantly.
-      </p>
-      <a class="btn btn-red" href="https://wa.me/917382680200?text=Hi%20Beeway%2C%20I%20want%20to%20check%20PS4%2FPS5%20game%20availability" target="_blank" rel="noopener">Check Game Availability</a>
-    </div>
-    <div class="ps-cat-grid">
-      <div class="ps-cat">Action &amp; Adventure</div>
-      <div class="ps-cat">Sports &amp; Racing</div>
-      <div class="ps-cat">Open World</div>
-      <div class="ps-cat">Multiplayer / Online</div>
-      <div class="ps-cat">Horror &amp; Thriller</div>
-      <div class="ps-cat">Fighting &amp; Arcade</div>
-    </div>
-  </div>
-</section>
-
-<div class="stripe"></div>
-
-<!-- ===== FAQS ===== -->
-<section id="faqs">
-  <div class="wrap" style="max-width:820px;">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Good to know</div>
-        <h2>FAQs</h2>
-      </div>
-    </div>
-    <div id="faqList"></div>
-  </div>
-</section>
-
-<div class="stripe"></div>
-
-<!-- ===== LEGAL ===== -->
-<section id="legal">
-  <div class="wrap" style="max-width:820px;">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Read before you order</div>
-        <h2>Legal</h2>
-      </div>
-    </div>
-
-    <div class="legal-note">
-      NOTE: The sections below are starter templates so the site has working Legal pages on launch day. Please have them reviewed by a lawyer before you go live — especially the parts about shared/reseller access to third-party OTT and software accounts, since this can raise platform Terms-of-Service and consumer-protection questions in India.
-    </div>
-
-    <div class="legal-block" id="terms">
-      <h3>1. Terms of Service</h3>
-      <p>By placing an order with Beeway (beeway.in) via WhatsApp or this website, you agree to the following terms.</p>
-      <ul>
-        <li>Beeway sells access to OTT subscriptions, digital tools/software, and PS4/PS5 game accounts on a resale basis, delivered via email, customer number, redeem code or activation key as listed on each product.</li>
-        <li>Validity periods (1M / 3M / 6M / 1Y / 18M / Lifetime) start from the date of delivery, not the date of order.</li>
-        <li>Stock status ("In Stock" / "Out of Stock") is updated regularly but may change without notice; we will inform you if an item you ordered goes out of stock before delivery.</li>
-        <li>Prices are in Indian Rupees (₹) and may change without prior notice.</li>
-        <li>Misuse of any delivered product — including unauthorised resale, sharing beyond the access method provided, or violating the original platform's own terms — is the customer's responsibility.</li>
-        <li>Beeway reserves the right to refuse or cancel any order at its discretion, including suspected fraud or abuse.</li>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#catalogue" class="nav-link">Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="#catalogue" data-filter="ott">All OTT</a>
+            <a href="#catalogue" data-filter="tools">Digital Tools</a>
+            <a href="#marketing">Digital Marketing Service</a>
+            <a href="#games">Games</a>
+          </div>
+        </li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+        <li><a href="#faq" class="nav-link">FAQs</a></li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Legal
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="refund-policy.html">Refund Policy</a>
+            <a href="legal-disclaimer.html">Legal Disclaimer</a>
+            <a href="#footer-contact">Contact Us</a>
+          </div>
+        </li>
       </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+        WhatsApp Community
+      </a>
+      <a href="https://wa.me/917382680200" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1L6.6 10.8Z"/></svg>
+        Order Now
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <div class="m-parent" data-target="m-services">Services
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="mobile-submenu" id="m-services">
+      <a href="#catalogue" data-filter="ott">All OTT</a>
+      <a href="#catalogue" data-filter="tools">Digital Tools</a>
+      <a href="#marketing">Digital Marketing Service</a>
+      <a href="#games">Games</a>
+    </div>
+    <a href="#about">About</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="#faq">FAQs</a>
+    <div class="m-parent" data-target="m-legal">Legal
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="mobile-submenu" id="m-legal">
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="legal-disclaimer.html">Legal Disclaimer</a>
+      <a href="#footer-contact">Contact Us</a>
+    </div>
+    <div class="mobile-cta">
+      <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener" class="btn btn-outline btn-block">WhatsApp Community</a>
+      <a href="https://wa.me/917382680200" target="_blank" rel="noopener" class="btn btn-primary btn-block">Order Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">Now Streaming Deals</div>
+      <h1>Every subscription<br>on <span class="hl">one loop.</span></h1>
+      <p>OTT platforms, premium software and AI tools — genuine access at real prices, delivered fast. Plus digital marketing services to grow what you build.</p>
+      <div class="hero-cta">
+        <a href="#catalogue" class="btn btn-primary">Browse Catalogue</a>
+        <a href="https://wa.me/917382680200" target="_blank" rel="noopener" class="btn btn-ghost-white">Talk to Us on WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>55+</b><span>ACTIVE PRODUCTS</span></div>
+        <div class="hero-stat"><b>15–60m</b><span>AVG. DELIVERY</span></div>
+        <div class="hero-stat"><b>4</b><span>SERVICE LINES</span></div>
+      </div>
     </div>
 
-    <div class="legal-block" id="privacy">
-      <h3>2. Privacy Policy</h3>
-      <p>Beeway collects only the information needed to deliver your order and support you afterward.</p>
-      <ul>
-        <li>Information we collect: your name, WhatsApp number, and — where an item requires it — an email address or customer mobile number for account activation.</li>
-        <li>We use this information solely to process orders, deliver access details, and respond to support queries. We do not sell your personal data to third parties.</li>
-        <li>Order conversations happen on WhatsApp, which has its own privacy policy and end-to-end encryption governing message content.</li>
-        <li>You can request that we delete your order history and contact details at any time by messaging us on WhatsApp.</li>
-      </ul>
+    <div class="hero-panel">
+      <div class="hero-panel-head">
+        <b>LIVE STOCK GUIDE</b>
+        <span class="live-pill">ON AIR</span>
+      </div>
+      <div id="heroPanelList"></div>
     </div>
+  </div>
 
-    <div class="legal-block" id="refund">
-      <h3>3. Refund Policy</h3>
-      <p>We want every order to work. If something goes wrong, here's how refunds are handled.</p>
-      <ul>
-        <li>If an item is not delivered within the promised time, you're entitled to a full refund or replacement, your choice.</li>
-        <li>If delivered access does not work as described (invalid login, redeem code already used, etc.), report it within 24 hours of delivery with a screenshot/screen recording for a free replacement or refund.</li>
-        <li>Refunds are not available once a subscription or activation key has been successfully activated and used, or for issues caused by the customer changing account passwords/settings after handover.</li>
-        <li>Approved refunds are processed to the original payment method within 3–5 business days.</li>
-      </ul>
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What We Offer</div>
+      <h2>Four ways to get more from your screen</h2>
+      <p>From your favourite shows to the tools that run your business — all sourced, activated and supported by one team.</p>
     </div>
-
-    <div class="legal-block" id="disclaimer">
-      <h3>4. Legal Disclaimer</h3>
-      <p>Please read this section carefully before ordering.</p>
-      <ul>
-        <li>Beeway is an independent reseller and is not affiliated with, endorsed by, or officially connected to Netflix, Amazon Prime Video, Disney+ Hotstar, Sony LIV, Zee5, Apple, YouTube, Sony PlayStation, or any other brand referenced on this site. All trademarks belong to their respective owners.</li>
-        <li>Subscription and tool access is typically provided on a shared/managed-account basis (on our mail, on customer mail/number, redeem code, or activation key, as specified per product). This differs from buying a plan directly from the official provider.</li>
-        <li>Beeway makes reasonable efforts to source access legitimately, but cannot guarantee uninterrupted availability if the underlying platform changes its own terms or pricing.</li>
-        <li>By ordering, you acknowledge you understand the access method for that specific product before purchase — if unsure, ask us on WhatsApp first.</li>
-      </ul>
+    <div class="services-grid">
+      <a href="#catalogue" data-filter="ott" class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        </div>
+        <h3>All OTT</h3>
+        <p>Hotstar, Prime Video, SonyLIV, ZEE5, Apple TV & more — premium streaming at a fraction of the price.</p>
+        <span class="link-arrow">Explore plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="#catalogue" data-filter="tools" class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>
+        </div>
+        <h3>Digital Tools</h3>
+        <p>Canva, Notion, PyCharm, Windows keys, AI tools & more — everything you need to build and create.</p>
+        <span class="link-arrow">Explore tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="#marketing" class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-7.5L3 11Z"/></svg>
+        </div>
+        <h3>Digital Marketing</h3>
+        <p>Website development, SEO, ad campaigning and social media marketing to grow your brand.</p>
+        <span class="link-arrow">See services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="#games" class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M8 12h.01M6 10v4M15.5 11.5h.01M17.5 13.5h.01"/></svg>
+        </div>
+        <h3>Games</h3>
+        <p>Game top-ups & accounts — launching soon. Join the WhatsApp community to get notified first.</p>
+        <span class="link-arrow">Get notified <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact-band" id="contact">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Talk to us</div>
-        <h2>Contact Beeway</h2>
+<!-- ============ CATALOGUE ============ -->
+<section class="catalogue" id="catalogue">
+  <div class="container">
+    <div class="cat-head-row">
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="eyebrow">The Catalogue</div>
+        <h2>Products with live pricing</h2>
+        <p>Prices, validity & access mode — updated as it changes. Tap "Order on WhatsApp" to grab one.</p>
       </div>
-      <p>Fastest way to order, check stock, or ask about a plan — message us directly.</p>
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab active" data-cat="all">All</button>
+        <button class="cat-tab" data-cat="ott">All OTT</button>
+        <button class="cat-tab" data-cat="tools">Digital Tools</button>
+        <button class="cat-tab" data-cat="misc">Offers</button>
+      </div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>WhatsApp / Call</h3>
-        <div class="contact-num">+91 73826 80200</div>
-        <p>Order any OTT subscription, tool, or PS4/PS5 game, or ask a question — we usually reply within minutes.</p>
-        <a class="btn btn-primary" href="https://wa.me/917382680200" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="cat-footer">
+      <a href="https://wa.me/917382680200" target="_blank" rel="noopener" class="btn btn-navy">Don't see what you need? Ask on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMES (placeholder anchor) ============ -->
+<section id="games" style="height:1px;"></section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="about-visual-ring">
+        <div class="about-visual-core">
+          <span>OTT</span><span>LOOP</span>
+        </div>
+        <div class="orbit-badge b1"><span></span>IN STOCK</div>
+        <div class="orbit-badge b2"><span></span>FAST DELIVERY</div>
+        <div class="orbit-badge b3"><span></span>REAL SUPPORT</div>
       </div>
-      <div class="contact-card">
-        <h3>Deal Community</h3>
-        <p>Join our WhatsApp community for restock alerts, flash offers and new tool drops before anyone else.</p>
-        <a class="btn btn-outline" href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">Join Community</a>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">About OTTLoop</div>
+      <h2>Built for people who don't want to overpay for access</h2>
+      <p>OTTLoop started with a simple idea — premium streaming, software and AI tools shouldn't cost a full-price subscription every single time. We source, verify and deliver genuine access to 55+ products, and back every order with real support on WhatsApp.</p>
+      <p>Beyond subscriptions, we help businesses grow online with website development, SEO and marketing services — the same loop, applied to your brand.</p>
+      <div class="stat-strip">
+        <div><b>55+</b><span>PRODUCTS LISTED</span></div>
+        <div><b>7382680200</b><span>WHATSAPP SUPPORT</span></div>
+        <div><b>4</b><span>MARKETING SERVICES</span></div>
+      </div>
+      <a href="https://www.google.com/search?q=ottloop+store" target="_blank" rel="noopener" class="btn btn-outline rating-btn">
+        ⭐ See our rating on Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKETING SERVICES ============ -->
+<section class="marketing" id="marketing">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Digital Marketing</div>
+      <h2>Grow your brand while we handle the backend</h2>
+      <p>Whether you're launching a business or scaling one — pick a service or combine them into a package.</p>
+    </div>
+    <div class="marketing-grid" id="marketingGrid"></div>
+    <div style="margin-top:34px;">
+      <a href="https://wa.me/917382680200" target="_blank" rel="noopener" class="btn btn-primary">Get a Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Questions</div>
+      <h2>Frequently asked questions</h2>
+      <p style="margin-left:auto;margin-right:auto;">Can't find your answer? Search it in the bar up top, or message us directly.</p>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY CTA ============ -->
+<section class="community">
+  <div class="container">
+    <div class="community-box">
+      <div class="community-text">
+        <h2>Never miss a restock or a deal</h2>
+        <p>Join the OTTLoop WhatsApp community for live stock alerts, or follow our Telegram channel for price drops.</p>
+      </div>
+      <div class="community-actions">
+        <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener" class="btn btn-primary">Join WhatsApp Community</a>
+        <a href="https://t.me/+0qhqMOigbM04YzQ9" target="_blank" rel="noopener" class="btn btn-ghost-white" style="color:var(--navy);background:#fff;">Join Telegram Channel</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo">BEEWAY</div>
-        <p style="max-width:280px;">Your one hive for OTT subscriptions, digital tools, marketing services and PS4/PS5 games — genuine access, reseller prices.</p>
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="footer-contact">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">OTT<span>Loop</span></div>
+        <p>Genuine OTT subscriptions, digital tools and digital marketing services — all in one loop. WhatsApp/Call: 7382680200.</p>
+        <div class="footer-socials">
+          <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.79 14.06c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.13.09-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.15.46.13.63-.07.17-.21.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+          </a>
+          <a href="https://t.me/+0qhqMOigbM04YzQ9" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.2c.25-1.02-.75-1.86-1.72-1.5L2.5 9.6c-.98.37-.99 1.77.02 2.11l4.42 1.48 1.72 5.6c.24.79 1.24.99 1.79.36l2.47-2.83 4.35 3.28c.77.58 1.9.16 2.1-.79L21.9 4.2Z"/></svg>
+          </a>
+          <a href="https://www.google.com/search?q=ottloop+store" target="_blank" rel="noopener" aria-label="Google Rating">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L21.5 9l-5 4.87L17.8 21 12 17.27 6.2 21l1.3-7.13-5-4.87 6.6-.74L12 2Z"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="foot-col">
-        <h5>Explore</h5>
-        <a href="ott.html">OTT</a>
-        <a href="https://tools.ottloop.com/">Tools</a>
-        <a href="psgames.html">PS Games</a>
-        <a href="faqs.html">FAQs</a>
+
+      <div class="form-card">
+        <h3>Contact Us</h3>
+        <form id="contactForm">
+          <input class="field" type="text" name="name" placeholder="Your name" required />
+          <input class="field" type="text" name="contact" placeholder="Email or phone number" required />
+          <textarea class="field" name="message" placeholder="How can we help?" required></textarea>
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          <div class="form-status" id="contactStatus"></div>
+          <p class="form-note">Prefer instant reply? <a href="https://wa.me/917382680200" style="color:#fff;text-decoration:underline;" target="_blank" rel="noopener">Message us on WhatsApp</a> instead.</p>
+        </form>
       </div>
-      <div class="foot-col">
-        <h5>Legal</h5>
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="refund.html">Refund Policy</a>
-        <a href="disclaimer.html">Legal Disclaimer</a>
-      </div>
-      <div class="foot-col">
-        <h5>Contact</h5>
-        <a href="https://wa.me/917382680200" target="_blank" rel="noopener">+91 73826 80200</a>
-        <a href="https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF" target="_blank" rel="noopener">WhatsApp Community</a>
+
+      <div class="form-card">
+        <h3>Newsletter</h3>
+        <p style="font-size:13px;margin-bottom:14px;">Restock alerts, new products & offers — straight to your inbox.</p>
+        <form id="newsletterForm">
+          <input class="field" type="email" name="email" placeholder="you@email.com" required />
+          <button type="submit" class="btn btn-navy btn-block">Subscribe</button>
+          <div class="form-status" id="newsletterStatus"></div>
+        </form>
+
+        <h3 style="margin-top:26px;">Legal</h3>
+        <div class="footer-legal-links" style="flex-direction:column;gap:10px;">
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="legal-disclaimer.html">Legal Disclaimer</a>
+        </div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 Beeway.in — All rights reserved.</span>
-      <span>Built for the hive 🐝</span>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> OTTLoop. All rights reserved.</span>
+      <div class="footer-legal-links">
+        <a href="tel:7382680200">📞 7382680200</a>
+        <a href="https://wa.me/917382680200" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:hello@ottloop.com">hello@ottloop.com</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<a class="wa-fab" href="https://wa.me/917382680200" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#0b0b0c"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.9 7.9 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.3 3.1 13.6 13.6 0 0 0 5.2 4.6c.7.3 1.3.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.3 17L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.3 8.3 0 1 1 12 20.2z"/></svg>
-</a>
+<!-- ============ CHATBOT ============ -->
+<button class="chat-launcher" id="chatLauncher" aria-label="Open chat">
+  <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  <span class="chat-dot"></span>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-head">
+    <div class="chat-head-avatar">OL</div>
+    <div class="chat-head-info">
+      <b>OTTLoop Assistant</b>
+      <span>Online now</span>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-foot">
+    <button class="chat-foot-btn" id="chatWaBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Z"/></svg>
+      Chat with Owner on WhatsApp
+    </button>
+  </div>
+</div>
 
 <script>
-/* ================= DATA ================= */
-const OTT = [
-  ["HOTSTAR SUPER","1M",75,"On Customer Number","in"],
-  ["CRUNCHYROLL (FAN)","1M",75,"On My Mail","in"],
-  ["AHA","1M",69,"On My Mail","in"],
-  ["SONYLIV","1Y",349,"On Customer Number","out"],
-  ["SONYLIV","1M",75,"On Customer Number","in"],
-  ["ZEE5","1Y",349,"On Customer Number","in"],
-  ["PRIME VIDEO","1M",79,"On My Mail","out"],
-  ["PRIME VIDEO","1Y",949,"On Customer Mail","in"],
-  ["GAANA","1Y",349,"On Customer Number","out"],
-  ["APPLE TV","6M",449,"Via Redeem Code","in"],
-  ["APPLE MUSIC","6M",449,"Via Redeem Code","in"],
-  ["YOUTUBE PREMIUM (FAM)","1M",99,"On My Mail","out"],
-  ["FANCODE","1Y",899,"On Customer Number","in"],
-  ["HOTSTAR SUPER","1Y",569,"On Customer Number","in"],
-  ["SUN NXT","1M",79,"On Customer Number","in"],
-  ["WATCHO","6M",549,"On Customer Number","out"],
-  ["HOICHOI","1M",75,"On Customer Number","in"],
+/* ============================================================
+   OTTLOOP — DATA LAYER
+   Edit product prices/stock here — everything on the site
+   (catalogue, search, chatbot) reads from this single file.
+   ============================================================ */
+
+const OTTLOOP_PRODUCTS = [
+  { name: "Hotstar Super", validity: "1M", price: 75, access: "On Customer Number", stock: "in", cat: "ott" },
+  { name: "Hotstar Super", validity: "1Y", price: 569, access: "On Customer Number", stock: "in", cat: "ott" },
+  { name: "Crunchyroll (Fan)", validity: "1M", price: 75, access: "On My Mail", stock: "in", cat: "ott" },
+  { name: "Aha", validity: "1M", price: 69, access: "On My Mail", stock: "in", cat: "ott" },
+  { name: "SonyLIV", validity: "1M", price: 75, access: "On Customer Number", stock: "in", cat: "ott" },
+  { name: "SonyLIV", validity: "1Y", price: 349, access: "On Customer Number", stock: "out", cat: "ott" },
+  { name: "ZEE5", validity: "1Y", price: 349, access: "On Customer Number", stock: "in", cat: "ott" },
+  { name: "Prime Video", validity: "1M", price: 79, access: "On My Mail", stock: "out", cat: "ott" },
+  { name: "Prime Video", validity: "1Y", price: 949, access: "On Customer Mail", stock: "in", cat: "ott" },
+  { name: "Gaana", validity: "1Y", price: 349, access: "On Customer Number", stock: "out", cat: "ott" },
+  { name: "Apple TV", validity: "6M", price: 449, access: "Via Redeem Code", stock: "in", cat: "ott" },
+  { name: "Apple Music", validity: "6M", price: 449, access: "Via Redeem Code", stock: "in", cat: "ott" },
+  { name: "YouTube Premium (Fam)", validity: "1M", price: 99, access: "On My Mail", stock: "out", cat: "ott" },
+  { name: "FanCode", validity: "1Y", price: 899, access: "On Customer Number", stock: "in", cat: "ott" },
+  { name: "Sun NXT", validity: "1M", price: 79, access: "On Customer Number", stock: "in", cat: "ott" },
+  { name: "Watcho", validity: "6M", price: 549, access: "On Customer Number", stock: "out", cat: "ott" },
+  { name: "Hoichoi", validity: "1M", price: 75, access: "On Customer Number", stock: "in", cat: "ott" },
+
+  { name: "Beautiful AI", validity: "1Y", price: 199, access: "On My Mail", stock: "in", cat: "tools" },
+  { name: "Canva Pro (Edu)", validity: "1Y", price: 199, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Edx", validity: "1Y", price: 299, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "PDF2GO (480 Credits)", validity: "1Y", price: 499, access: "On My Mail", stock: "in", cat: "tools" },
+  { name: "Coursera", validity: "1Y", price: 849, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Canva Pro (Brandkit)", validity: "1Y", price: 999, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Rezi", validity: "Lifetime", price: 1899, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Infosys Certificates", validity: "-", price: 399, access: "-", stock: "in", cat: "tools" },
+  { name: "Express VPN", validity: "1Y", price: 249, access: "On Customer Mail", stock: "out", cat: "tools" },
+  { name: "Duolingo", validity: "1M", price: 149, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Granola", validity: "1Y", price: 799, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Windows 11 Pro", validity: "Lifetime", price: 499, access: "Activation Key", stock: "in", cat: "tools" },
+  { name: "Windows 10 Pro", validity: "Lifetime", price: 499, access: "Activation Key", stock: "in", cat: "tools" },
+  { name: "Adobe Express", validity: "1Y", price: 549, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Lovable (Pro)", validity: "1M", price: 299, access: "On Customer Mail", stock: "out", cat: "tools" },
+  { name: "Mobbin (Pro)", validity: "1Y", price: 1199, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Bolt New", validity: "1M", price: 349, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "PyCharm", validity: "1Y", price: 999, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Webflow (Growth Plan)", validity: "1Y", price: 999, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Jasper AI (Pro Plan)", validity: "1M", price: 469, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Bithub", validity: "Lifetime", price: 999, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Data Camp", validity: "1Y", price: 999, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Data Camp", validity: "3M", price: 499, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "AnyViewer", validity: "1Y", price: 699, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Pabbly", validity: "Lifetime", price: 1299, access: "On My Mail", stock: "in", cat: "tools" },
+  { name: "Viggle AI", validity: "1M", price: 469, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Loom (Business+AI)", validity: "1Y", price: 1499, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Descript (Creator Plan)", validity: "1Y", price: 1299, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Notion (Business+AI)", validity: "6M", price: 1399, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Kittl (Pro Plan)", validity: "1M", price: 269, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Flutter Flow", validity: "1Y", price: 999, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Wispr Flow AI", validity: "1Y", price: 999, access: "On My Mail", stock: "in", cat: "tools" },
+  { name: "Avira (Premium)", validity: "3M", price: 299, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Gemini", validity: "18M", price: 399, access: "On Customer Mail", stock: "in", cat: "tools" },
+  { name: "Perplexity (Pro)", validity: "1Y", price: 999, access: "Via Coupon Code", stock: "out", cat: "tools" },
+  { name: "CapCut (Pro)", validity: "1M", price: 349, access: "On My Mail", stock: "in", cat: "tools" },
+
+  { name: "Health Checkup (Thyrocare Aarogyam Basic 2)", validity: "-", price: 449, access: "Via Coupon Code", stock: "in", cat: "misc" },
+  { name: "Starbucks (300rs Coupon)", validity: "-", price: 199, access: "-", stock: "out", cat: "misc" },
 ];
 
-const TOOLS = [
-  ["BEAUTIFUL AI","1Y",199,"On My Mail","in"],
-  ["CANVA PRO (EDU)","1Y",199,"On Customer Mail","in"],
-  ["EDX","1Y",299,"On Customer Mail","in"],
-  ["PDF2GO (480 CREDITS)","1Y",499,"On My Mail","in"],
-  ["COURSERA","1Y",849,"On Customer Mail","in"],
-  ["CANVA PRO (BRANDKIT)","1Y",999,"On Customer Mail","in"],
-  ["REZI","Lifetime",1899,"On Customer Mail","in"],
-  ["INFOSYS CERTIFICATES","-",399,"-","in"],
-  ["EXPRESS VPN","1Y",249,"On Customer Mail","out"],
-  ["DUOLINGO","1M",149,"On Customer Mail","in"],
-  ["GRANOLA","1Y",799,"On Customer Mail","in"],
-  ["WINDOWS 11 PRO","Lifetime",499,"Activation Key","in"],
-  ["WINDOWS 10 PRO","Lifetime",499,"Activation Key","in"],
-  ["ADOBE EXPRESS","1Y",549,"On Customer Mail","in"],
-  ["LOVABLE (PRO)","1M",299,"On Customer Mail","out"],
-  ["MOBBIN (PRO)","1Y",1199,"On Customer Mail","in"],
-  ["BOLT NEW","1M",349,"On Customer Mail","in"],
-  ["PYCHARM","1Y",999,"On Customer Mail","in"],
-  ["WEBFLOW (GROWTH PLAN)","1Y",999,"On Customer Mail","in"],
-  ["JASPER AI (PRO PLAN)","1M",469,"On Customer Mail","in"],
-  ["BITHUB","Lifetime",999,"On Customer Mail","in"],
-  ["DATA CAMP","1Y",999,"On Customer Mail","in"],
-  ["DATA CAMP","3M",499,"On Customer Mail","in"],
-  ["ANYVIEWER","1Y",699,"On Customer Mail","in"],
-  ["PABBLY","Lifetime",1299,"On My Mail","in"],
-  ["VIGGLE AI","1M",469,"On Customer Mail","in"],
-  ["LOOM (BUSINESS+AI)","1Y",1499,"On Customer Mail","in"],
-  ["DESCRIPT (CREATOR PLAN)","1Y",1299,"On Customer Mail","in"],
-  ["NOTION (BUSINESS+AI)","6M",1399,"On Customer Mail","in"],
-  ["KITTL (PRO PLAN)","1M",269,"On Customer Mail","in"],
-  ["FLUTTER FLOW","1Y",999,"On Customer Mail","in"],
-  ["WISPR FLOW AI","1Y",999,"On My Mail","in"],
-  ["AVIRA (PREMIUM)","3M",299,"On Customer Mail","in"],
-  ["GEMINI","18M",399,"On Customer Mail","in"],
-  ["HEALTH CHECKUP (Thyrocare Aarogyam Basic 2)","-",449,"Via Coupon Code","in"],
-  ["PERPLEXITY (PRO)","1Y",999,"Via Coupon Code","out"],
-  ["CAPCUT (PRO)","1M",349,"On My Mail","in"],
-  ["STARBUCKS (300RS COUPON)","-",199,"-","out"],
+const OTTLOOP_CATEGORIES = {
+  ott:   { label: "All OTT",           blurb: "Streaming, sports & music subscriptions" },
+  tools: { label: "Digital Tools",     blurb: "AI, design, dev & productivity software" },
+  misc:  { label: "Offers & Extras",   blurb: "Coupons, checkups & one-off deals" },
+};
+
+const OTTLOOP_SERVICES = [
+  {
+    key: "webdev",
+    title: "Website Development",
+    desc: "Custom-coded or WordPress websites built for speed, SEO and easy handover — from landing pages to full business sites.",
+  },
+  {
+    key: "seo",
+    title: "SEO for Blogs",
+    desc: "On-page & technical SEO, keyword mapping and content structuring to get your blog ranking on Google.",
+  },
+  {
+    key: "campaigning",
+    title: "Ad Campaigning",
+    desc: "Performance-focused ad campaigns across Meta, Google & YouTube — built, tracked and optimised for ROI.",
+  },
+  {
+    key: "smm",
+    title: "Social Media Marketing",
+    desc: "Product marketing across Instagram, Facebook & WhatsApp to get your brand in front of the right audience.",
+  },
 ];
 
-const FAQS = [
-  ["How fast will I get my order after paying?","Most OTT subscriptions and tool activations are delivered within 15–60 minutes of payment during working hours. Anything delayed beyond the promised time is refunded or replaced — see our Refund Policy."],
-  ["What does \"On My Mail\" vs \"On Customer Mail/Number\" mean?","\"On My Mail\" means the account stays on Beeway's own email/number and you get login access. \"On Customer Mail/Number\" means the subscription is activated directly on your email or phone number, so it's fully in your control."],
-  ["Do you offer any warranty on subscriptions?","Yes — every plan is covered for its full validity period. If access stops working before the validity ends (and it isn't due to a password/settings change on your side), message us for a free replacement."],
-  ["How do I order PS4/PS5 games?","Our game list changes daily, so message us on WhatsApp with the title or genre you want and we'll confirm price and availability on the spot."],
-  ["Is it safe to buy shared/reseller subscriptions?","We source access as legitimately as possible and disclose the exact access method for every product before you buy. Read our Legal Disclaimer for the full picture before ordering."],
-  ["What payment methods do you accept?","UPI and bank transfer, shared directly with you when you message us on WhatsApp to place an order."],
+const OTTLOOP_FAQS = [
+  { q: "How fast will I get my subscription after payment?", a: "Most orders are delivered within 15–60 minutes of payment confirmation, directly on your mail or number as listed against each product." },
+  { q: "Is it safe to buy subscriptions from OTTLoop?", a: "Yes — every product is sourced and activated by our team, and support stays available on WhatsApp for the full validity period for any access issues." },
+  { q: "What if a product goes 'Out of Stock'?", a: "Message us on WhatsApp — we restock fast and can notify you the moment it's back, or suggest a similar plan." },
+  { q: "Do you offer refunds?", a: "Refunds are handled as per our Refund Policy — check the Legal menu for full terms, or contact us directly for order-specific help." },
+  { q: "How do I pay?", a: "UPI and other standard digital payment methods are supported — payment details are shared once you confirm your order on WhatsApp." },
+  { q: "Can I get a custom digital marketing package?", a: "Yes — website development, SEO, campaigning and social media marketing can be combined into a custom package. Contact us to scope it out." },
+  { q: "Do you have a community for updates & offers?", a: "Yes — join the OTTLoop WhatsApp community or our Telegram channel for stock alerts, price drops and new launches." },
 ];
 
-/* ================= RENDER PRODUCTS ================= */
-function cardHTML(item){
-  const [name, validity, price, access, stock] = item;
-  const stockLabel = stock === "in" ? "In Stock" : "Out of Stock";
-  const waText = encodeURIComponent(`Hi Beeway, I want to order: ${name} (${validity}) - ₹${price}`);
-  const idAttr = `data-name="${name.replace(/"/g,'&quot;')}" data-validity="${validity}"`;
-  return `<div class="card" data-stock="${stock}" ${idAttr}>
-    <span class="badge ${stock}">${stockLabel}</span>
-    <h4>${name}</h4>
-    <div class="meta">Validity: ${validity}<span>Access: ${access}</span></div>
-    <div class="price-row">
-      <div class="price">₹${price}<sup>/${validity}</sup></div>
-      <a class="order" href="https://wa.me/917382680200?text=${waText}" target="_blank" rel="noopener">Order</a>
-    </div>
-  </div>`;
+</script>
+<script>
+/* ============================================================
+   OTTLOOP — SCRIPT LAYER
+   ============================================================ */
+
+const WA_NUMBER = "917382680200";
+const WA_COMMUNITY = "https://chat.whatsapp.com/FeAB6ezUsM5G85dDW078WF";
+const TELEGRAM_CHANNEL = "https://t.me/+0qhqMOigbM04YzQ9";
+
+/* ------------------------------------------------------------
+   🔧 GOOGLE APPS SCRIPT — paste your deployed Web App URL below.
+   Both the Contact form and Newsletter form will POST here.
+   ------------------------------------------------------------ */
+const APPSCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+function waLink(text){
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
-function renderGrid(id, data){
-  document.getElementById(id).innerHTML = data.map(cardHTML).join("");
-}
-renderGrid("ottGrid", OTT);
-renderGrid("toolGrid", TOOLS);
+document.getElementById("year").textContent = new Date().getFullYear();
 
-document.getElementById("ottCount").textContent = OTT.length + "+";
-document.getElementById("toolCount").textContent = TOOLS.length + "+";
-
-function wireFilters(filterId, gridId, skipDisplayToggle){
-  const buttons = document.querySelectorAll(`#${filterId} .filter-btn`);
-  buttons.forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      buttons.forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      if(skipDisplayToggle) return; // OTT grid display is handled by applyOttSectionSearch instead
-      const f = btn.dataset.filter;
-      document.querySelectorAll(`#${gridId} .card`).forEach(card=>{
-        const show = f === "all" || card.dataset.stock === f;
-        card.style.display = show ? "" : "none";
-      });
-    });
+/* ============ MOBILE MENU ============ */
+const navToggle = document.getElementById("navToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+navToggle.addEventListener("click", () => {
+  navToggle.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+});
+document.querySelectorAll(".m-parent").forEach(p => {
+  p.addEventListener("click", () => {
+    p.classList.toggle("open");
+    document.getElementById(p.dataset.target).classList.toggle("open");
   });
+});
+mobileMenu.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click", () => {
+    navToggle.classList.remove("active");
+    mobileMenu.classList.remove("active");
+  });
+});
+
+/* ============ HERO PANEL (sample live rows) ============ */
+(function renderHeroPanel(){
+  const sample = OTTLOOP_PRODUCTS.filter(p => p.cat === "ott").slice(0, 5);
+  const el = document.getElementById("heroPanelList");
+  el.innerHTML = sample.map(p => `
+    <div class="hero-row">
+      <span class="hero-row-name"><span class="stock-dot ${p.stock}"></span>${p.name}</span>
+      <span class="hero-row-meta">${p.validity}</span>
+      <span class="hero-row-price">₹${p.price}</span>
+    </div>
+  `).join("");
+})();
+
+/* ============ TICKER ============ */
+(function renderTicker(){
+  const items = OTTLOOP_PRODUCTS.map(p => `
+    <span class="ticker-item">
+      <span class="dot ${p.stock}"></span>
+      <b>${p.name}</b> — ₹${p.price} / ${p.validity} — ${p.stock === "in" ? "IN STOCK" : "OUT OF STOCK"}
+    </span>
+  `).join("");
+  document.getElementById("tickerTrack").innerHTML = items + items; // duplicate for seamless loop
+})();
+
+/* ============ PRODUCT CATALOGUE ============ */
+const productGrid = document.getElementById("productGrid");
+const catTabs = document.getElementById("catTabs");
+let activeCat = "all";
+
+function productCard(p){
+  return `
+    <div class="product-card" data-cat="${p.cat}">
+      <div class="pc-top">
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-badge ${p.stock}">${p.stock === "in" ? "IN STOCK" : "OUT OF STOCK"}</div>
+      </div>
+      <div class="pc-perf"></div>
+      <div class="pc-bottom">
+        <div class="pc-meta">
+          <div class="pc-meta-row">VALIDITY&nbsp; <b>${p.validity}</b></div>
+          <div class="pc-meta-row">ACCESS&nbsp; <b>${p.access}</b></div>
+        </div>
+        <div class="pc-price">
+          <b>₹${p.price}</b>
+          <span><a href="${waLink('Hi OTTLoop! I want to order: ' + p.name + ' (' + p.validity + ') - ₹' + p.price)}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline;">Order on WhatsApp</a></span>
+        </div>
+      </div>
+    </div>
+  `;
 }
-wireFilters("ottFilters","ottGrid", true);
-wireFilters("toolFilters","toolGrid", false);
 
-/* ================= TICKER ================= */
-const tickerItems = [...OTT, ...TOOLS].filter(i=>i[4]==="in").slice(0,14);
-const tickerHTML = tickerItems.map(i=>`<span>${i[0]} · ₹${i[2]}/${i[1]}</span>`).join("");
-document.getElementById("tickerTrack").innerHTML = tickerHTML + tickerHTML;
+function renderGrid(cat){
+  const list = cat === "all" ? OTTLOOP_PRODUCTS : OTTLOOP_PRODUCTS.filter(p => p.cat === cat);
+  productGrid.innerHTML = list.map(productCard).join("") || `<p>No products in this category yet.</p>`;
+}
+renderGrid("all");
 
-/* ================= FAQ ================= */
-const faqList = document.getElementById("faqList");
-faqList.innerHTML = FAQS.map((f,i)=>`
-  <div class="faq-item" id="faq-${i}" data-question="${f[0].replace(/"/g,'&quot;')}">
-    <div class="faq-q"><span>${f[0]}</span><span class="icon">+</span></div>
-    <div class="faq-a"><p>${f[1]}</p></div>
-  </div>
-`).join("");
-document.querySelectorAll(".faq-item").forEach(item=>{
-  item.querySelector(".faq-q").addEventListener("click", ()=>{
-    const wasOpen = item.classList.contains("open");
-    document.querySelectorAll(".faq-item").forEach(i=>{
-      i.classList.remove("open");
-      i.querySelector(".faq-a").style.maxHeight = null;
-    });
-    if(!wasOpen){
-      item.classList.add("open");
-      const a = item.querySelector(".faq-a");
-      a.style.maxHeight = a.scrollHeight + "px";
+catTabs.addEventListener("click", (e) => {
+  const btn = e.target.closest(".cat-tab");
+  if(!btn) return;
+  catTabs.querySelectorAll(".cat-tab").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  activeCat = btn.dataset.cat;
+  renderGrid(activeCat);
+});
+
+// links with data-filter jump to catalogue + set tab
+document.querySelectorAll("[data-filter]").forEach(a => {
+  a.addEventListener("click", (e) => {
+    const cat = a.dataset.filter;
+    const tabBtn = catTabs.querySelector(`[data-cat="${cat}"]`);
+    if(tabBtn){
+      catTabs.querySelectorAll(".cat-tab").forEach(b => b.classList.remove("active"));
+      tabBtn.classList.add("active");
+      activeCat = cat;
+      renderGrid(cat);
     }
   });
 });
 
-/* ================= NAV (mobile menu) ================= */
-const burger = document.getElementById("burger");
-const navLinks = document.getElementById("navLinks");
-const navOverlay = document.getElementById("navOverlay");
+/* ============ MARKETING SERVICES ============ */
+(function renderMarketing(){
+  const grid = document.getElementById("marketingGrid");
+  grid.innerHTML = OTTLOOP_SERVICES.map((s, i) => `
+    <div class="mkt-card">
+      <div class="mkt-num">0${i+1}</div>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+    </div>
+  `).join("");
+})();
 
-function openMobileNav(){
-  navLinks.classList.add("open");
-  burger.classList.add("open");
-  navOverlay.classList.add("show");
-  document.body.style.overflow = "hidden";
-  document.getElementById("mobileSearchPanel").classList.remove("open");
-}
-function closeMobileNav(){
-  navLinks.classList.remove("open");
-  burger.classList.remove("open");
-  navOverlay.classList.remove("show");
-  document.body.style.overflow = "";
-}
-burger.addEventListener("click", ()=>{
-  if(navLinks.classList.contains("open")) closeMobileNav();
-  else openMobileNav();
-});
-navOverlay.addEventListener("click", closeMobileNav);
-document.querySelectorAll("#navLinks a").forEach(a=>{
-  a.addEventListener("click", ()=>{
-    if(a.id === "legalToggle") return;
-    closeMobileNav();
+/* ============ FAQ ACCORDION ============ */
+(function renderFaq(){
+  const list = document.getElementById("faqList");
+  list.innerHTML = OTTLOOP_FAQS.map((f, i) => `
+    <div class="faq-item" data-idx="${i}">
+      <div class="faq-q">${f.q}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+    </div>
+  `).join("");
+  list.querySelectorAll(".faq-item").forEach(item => {
+    item.querySelector(".faq-q").addEventListener("click", () => {
+      const wasOpen = item.classList.contains("open");
+      list.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
+      if(!wasOpen) item.classList.add("open");
+    });
   });
-});
-document.getElementById("legalToggle").addEventListener("click",(e)=>{
-  if(window.innerWidth <= 760){
-    e.preventDefault();
-    document.getElementById("legalDrop").classList.toggle("open");
-  }
-});
+})();
 
-/* ================= MOBILE SEARCH TOGGLE ================= */
-const mobileSearchBtn = document.getElementById("mobileSearchBtn");
-const mobileSearchPanel = document.getElementById("mobileSearchPanel");
-mobileSearchBtn.addEventListener("click", ()=>{
-  mobileSearchPanel.classList.toggle("open");
-  closeMobileNav();
-  if(mobileSearchPanel.classList.contains("open")){
-    setTimeout(()=>document.getElementById("searchInputMobile").focus(), 50);
-  }
-});
+/* ============ SITE SEARCH (products, faqs, services, contact) ============ */
+const searchInput = document.getElementById("siteSearchInput");
+const searchResults = document.getElementById("searchResults");
+const searchForm = document.getElementById("siteSearchForm");
 
-/* ================= UNIVERSAL SEARCH ================= */
-function highlight(text, q){
-  if(!q) return text;
-  const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
-  return text.replace(re, "<mark>$1</mark>");
-}
+const CONTACT_INDEX = [
+  { label: "WhatsApp / Call Number", value: "7382680200" },
+  { label: "Website", value: "ottloop.com" },
+  { label: "WhatsApp Community", value: "Join community", link: WA_COMMUNITY },
+  { label: "Telegram Channel", value: "@Ottloop", link: TELEGRAM_CHANNEL },
+];
 
-function buildResultsHTML(query){
+function runSearch(query){
   const q = query.trim().toLowerCase();
-  if(q.length === 0){
-    return {html:"", count:0};
-  }
+  if(!q){ searchResults.classList.remove("active"); searchResults.innerHTML = ""; return; }
 
-  const ottMatches = OTT.filter(i => i[0].toLowerCase().includes(q));
-  const toolMatches = TOOLS.filter(i => i[0].toLowerCase().includes(q));
-  const faqMatches = FAQS.filter(f => f[0].toLowerCase().includes(q) || f[1].toLowerCase().includes(q));
-
-  const total = ottMatches.length + toolMatches.length + faqMatches.length;
-  if(total === 0){
-    return {html:`<div class="sr-empty">No matches for "${query}". Try another OTT app, tool name, or keyword.</div>`, count:0};
-  }
+  const products = OTTLOOP_PRODUCTS.filter(p => p.name.toLowerCase().includes(q)).slice(0, 6);
+  const faqs = OTTLOOP_FAQS.filter(f => f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q)).slice(0, 3);
+  const services = OTTLOOP_SERVICES.filter(s => s.title.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q)).slice(0, 3);
+  const contacts = CONTACT_INDEX.filter(c => c.label.toLowerCase().includes(q) || c.value.toLowerCase().includes(q) || "contact support help reach".includes(q));
 
   let html = "";
 
-  if(ottMatches.length){
-    html += `<div class="sr-group-label">OTT (${ottMatches.length})</div>`;
-    ottMatches.slice(0,8).forEach(item=>{
-      const [name, validity, price, access, stock] = item;
-      html += `<div class="sr-item" data-jump="ott" data-name="${name.replace(/"/g,'&quot;')}">
-        <div>
-          <div class="sr-name">${highlight(name,query)}</div>
-          <div class="sr-sub">${validity} · ${access} · ${stock==="in"?"In Stock":"Out of Stock"}</div>
-        </div>
-        <div class="sr-price">₹${price}</div>
-      </div>`;
-    });
+  if(products.length){
+    html += `<div class="sr-group-label">Products</div>`;
+    html += products.map(p => `
+      <a class="sr-item" href="#catalogue" data-filter="${p.cat}">
+        <span>
+          <span class="sr-item-name">${p.name}</span><br/>
+          <span class="sr-item-meta">${p.validity} · ${p.stock === "in" ? "In Stock" : "Out of Stock"}</span>
+        </span>
+        <span class="sr-item-price">₹${p.price}</span>
+      </a>
+    `).join("");
   }
 
-  if(toolMatches.length){
-    html += `<div class="sr-group-label">Tools (${toolMatches.length})</div>`;
-    toolMatches.slice(0,8).forEach(item=>{
-      const [name, validity, price, access, stock] = item;
-      html += `<div class="sr-item" data-jump="tools" data-name="${name.replace(/"/g,'&quot;')}">
-        <div>
-          <div class="sr-name">${highlight(name,query)}</div>
-          <div class="sr-sub">${validity} · ${access} · ${stock==="in"?"In Stock":"Out of Stock"}</div>
-        </div>
-        <div class="sr-price">₹${price}</div>
-      </div>`;
-    });
+  if(services.length){
+    html += `<div class="sr-group-label">Digital Marketing Services</div>`;
+    html += services.map(s => `
+      <a class="sr-item" href="#marketing">
+        <span><span class="sr-item-name">${s.title}</span></span>
+      </a>
+    `).join("");
   }
 
-  if(faqMatches.length){
-    html += `<div class="sr-group-label">FAQs (${faqMatches.length})</div>`;
-    faqMatches.slice(0,6).forEach(f=>{
-      html += `<div class="sr-item" data-jump="faqs" data-question="${f[0].replace(/"/g,'&quot;')}">
-        <div>
-          <div class="sr-name">${highlight(f[0],query)}</div>
-          <div class="sr-faq">${highlight(f[1].slice(0,90),query)}${f[1].length>90?"…":""}</div>
-        </div>
-      </div>`;
-    });
+  if(faqs.length){
+    html += `<div class="sr-group-label">FAQs</div>`;
+    html += faqs.map(f => `
+      <a class="sr-item" href="#faq" style="display:block;">
+        <span class="sr-faq-q">${f.q}</span>
+        <div class="sr-faq-a">${f.a}</div>
+      </a>
+    `).join("");
   }
 
-  return {html, count: total};
+  if(contacts.length && (q.includes("contact") || q.includes("number") || q.includes("whatsapp") || q.includes("telegram") || q.includes("call") || q.includes("support") || q.includes("website"))){
+    html += `<div class="sr-group-label">Contact Details</div>`;
+    html += contacts.map(c => `
+      <a class="sr-item" href="${c.link || '#footer-contact'}" ${c.link ? 'target="_blank" rel="noopener"' : ''}>
+        <span><span class="sr-item-name">${c.label}</span><br/><span class="sr-item-meta">${c.value}</span></span>
+      </a>
+    `).join("");
+  }
+
+  if(!html){
+    html = `<div class="sr-empty">No matches for "${query}". Try a product name, or <a href="${waLink('Hi OTTLoop! I searched for: ' + query)}" target="_blank" rel="noopener" style="color:var(--blue);">ask us on WhatsApp</a>.</div>`;
+  }
+
+  searchResults.innerHTML = html;
+  searchResults.classList.add("active");
+
+  searchResults.querySelectorAll("[data-filter]").forEach(a => {
+    a.addEventListener("click", () => {
+      const cat = a.dataset.filter;
+      const tabBtn = catTabs.querySelector(`[data-cat="${cat}"]`);
+      if(tabBtn){
+        catTabs.querySelectorAll(".cat-tab").forEach(b => b.classList.remove("active"));
+        tabBtn.classList.add("active");
+        renderGrid(cat);
+      }
+      searchResults.classList.remove("active");
+    });
+  });
 }
 
-function jumpToResult(el){
-  const jump = el.dataset.jump;
-  if(jump === "ott" || jump === "tools"){
-    const gridId = jump === "ott" ? "ottGrid" : "toolGrid";
-    const secId = jump === "ott" ? "ott" : "tools";
-    const name = el.dataset.name;
-    document.getElementById(secId).scrollIntoView({behavior:"smooth", block:"start"});
-    document.querySelectorAll(`#${gridId} .card`).forEach(c=>{
-      c.classList.remove("highlight");
-      c.style.display = "";
-      if(c.dataset.name === name){
-        setTimeout(()=>{
-          c.scrollIntoView({behavior:"smooth", block:"center"});
-          c.classList.add("highlight");
-          setTimeout(()=>c.classList.remove("highlight"), 2200);
-        }, 400);
-      }
-    });
-    // reset filter buttons to "all" so the matched card is visible
-    document.querySelectorAll(`#${jump==="ott"?"ottFilters":"toolFilters"} .filter-btn`).forEach(b=>b.classList.remove("active"));
-    document.querySelector(`#${jump==="ott"?"ottFilters":"toolFilters"} .filter-btn[data-filter="all"]`).classList.add("active");
-  } else if(jump === "faqs"){
-    const question = el.dataset.question;
-    document.getElementById("faqs").scrollIntoView({behavior:"smooth", block:"start"});
-    document.querySelectorAll(".faq-item").forEach(item=>{
-      item.classList.remove("open");
-      item.querySelector(".faq-a").style.maxHeight = null;
-    });
-    setTimeout(()=>{
-      const match = [...document.querySelectorAll(".faq-item")].find(i => i.dataset.question === question);
-      if(match){
-        match.scrollIntoView({behavior:"smooth", block:"center"});
-        match.classList.add("open");
-        const a = match.querySelector(".faq-a");
-        a.style.maxHeight = a.scrollHeight + "px";
-      }
-    }, 400);
+searchInput.addEventListener("input", (e) => runSearch(e.target.value));
+searchForm.addEventListener("submit", (e) => { e.preventDefault(); runSearch(searchInput.value); });
+document.addEventListener("click", (e) => {
+  if(!searchForm.contains(e.target) && !searchResults.contains(e.target)){
+    searchResults.classList.remove("active");
   }
-}
+});
 
-function wireSearch(inputId, resultsId){
-  const input = document.getElementById(inputId);
-  const resultsBox = document.getElementById(resultsId);
+/* ============ FORMS → GOOGLE APPS SCRIPT ============ */
+function handleFormSubmit(form, statusEl, successMsg){
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.className = "form-status show";
+    statusEl.textContent = "Sending...";
 
-  input.addEventListener("input", ()=>{
-    const {html, count} = buildResultsHTML(input.value);
-    resultsBox.innerHTML = html;
-    resultsBox.classList.toggle("show", input.value.trim().length > 0);
-  });
+    const data = Object.fromEntries(new FormData(form).entries());
 
-  input.addEventListener("focus", ()=>{
-    if(input.value.trim().length > 0) resultsBox.classList.add("show");
-  });
+    if(APPSCRIPT_URL.startsWith("PASTE_")){
+      statusEl.className = "form-status show err";
+      statusEl.textContent = "Form not connected yet — add your Apps Script URL in script.js.";
+      return;
+    }
 
-  resultsBox.addEventListener("click", (e)=>{
-    const item = e.target.closest(".sr-item");
-    if(!item) return;
-    jumpToResult(item);
-    resultsBox.classList.remove("show");
-    input.value = "";
-    resultsBox.innerHTML = "";
-    // close mobile panels if applicable
-    document.getElementById("mobileSearchPanel").classList.remove("open");
-  });
-
-  document.addEventListener("click", (e)=>{
-    if(!input.contains(e.target) && !resultsBox.contains(e.target)){
-      resultsBox.classList.remove("show");
+    try{
+      await fetch(APPSCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Apps Script web apps typically require no-cors from the browser
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: form.id, ...data, submittedAt: new Date().toISOString() })
+      });
+      statusEl.className = "form-status show ok";
+      statusEl.textContent = successMsg;
+      form.reset();
+    }catch(err){
+      statusEl.className = "form-status show err";
+      statusEl.textContent = "Something went wrong. Please try WhatsApp instead.";
     }
   });
 }
+handleFormSubmit(document.getElementById("contactForm"), document.getElementById("contactStatus"), "Message sent! We'll get back to you soon.");
+handleFormSubmit(document.getElementById("newsletterForm"), document.getElementById("newsletterStatus"), "Subscribed! Watch out for restock alerts.");
 
-wireSearch("searchInputDesktop","searchResultsDesktop");
-wireSearch("searchInputMobile","searchResultsMobile");
+/* ============ CHATBOT ============ */
+const chatLauncher = document.getElementById("chatLauncher");
+const chatWindow = document.getElementById("chatWindow");
+const chatBody = document.getElementById("chatBody");
+const chatWaBtn = document.getElementById("chatWaBtn");
 
-/* ================= OTT SECTION SEARCH ================= */
-const ottSearchInput = document.getElementById("ottSearchInput");
-const ottSearchClear = document.getElementById("ottSearchClear");
-const ottNoResults = document.getElementById("ottNoResults");
+chatLauncher.addEventListener("click", () => {
+  chatLauncher.classList.toggle("active");
+  chatWindow.classList.toggle("active");
+  if(chatWindow.classList.contains("active") && chatBody.children.length === 0){
+    showMainMenu();
+  }
+});
+chatWaBtn.addEventListener("click", () => window.open(waLink("Hi OTTLoop! I'd like to chat with the owner."), "_blank"));
 
-function applyOttSectionSearch(){
-  const q = ottSearchInput.value.trim().toLowerCase();
-  ottSearchClear.style.display = q.length ? "block" : "none";
-
-  const activeFilterBtn = document.querySelector("#ottFilters .filter-btn.active");
-  const stockFilter = activeFilterBtn ? activeFilterBtn.dataset.filter : "all";
-
-  let visibleCount = 0;
-  document.querySelectorAll("#ottGrid .card").forEach(card=>{
-    const name = (card.dataset.name || "").toLowerCase();
-    const matchesText = q.length === 0 || name.includes(q);
-    const matchesStock = stockFilter === "all" || card.dataset.stock === stockFilter;
-    const show = matchesText && matchesStock;
-    card.style.display = show ? "" : "none";
-    if(show) visibleCount++;
-  });
-
-  ottNoResults.style.display = visibleCount === 0 ? "block" : "none";
+function distinctNames(cat){
+  const seen = [];
+  OTTLOOP_PRODUCTS.filter(p => p.cat === cat).forEach(p => { if(!seen.includes(p.name)) seen.push(p.name); });
+  return seen;
 }
 
-ottSearchInput.addEventListener("input", applyOttSectionSearch);
-ottSearchClear.addEventListener("click", ()=>{
-  ottSearchInput.value = "";
-  applyOttSectionSearch();
-  ottSearchInput.focus();
-});
+function addBubble(html){
+  const b = document.createElement("div");
+  b.className = "chat-bubble";
+  b.innerHTML = html;
+  chatBody.appendChild(b);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
 
-// re-apply text filter whenever a stock filter button is clicked
-document.querySelectorAll("#ottFilters .filter-btn").forEach(btn=>{
-  btn.addEventListener("click", applyOttSectionSearch);
-});
+function addOptions(options){
+  const wrap = document.createElement("div");
+  wrap.className = "chat-options";
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "chat-opt" + (opt.cls ? " " + opt.cls : "");
+    btn.innerHTML = `<span>${opt.label}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>`;
+    btn.addEventListener("click", opt.onClick);
+    wrap.appendChild(btn);
+  });
+  chatBody.appendChild(wrap);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function clearChat(){ chatBody.innerHTML = ""; }
+
+function showMainMenu(){
+  clearChat();
+  addBubble(`Hey! 👋 I'm the <b>OTTLoop</b> assistant. What are you looking for today?`);
+  addOptions([
+    { label: "📺 All OTT", onClick: showOttList },
+    { label: "🛠️ Digital Tools", onClick: showToolsList },
+    { label: "📈 Digital Marketing Services", onClick: showMarketingList },
+    { label: "🎮 Games", onClick: showGames },
+    { label: "❓ FAQs", onClick: showFaqList },
+    { label: "💬 Chat with Owner", cls: "opt-wa", onClick: () => window.open(waLink("Hi OTTLoop! I'd like to chat with the owner."), "_blank") },
+  ]);
+}
+
+function backBtn(onClick){
+  return { label: "← Back", cls: "opt-back", onClick };
+}
+
+function showOttList(){
+  clearChat();
+  addBubble(`Here's what's <b>streaming</b> right now — pick a platform:`);
+  const names = distinctNames("ott");
+  addOptions([
+    ...names.map(n => ({ label: n, onClick: () => showVariants(n, "ott", showOttList) })),
+    backBtn(showMainMenu),
+  ]);
+}
+
+function showToolsList(){
+  clearChat();
+  addBubble(`Our <b>Digital Tools</b> lineup — pick one to see plans:`);
+  const names = distinctNames("tools");
+  addOptions([
+    ...names.map(n => ({ label: n, onClick: () => showVariants(n, "tools", showToolsList) })),
+    backBtn(showMainMenu),
+  ]);
+}
+
+function showVariants(name, cat, backTo){
+  clearChat();
+  const variants = OTTLOOP_PRODUCTS.filter(p => p.name === name && p.cat === cat);
+  addBubble(`<b>${name}</b> — available plans:`);
+  variants.forEach(v => {
+    const row = document.createElement("div");
+    row.className = "chat-product-row";
+    row.style.marginBottom = "8px";
+    row.innerHTML = `
+      <span>
+        <span class="cpname">${v.validity} · ${v.stock === "in" ? "In Stock" : "Out of Stock"}</span><br/>
+        <span class="cpmeta">${v.access}</span>
+      </span>
+      <span class="cpprice">₹${v.price}</span>
+    `;
+    chatBody.appendChild(row);
+  });
+  addOptions([
+    { label: "🛒 Order on WhatsApp", cls: "opt-wa", onClick: () => window.open(waLink(`Hi OTTLoop! I want to order: ${name}`), "_blank") },
+    backBtn(backTo),
+  ]);
+}
+
+function showMarketingList(){
+  clearChat();
+  addBubble(`Grow your brand with us — pick a service:`);
+  addOptions([
+    ...OTTLOOP_SERVICES.map(s => ({ label: s.title, onClick: () => showMarketingDetail(s) })),
+    backBtn(showMainMenu),
+  ]);
+}
+
+function showMarketingDetail(service){
+  clearChat();
+  addBubble(`<b>${service.title}</b><br/><br/>${service.desc}`);
+  addOptions([
+    { label: "💬 Get a Free Consultation", cls: "opt-wa", onClick: () => window.open(waLink(`Hi OTTLoop! I'm interested in: ${service.title}`), "_blank") },
+    backBtn(showMarketingList),
+  ]);
+}
+
+function showGames(){
+  clearChat();
+  addBubble(`🎮 Our <b>Games</b> catalogue is launching soon! Join the WhatsApp community to be the first to know.`);
+  addOptions([
+    { label: "🔔 Join WhatsApp Community", cls: "opt-wa", onClick: () => window.open(WA_COMMUNITY, "_blank") },
+    backBtn(showMainMenu),
+  ]);
+}
+
+function showFaqList(){
+  clearChat();
+  addBubble(`Here are our most asked questions:`);
+  addOptions([
+    ...OTTLOOP_FAQS.map((f, i) => ({ label: f.q, onClick: () => showFaqAnswer(i) })),
+    backBtn(showMainMenu),
+  ]);
+}
+
+function showFaqAnswer(i){
+  clearChat();
+  const f = OTTLOOP_FAQS[i];
+  addBubble(`<b>${f.q}</b><br/><br/>${f.a}`);
+  addOptions([
+    backBtn(showFaqList),
+    { label: "🏠 Main Menu", onClick: showMainMenu },
+  ]);
+}
+
 </script>
 </body>
 </html>
